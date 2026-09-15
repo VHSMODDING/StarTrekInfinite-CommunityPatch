@@ -29,14 +29,28 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		ROOT = {
-			save_event_target_as = major_state_country
-		}
+		# action_request_mission can be dispatched both by Infinite's hard-coded
+		# diplomacy path and by CP26's explicit fallback.  Accept only the first
+		# dispatch so one player request cannot create duplicate missions.
+		if = {
+			limit = {
+				NOT = { has_country_flag = cp26_mission_request_dispatch_guard }
+			}
 
-		FROM = {
-			save_event_target_as = minor_state_event_country
+			set_timed_country_flag = {
+				flag = cp26_mission_request_dispatch_guard
+				days = 7
+			}
+
+			ROOT = {
+				save_event_target_as = major_state_country
+			}
+
+			FROM = {
+				save_event_target_as = minor_state_event_country
+			}
+			country_event = { id = mission.02 }
 		}
-		country_event = { id = mission.02 }
 	}
 }
 
