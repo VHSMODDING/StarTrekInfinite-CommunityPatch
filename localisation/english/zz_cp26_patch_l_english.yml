@@ -43,6 +43,11 @@
  cp26_merc_fleet_tt_medium:0 "The mercenary flotilla will be a medium task force sized to match solid fleet command capacity."
  cp26_merc_fleet_tt_large:0 "The mercenary flotilla will be the largest package your fleet command capacity can reasonably absorb."
 
+ # Base Infinite leaves these Fleet 2 destruction strings commented out and
+ # falls back to its Hornblower placeholder localisation.
+ cara.2003.title:0 "Caravaneer Fleet Destroyed"
+ cara.2003.desc:0 "News has reached [Root.Capital.GetName] that a caravaneer fleet has been destroyed following a hostile encounter. What remains of the convoy is now scattered through space."
+
 district_remus:0 "Reman Mining Camp"
 district_remus_desc:0 "Mining camps built around Remus' harsh mineral-rich terrain."
 district_generator_ferengi:0 "Energy Exchange"

@@ -654,11 +654,8 @@ tech_titan_unlock = {
 			factor = 1.25
 			is_romulan = yes
 		}
-		modifier = {
-			factor = 0
-			is_ufop = yes
-			NOT = { has_technology = tech_luna_unlock }
-		}
+		# Luna is optional; a missed Luna draw must not permanently remove
+		# Sovereign from the Federation research deck.
 		modifier = {
 			factor = 0
 			is_klingon = yes

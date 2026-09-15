@@ -280,31 +280,141 @@ create_twilight_congregation = {
 	create_first_storm_wing = yes
 }
 
+# Raiders use the same late-game fleet flag as Infinite so the vanilla
+# replacement logic continues to recognise and reinforce them.  Their size
+# grows by roughly 50% every century after year 100, then stops at year 300.
+create_cp26_marauder_raiders_century_1 = {
+	while = {
+		count = 4
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Small_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+	while = {
+		count = 4
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Medium_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+	while = {
+		count = 3
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Large_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+}
+
+create_cp26_marauder_raiders_century_2 = {
+	while = {
+		count = 6
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Small_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+	while = {
+		count = 6
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Medium_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+	while = {
+		count = 5
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Large_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+}
+
+create_cp26_marauder_raiders_century_3 = {
+	while = {
+		count = 9
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Small_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+	while = {
+		count = 9
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Medium_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+	while = {
+		count = 8
+		create_ship = {
+			name = random
+			prefix = no
+			design = "NAME_Large_Nausicaan"
+			graphical_culture = nausicaan_01
+			initial_officers_perc = 1
+		}
+	}
+}
+
 create_marauder_raiders = {
 	if = {
 		limit = { years_passed < 40 }
 		create_first_storm_wing = yes
 		set_fleet_flag = marauder_raider_fleet_1
 	}
-	if = {
-		limit = {
-			years_passed > 39
-			years_passed < 60
-		}
+	else_if = {
+		limit = { years_passed < 60 }
 		create_star_rider_flotilla = yes
 		set_fleet_flag = marauder_raider_fleet_2
 	}
-	if = {
-		limit = {
-			years_passed > 59
-			years_passed < 80
-		}
+	else_if = {
+		limit = { years_passed < 80 }
 		create_armada_of_the_voidborn = yes
 		set_fleet_flag = marauder_raider_fleet_3
 	}
-	if = {
-		limit = { years_passed > 80 }
+	else_if = {
+		limit = { years_passed < 100 }
 		create_armada_of_the_voidborn = yes
+		set_fleet_flag = marauder_raider_fleet_4
+	}
+	else_if = {
+		limit = { years_passed < 200 }
+		create_cp26_marauder_raiders_century_1 = yes
+		set_fleet_flag = marauder_raider_fleet_4
+	}
+	else_if = {
+		limit = { years_passed < 300 }
+		create_cp26_marauder_raiders_century_2 = yes
+		set_fleet_flag = marauder_raider_fleet_4
+	}
+	else = {
+		create_cp26_marauder_raiders_century_3 = yes
 		set_fleet_flag = marauder_raider_fleet_4
 	}
 }

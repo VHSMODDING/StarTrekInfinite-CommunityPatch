@@ -151,6 +151,18 @@ action_request_mission = {
 		}
 	}
 
+	# This action has no engine-side mission callback. Fire the existing mission
+	# on-action with its expected scopes and charge the advertised cost.
+	on_accept = {
+		hidden_effect = {
+			add_resource = { energy = -600 }
+			fire_on_action = {
+				on_action = on_action_request_mission
+				scopes = { from = from }
+			}
+		}
+	}
+
 }
 
 ### HRB_NOTE: Rivalries removal ###

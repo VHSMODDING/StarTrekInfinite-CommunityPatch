@@ -17,6 +17,8 @@
  cp26_fleet_museum_stage3:0 "Musée de la Flotte"
  cp26_fleet_museum_stage3_DESC:0 "L'U.S.S. Voyager originel rejoint désormais la collection. Préservé après l'entrée en service de son successeur de classe Lamarr, le vaisseau devient un monument au retour le plus improbable de Starfleet depuis le Quadrant Delta."
  cp26_fleet_museum_stage3_MEGASTRUCTURE_DETAILS:0 "L'U.S.S. Voyager originel rejoint désormais la collection. Préservé après l'entrée en service de son successeur de classe Lamarr, le vaisseau devient un monument au retour le plus improbable de Starfleet depuis le Quadrant Delta."
+ cara.2003.title:0 "Flotte caravanière détruite"
+ cara.2003.desc:0 "La nouvelle est parvenue à [Root.Capital.GetName] : une flotte caravanière a été détruite lors d'une rencontre hostile. Ce qu'il reste du convoi est désormais dispersé dans l'espace."
  qt_ufop_upgrade_enterprise_odyssey:0 "Refonte de l'Enterprise Classe Odyssey"
  qt_ufop_upgrade_enterprise_odyssey_desc:0 "Des décennies d'exploration et de conflits ont mené les ingénieurs de Starfleet à leur refonte la plus ambitieuse. L'Enterprise sera modernisée en classe Odyssey  -  le vaisseau le plus grand et le plus capable de la flotte."
  UPGRADE_ENTERPRISE_ODYSSEY:0 "Refonte Odyssey de l'Enterprise"
