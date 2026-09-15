@@ -129,6 +129,19 @@ hr{border:none;height:6px;background:linear-gradient(90deg, var(--orange), var(-
 <h1 style="text-transform:uppercase;letter-spacing:.03em;">CP26 - Technical Documentation</h1>
 <p class="lede">Reference documentation for <strong>Community Patch 2026 (CP26)</strong>, a community overhaul for <strong>Star Trek: Infinite</strong>. Written for contributors: what CP26 changes, how, and where.</p>
 
+<h3 id="recent-fixes">Recent maintenance fixes</h3>
+<div class="card">
+<p><span class="tag badge-fix">bug fixes</span> Recent fixes made after player reports:</p>
+<ul>
+<li><strong>Request Diplomatic Mission:</strong> the action now charges its 600 energy cost and fires the mission generator instead of remaining indefinitely "in progress".</li>
+<li><strong>Sovereign research:</strong> Luna is optional; failing to draw Luna can no longer permanently remove Sovereign from the Federation research deck. The normal Titan/Battleship progression remains.</li>
+<li><strong>Janeway / Borg crisis:</strong> the three Janeway special projects now require Janeway as an admiral with a military fleet, rather than an inconsistent three-ship requirement.</li>
+<li><strong>Caravaneer destruction:</strong> added the missing <code>cara.2003</code> localisation in English and French.</li>
+<li><strong>Raiders:</strong> raider fleets scale after year 100, increasing by roughly 50% each century and reaching their maximum size from year 300.</li>
+</ul>
+<p><strong>Known limitation:</strong> the legacy <em>Demanding Dignitary</em> diplomatic mission remains disabled. Its original destination is a Highway Node, which is inaccessible on Infinite's map. It should only be restored after being rewritten to use a normal mutually accessible system.</p>
+</div>
+
 <h2 id="overview">1. Overview</h2>
 
 <p>CP26 is a community overhaul for <em>Star Trek: Infinite</em> (1.0.7). It works through two distinct Paradox modding mechanisms:</p>
