@@ -1,0 +1,110 @@
+# CP26 cinematic combat movement.
+# This deliberately changes only tactical movement: no ship stats, fleet caps, technologies or map speed are affected.
+
+# Capital ships circle the battle at their weapon range instead of remaining in a static firing line.
+ship_behavior = {
+	name = "hrb_line"
+	preferred_attack_range = max
+	formation_distance = median
+	return_to_formation_distance = median
+	combat_source_anchor = root
+	combat_target_anchor = root
+	collision_awareness = 1.0
+	collision_radius = 1.20
+	collision_strafe = 0.75
+	ignore_combat_movement = no
+	target_preferences = { corvette = 1.0 destroyer = 1.0 cruiser = 3.0 battleship = 5.0 titan = 5.0 starbase = 0.5 }
+	attack_move_pattern = orbit
+	passive_move_pattern = none
+	desc = "HRB_LINE_BEHAVIOR_DESC"
+}
+
+# Long-range ships keep their firing role and do not join the chase.
+ship_behavior = {
+	name = "hrb_artillery"
+	preferred_attack_range = max
+	formation_distance = max
+	return_to_formation_distance = median
+	combat_source_anchor = parent
+	combat_target_anchor = parent
+	collision_awareness = 1.0
+	collision_radius = 1.15
+	collision_strafe = 1.25
+	ignore_combat_movement = no
+	target_preferences = { corvette = 1.0 destroyer = 1.0 cruiser = 3.0 battleship = 5.0 titan = 5.0 starbase = 0.5 }
+	attack_move_pattern = stay_at_range
+	passive_move_pattern = none
+	desc = "HRB_ARTILLERY_BEHAVIOR_DESC"
+}
+
+# Skirmishers actively pursue targets; their lateral movement creates the visible dogfight.
+ship_behavior = {
+	name = "hrb_war_bird"
+	preferred_attack_range = 10
+	formation_distance = 10
+	return_to_formation_distance = 150
+	combat_source_anchor = parent
+	combat_target_anchor = root
+	collision_awareness = 0.85
+	collision_strafe = 1.35
+	collision_radius = 1.10
+	ignore_combat_movement = no
+	target_preferences = { corvette = 5.0 destroyer = 4.0 cruiser = 3.0 battleship = 1.0 titan = 1.0 starbase = 0.5 }
+	attack_move_pattern = follow
+	passive_move_pattern = orbit
+	desc = "HRB_WAR_BIRD_BEHAVIOR_DESC"
+}
+
+# Bombers chase heavy targets, but retain their own target priorities.
+ship_behavior = {
+	name = "hrb_bomber"
+	preferred_attack_range = min
+	formation_distance = min
+	return_to_formation_distance = 400
+	combat_source_anchor = parent
+	combat_target_anchor = parent
+	collision_awareness = 0.85
+	collision_strafe = 1.10
+	collision_radius = 1.10
+	ignore_combat_movement = no
+	target_preferences = { corvette = 1.0 destroyer = 3.0 cruiser = 2.0 battleship = 4.0 titan = 5.0 starbase = 0.5 }
+	attack_move_pattern = follow
+	passive_move_pattern = orbit
+	desc = "HRB_BOMBER_BEHAVIOR_DESC"
+}
+
+# Escorts screen the main force and engage threats directly.
+ship_behavior = {
+	name = "hrb_escort"
+	preferred_attack_range = median
+	formation_distance = min
+	return_to_formation_distance = 20
+	combat_source_anchor = root
+	combat_target_anchor = root
+	collision_awareness = 0.85
+	collision_radius = 1.10
+	collision_strafe = 1.35
+	ignore_combat_movement = no
+	target_preferences = { corvette = 5.0 destroyer = 5.0 cruiser = 3.0 battleship = 1.0 titan = 1.0 starbase = 0.5 }
+	attack_move_pattern = follow
+	passive_move_pattern = orbit
+	desc = "HRB_ESCORT_BEHAVIOR_DESC"
+}
+
+# Interceptors are the most agile pursuit group. Orbiting when passive gives them room to evade and re-engage.
+ship_behavior = {
+	name = "hrb_interceptor"
+	preferred_attack_range = max
+	formation_distance = median
+	return_to_formation_distance = 20
+	combat_source_anchor = root
+	combat_target_anchor = root
+	collision_awareness = 0.50
+	collision_radius = 1.05
+	collision_strafe = 1.60
+	ignore_combat_movement = no
+	target_preferences = { corvette = 3.0 destroyer = 5.0 cruiser = 6.0 battleship = 1.0 titan = 1.0 starbase = 0.5 }
+	attack_move_pattern = follow
+	passive_move_pattern = orbit
+	desc = "HRB_INTERCEPTOR_BEHAVIOR_DESC"
+}

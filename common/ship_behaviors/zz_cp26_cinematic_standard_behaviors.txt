@@ -1,0 +1,70 @@
+# CP26 cinematic equivalents for any ships or add-ons that use the standard behavior names.
+
+ship_behavior = {
+	name = "swarm"
+	preferred_attack_range = 10
+	formation_distance = 10
+	return_to_formation_distance = 60
+	source_target_anchor_factor = 1.0
+	combat_target_anchor = root
+	collision_awareness = 0.75
+	collision_strafe = 1.40
+	collision_radius = 1.10
+	attack_move_pattern = follow
+	passive_move_pattern = orbit
+	desc = "SWARM_BEHAVIOR_DESC"
+}
+
+ship_behavior = {
+	name = "picket"
+	preferred_attack_range = 30
+	formation_distance = 30
+	return_to_formation_distance = 40
+	collision_awareness = 0.85
+	collision_strafe = 1.20
+	collision_radius = 1.10
+	attack_move_pattern = follow
+	passive_move_pattern = orbit
+	desc = "PICKET_BEHAVIOR_DESC"
+}
+
+ship_behavior = {
+	name = "line"
+	preferred_attack_range = 50
+	formation_distance = 50
+	return_to_formation_distance = 60
+	collision_awareness = 1.0
+	collision_radius = 1.20
+	collision_strafe = 0.75
+	attack_move_pattern = orbit
+	passive_move_pattern = none
+	desc = "LINE_BEHAVIOR_DESC"
+}
+
+ship_behavior = {
+	name = "artillery"
+	preferred_attack_range = 80
+	formation_distance = 80
+	return_to_formation_distance = 90
+	combat_target_anchor = root
+	collision_awareness = 0.75
+	collision_radius = 1.15
+	collision_strafe = 1.25
+	attack_move_pattern = stay_at_range
+	passive_move_pattern = none
+	desc = "ARTILLERY_BEHAVIOR_DESC"
+}
+
+ship_behavior = {
+	name = "carrier"
+	preferred_attack_range = 150
+	formation_distance = 150
+	return_to_formation_distance = 150
+	combat_target_anchor = root
+	collision_awareness = 0.85
+	collision_radius = 1.15
+	collision_strafe = 1.0
+	attack_move_pattern = orbit
+	passive_move_pattern = stay_at_range
+	desc = "CARRIER_BEHAVIOR_DESC"
+}

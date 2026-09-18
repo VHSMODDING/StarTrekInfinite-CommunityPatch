@@ -21,7 +21,8 @@ entity = {
 		start_event = { trigger_once = yes sound = { soundeffect = "romulan_01_dderidex_entity" } }
 	}
 
-	state = { name = "death" chance = 1 looping = no
+	# Cinematic wreck persistence for this CP26 capital ship only.
+	state = { name = "death" chance = 1 looping = 30
 		event = { time = 0.5 node = "part1" particle = "ship_burn_particle" }
 		event = { time = 0.5 node = "part1" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 0.0 node = "root" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }

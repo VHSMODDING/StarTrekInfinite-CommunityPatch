@@ -7,7 +7,8 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" state_time = 5 }
 	state = { name = "construction" state_time = 5 }
-	state = { name = "death" state_time = 5 looping = no
+	# Keep the wreck visible while this system remains rendered; it is still cleaned up on leaving system view.
+	state = { name = "death" state_time = 5 looping = 30
 		event = { time = 4.9 node = "explosion_effect" particle = "large_player_ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
 
