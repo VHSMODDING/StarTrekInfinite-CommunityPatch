@@ -1,7 +1,5 @@
-# CP26 cinematic combat movement.
-# This deliberately changes only tactical movement: no ship stats, fleet caps, technologies or map speed are affected.
+# CP26 cinematic combat movement. Tactical behavior only: no change to ship stats, map speed, technology or fleet caps.
 
-# Capital ships circle the battle at their weapon range instead of remaining in a static firing line.
 ship_behavior = {
 	name = "hrb_line"
 	preferred_attack_range = max
@@ -19,7 +17,6 @@ ship_behavior = {
 	desc = "HRB_LINE_BEHAVIOR_DESC"
 }
 
-# Long-range ships keep their firing role and do not join the chase.
 ship_behavior = {
 	name = "hrb_artillery"
 	preferred_attack_range = max
@@ -37,7 +34,6 @@ ship_behavior = {
 	desc = "HRB_ARTILLERY_BEHAVIOR_DESC"
 }
 
-# Skirmishers actively pursue targets; their lateral movement creates the visible dogfight.
 ship_behavior = {
 	name = "hrb_war_bird"
 	preferred_attack_range = 10
@@ -55,7 +51,6 @@ ship_behavior = {
 	desc = "HRB_WAR_BIRD_BEHAVIOR_DESC"
 }
 
-# Bombers chase heavy targets, but retain their own target priorities.
 ship_behavior = {
 	name = "hrb_bomber"
 	preferred_attack_range = min
@@ -73,7 +68,6 @@ ship_behavior = {
 	desc = "HRB_BOMBER_BEHAVIOR_DESC"
 }
 
-# Escorts screen the main force and engage threats directly.
 ship_behavior = {
 	name = "hrb_escort"
 	preferred_attack_range = median
@@ -91,7 +85,6 @@ ship_behavior = {
 	desc = "HRB_ESCORT_BEHAVIOR_DESC"
 }
 
-# Interceptors are the most agile pursuit group. Orbiting when passive gives them room to evade and re-engage.
 ship_behavior = {
 	name = "hrb_interceptor"
 	preferred_attack_range = max
