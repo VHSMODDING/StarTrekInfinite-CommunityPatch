@@ -1,0 +1,20 @@
+namespace = cp26_ferengi_trader_contact
+
+# First-contact greeting for the Ferengi trader enclaves retained in Infinite's support-power setup.
+# This replaces the disabled vanilla leviathans.102 trader introduction.
+country_event = {
+	id = cp26_ferengi_trader_contact.1
+	title = cp26_ferengi_trader_contact.1.name
+	desc = cp26_ferengi_trader_contact.1.desc
+	is_triggered_only = yes
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = event_target:cp26_ferengi_trader_contact_sender
+		room = minor_03_transmission_room
+	}
+
+	option = {
+		name = cp26_ferengi_trader_contact.1.a
+	}
+}

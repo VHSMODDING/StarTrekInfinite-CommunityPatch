@@ -6,6 +6,10 @@
  EMPIRE_DESIGN_ORION:0 "Empire Orion"
  EMPIRE_DESIGN_THOLIAN:0 "Assemblée Tholienne"
 
+ cp26_ferengi_trader_contact.1.name:0 "Proposition commerciale ferengi"
+ cp26_ferengi_trader_contact.1.desc:0 "Salutations, amis ! Nous représentons une enclave commerciale ferengi opérant dans cette région.\n\nNos contrats sont équitables, nos prix sont flexibles, et tout arrangement peut être amélioré avec suffisamment de latinum. Nous espérons une relation profitable."
+ cp26_ferengi_trader_contact.1.a:0 "Nous étudierons votre proposition."
+
  lunar_one_colony:0 "Colonie de Lunar One"
  lunar_one_colony_desc:0 "Lunar One est le premier avant-poste scientifique en gravité réduite que l'humanité a construit sur sa propre Lune - un berceau de recherche qui attire encore les esprits les plus curieux de la Fédération."
  cp26_fleet_museum:0 "Musée de la Flotte"

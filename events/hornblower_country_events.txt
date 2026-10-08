@@ -6226,7 +6226,11 @@ country_event = {
 			switch = {
 				trigger = has_country_flag
 				caravaneer_home_country = { prev = { country_event = { id = cara.100 days = 1 } } }
-				trader_enclave_country = { prev = { country_event = { id = leviathans.101 days = 1 } } }
+				# Infinite disables the vanilla trader-enclave introduction. Route Ferengi traders to CP26's own contact event instead.
+				trader_enclave_country = {
+					save_global_event_target_as = cp26_ferengi_trader_contact_sender
+					prev = { country_event = { id = cp26_ferengi_trader_contact.1 days = 1 } }
+				}
 				marauder_1 = { prev = { country_event = { id = marauder.20 days = 1 } } }
 				marauder_2 = { prev = { country_event = { id = marauder.20 days = 1 } } }
 				curator_enclave_country = { prev = { country_event = { id = support.1 days = 1 } } }
