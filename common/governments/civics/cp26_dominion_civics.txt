@@ -1,0 +1,19 @@
+civic_cp26_great_link = {
+	icon = "gfx/interface/icons/governments/civics/civic_aristocratic_elite.dds"
+	potential = { always = no }
+	modifier = {
+		country_unity_produces_mult = 0.15
+		governing_ethics_attraction = 0.35
+		planet_stability_add = 5
+	}
+}
+
+civic_cp26_engineered_castes = {
+	icon = "gfx/interface/icons/governments/civics/civic_distinguished_admiralty.dds"
+	potential = { always = no }
+	modifier = {
+		army_damage_mult = 0.25
+		ship_fire_rate_mult = 0.10
+		planet_jobs_specialist_produces_mult = 0.05
+	}
+}

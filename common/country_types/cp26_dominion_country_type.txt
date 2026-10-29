@@ -1,0 +1,109 @@
+cp26_dominion = {
+	ignores_warp_range = no
+	has_difficulty_bonuses = yes
+	counts_for_victory = yes
+	pop_growth = yes
+	playable = no
+	has_pulse_events = yes
+	piracy_risk = no
+	randomize_ethos = no
+	shuffle_pop_ethos = no
+	needs_survey = yes
+	diplomatic_wars = yes
+	ship_disengagement = yes
+	army_disengagement = yes
+	relations = yes
+	observable = no
+	can_use_invalid_technology = no
+	can_receive_envoys = yes
+	show_in_contacts_list = yes
+
+	ai = {
+		enabled = yes
+		declare_war = yes
+		min_navy_for_wars = 0.15
+		min_assault_armies_for_wars = @armies_for_declaring_war
+		colonizer = yes
+		internal_policies = yes
+		modification = yes
+		government = no
+		traditions = yes
+		construction = yes
+		follow = yes
+		can_use_market = yes
+		espionage = yes
+		quest_tree = no
+		modules = {
+			military_minister_module
+			foreign_minister_module
+			interior_minister_module
+		}
+
+		ship_data = {
+			constructor = { min = 2 max = 4 }
+			science = { min = 2 max = 4 }
+			colonizer = { min = 0 max = 2 }
+
+			cp26_dominion_attack_ship = {
+				fraction = {
+					base = 55
+					modifier = {
+						add = -15
+						has_technology = tech_cp26_dominion_battle_cruiser
+					}
+				}
+			}
+
+			cp26_dominion_battle_cruiser = {
+				fraction = {
+					base = 0
+					modifier = {
+						add = 30
+						has_technology = tech_cp26_dominion_battle_cruiser
+					}
+				}
+			}
+
+			cp26_dominion_battleship = {
+				fraction = {
+					base = 0
+					modifier = {
+						add = 15
+						has_technology = tech_cp26_dominion_battleship
+					}
+				}
+			}
+		}
+
+		army_data = {
+			cp26_jemhadar_assault_army = { fraction = { factor = 100 } }
+		}
+	}
+
+	trade_routes_available = { always = yes }
+
+	modules = {
+		standard_event_module = {}
+		standard_economy_module = {}
+		standard_leader_module = {}
+		standard_diplomacy_module = { contact_rule = does_first_contact_sites }
+		standard_technology_module = {}
+		standard_trade_routes_module = {}
+		standard_pop_factions_module = {}
+		standard_expansion_module = {}
+		standard_species_rights_module = {}
+	}
+
+	resources = {
+		category = country_base
+		produces = {
+			energy = 35
+			minerals = 40
+			research = 25
+			influence = 4
+			unity = 20
+			alloys = 25
+			food = 30
+		}
+	}
+}

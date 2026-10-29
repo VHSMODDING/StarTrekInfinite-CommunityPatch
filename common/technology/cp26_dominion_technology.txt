@@ -1,0 +1,136 @@
+tech_cp26_dominion_attack_ship = {
+	cost = @tier3cost1
+	area = engineering
+	category = { voidcraft }
+	tier = 3
+	start_tech = no
+	prerequisites = { tech_corvette_unlock }
+	weight = @specialhullweight
+	potential = { is_cp26_dominion = yes }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_dominion_attack_ship
+		desc = tech_cp26_dominion_attack_ship_desc
+		icon = tech_keldon
+	}
+	weight_modifier = { factor = 10 }
+	ai_weight = { factor = 20 }
+}
+
+tech_cp26_dominion_battle_cruiser = {
+	cost = @tier4cost1
+	area = engineering
+	category = { voidcraft }
+	tier = 4
+	start_tech = no
+	prerequisites = { tech_cruiser_unlock tech_cp26_dominion_attack_ship }
+	weight = @specialhullweight
+	potential = { is_cp26_dominion = yes }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_dominion_battle_cruiser
+		desc = tech_cp26_dominion_battle_cruiser_desc
+		icon = tech_icon_dominion_polaron_beam
+	}
+	weight_modifier = { factor = 8 }
+	ai_weight = { factor = 15 }
+}
+
+tech_cp26_dominion_battleship = {
+	cost = @tier5cost1
+	area = engineering
+	category = { voidcraft }
+	tier = 5
+	start_tech = no
+	prerequisites = { tech_battleship_unlock tech_cp26_dominion_battle_cruiser }
+	weight = @specialhullweight
+	potential = { is_cp26_dominion = yes }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_dominion_battleship
+		desc = tech_cp26_dominion_battleship_desc
+		icon = tech_icon_dominion_polaron_beam
+	}
+	# Infinite starts in 2340: this keeps the largest Dominion hull out of the
+	# initial Gamma Quadrant contact and lets it enter around the 2374 war era.
+	weight_modifier = { modifier = { factor = 0 years_passed < 34 } modifier = { factor = 10 years_passed > 33 } }
+	ai_weight = { factor = 12 }
+}
+
+tech_cp26_dominion_polaron_beam = {
+	cost = @tier4cost1
+	area = physics
+	category = { particles }
+	tier = 4
+	start_tech = no
+	prerequisites = { tech_phaser_3 }
+	weight = @tier4weight1
+	potential = { is_cp26_dominion = yes }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_dominion_polaron_beam
+		desc = tech_cp26_dominion_polaron_beam_desc
+		icon = tech_icon_dominion_polaron_beam
+	}
+	weight_modifier = { factor = 10 }
+	ai_weight = { factor = 20 }
+}
+
+tech_cp26_dominion_polaron_torpedo = {
+	cost = @tier4cost1
+	area = engineering
+	category = { propulsion }
+	tier = 4
+	start_tech = no
+	prerequisites = { tech_torpedo_2 tech_cp26_dominion_polaron_beam }
+	weight = @tier4weight1
+	potential = { is_cp26_dominion = yes }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_dominion_polaron_torpedo
+		desc = tech_cp26_dominion_polaron_torpedo_desc
+		icon = tech_icon_dominion_polaron_torpedo
+	}
+	weight_modifier = { factor = 8 }
+	ai_weight = { factor = 16 }
+}
+
+tech_cp26_jemhadar_cloning = {
+	cost = @tier4cost1
+	area = society
+	category = { biology }
+	tier = 4
+	start_tech = no
+	prerequisites = { tech_frontier_hospital }
+	weight = @tier4weight1
+	potential = { is_cp26_dominion = yes }
+	modifier = { pop_growth_speed = 0.15 planet_army_build_speed_mult = 0.25 }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_jemhadar_cloning
+		desc = tech_cp26_jemhadar_cloning_desc
+		icon = tech_jem_hadar_cloning
+	}
+	weight_modifier = { factor = 10 }
+	ai_weight = { factor = 20 }
+}
+
+tech_cp26_ketracel_white = {
+	cost = @tier4cost1
+	area = society
+	category = { biology }
+	tier = 4
+	start_tech = no
+	prerequisites = { tech_cp26_jemhadar_cloning }
+	weight = @tier4weight2
+	potential = { is_cp26_dominion = yes }
+	modifier = { army_damage_mult = 0.20 army_morale = 0.25 }
+	triggered_config = {
+		trigger = { is_cp26_dominion = yes }
+		title = tech_cp26_ketracel_white
+		desc = tech_cp26_ketracel_white_desc
+		icon = tech_jem_hadar_cloning
+	}
+	weight_modifier = { factor = 8 }
+	ai_weight = { factor = 15 }
+}

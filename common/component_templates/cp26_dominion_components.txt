@@ -1,0 +1,173 @@
+weapon_component_template = {
+	key = "CP26_SMALL_DOMINION_POLARON"
+	size = small
+	entity = "invisible_turret_entity"
+	type = instant
+	icon = "GFX_ship_weapon_phaser_array"
+	icon_frame = 1
+	prerequisites = { "tech_cp26_dominion_polaron_beam" }
+	component_set = "CP26_DOMINION_POLARON"
+	projectile_gfx = "phaser_t4_s"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	power = -16
+	min_damage = 30
+	max_damage = 48
+	shield_damage = 1.5
+	shield_penetration = 0.5
+	armor_damage = 0.75
+	hull_damage = 1.0
+	min_windup = 2
+	max_windup = 18
+	cooldown = 70
+	range = 55
+	accuracy = 0.90
+	tracking = 0.55
+	resources = { category = ship_components cost = { alloys = 24 } upkeep = { deuterium = 0.08 alloys = 0.03 } }
+}
+
+weapon_component_template = {
+	key = "CP26_MEDIUM_DOMINION_POLARON"
+	size = medium
+	entity = "invisible_turret_entity"
+	type = instant
+	icon = "GFX_ship_weapon_phaser_array"
+	icon_frame = 1
+	prerequisites = { "tech_cp26_dominion_polaron_beam" }
+	component_set = "CP26_DOMINION_POLARON"
+	projectile_gfx = "phaser_t4_m"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_anti_shield }
+	power = -32
+	min_damage = 55
+	max_damage = 90
+	shield_damage = 1.5
+	shield_penetration = 0.5
+	armor_damage = 0.75
+	hull_damage = 1.0
+	min_windup = 2
+	max_windup = 18
+	cooldown = 75
+	range = 80
+	accuracy = 0.90
+	tracking = 0.35
+	resources = { category = ship_components cost = { alloys = 48 } upkeep = { deuterium = 0.16 alloys = 0.06 } }
+}
+
+weapon_component_template = {
+	key = "CP26_LARGE_DOMINION_POLARON"
+	size = large
+	entity = "invisible_turret_entity"
+	type = instant
+	icon = "GFX_ship_weapon_phaser_array"
+	icon_frame = 1
+	prerequisites = { "tech_cp26_dominion_polaron_beam" }
+	component_set = "CP26_DOMINION_POLARON"
+	projectile_gfx = "phaser_t4_l"
+	tags = { weapon_type_energy }
+	ai_tags = { weapon_role_artillery }
+	power = -64
+	min_damage = 105
+	max_damage = 170
+	shield_damage = 1.5
+	shield_penetration = 0.5
+	armor_damage = 0.75
+	hull_damage = 1.0
+	min_windup = 2
+	max_windup = 18
+	cooldown = 80
+	range = 105
+	accuracy = 0.90
+	tracking = 0.15
+	resources = { category = ship_components cost = { alloys = 96 } upkeep = { deuterium = 0.32 alloys = 0.12 } }
+}
+
+weapon_component_template = {
+	key = "CP26_MEDIUM_DOMINION_POLARON_TORPEDO"
+	size = medium
+	entity = "invisible_turret_entity"
+	type = missile
+	icon = "GFX_ship_weapon_photon_torpedoes"
+	icon_frame = 1
+	prerequisites = { "tech_cp26_dominion_polaron_torpedo" }
+	component_set = "CP26_DOMINION_POLARON_TORPEDO"
+	projectile_gfx = "photon_torpedoes_m"
+	tags = { weapon_type_explosive }
+	ai_tags = { weapon_role_artillery }
+	power = -28
+	min_damage = 75
+	max_damage = 120
+	shield_damage = 0.75
+	shield_penetration = 0.35
+	armor_damage = 1.25
+	hull_damage = 1.25
+	min_windup = 1
+	max_windup = 12
+	cooldown = 150
+	range = 110
+	accuracy = 1.0
+	tracking = 0.30
+	missile_speed = 460
+	missile_health = 40
+	missile_retarget_range = 110
+	resources = { category = ship_components cost = { alloys = 65 } upkeep = { deuterium = 0.20 alloys = 0.08 } }
+}
+
+utility_component_template = {
+	key = "CP26_DOMINION_REACTOR"
+	size = small
+	icon = "GFX_ship_part_matter_antimatter_reactor"
+	icon_frame = 1
+	power = 2400
+	operative_officers = 20
+	resources = { category = ship_components cost = { alloys = 45 } upkeep = { deuterium = 0.4 alloys = 0.1 } }
+	component_set = "power_core"
+	size_restriction = { cp26_dominion_attack_ship cp26_dominion_battle_cruiser cp26_dominion_battleship }
+	ai_weight = { weight = 10 }
+}
+
+utility_component_template = {
+	key = "CP26_DOMINION_IMPULSE_ENGINE"
+	size = small
+	icon = "GFX_ship_part_high_energy_impulse_engine"
+	icon_frame = 1
+	power = -45
+	operative_officers = 10
+	resources = { category = ship_components cost = { alloys = 18 } }
+	modifier = { ship_base_speed_mult = 0.40 ship_evasion_add = 8 }
+	component_set = "thruster_components"
+	size_restriction = { cp26_dominion_attack_ship cp26_dominion_battle_cruiser cp26_dominion_battleship }
+	ai_weight = { weight = 10 }
+}
+
+utility_component_template = {
+	key = "CP26_DOMINION_INTERCEPTOR_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_computer_hrb_basic_interceptor"
+	icon_frame = 1
+	power = -10
+	operative_officers = 5
+	resources = { category = ship_components cost = { alloys = 10 } }
+	ship_behavior = "hrb_interceptor"
+	class_restriction = { shipclass_military }
+	size_restriction = { cp26_dominion_attack_ship }
+	component_set = "combat_computers"
+	ship_modifier = { ship_fire_rate_mult = 0.10 ship_speed_mult = 0.15 }
+	ai_weight = { weight = 10 }
+}
+
+utility_component_template = {
+	key = "CP26_DOMINION_LINE_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_computer_hrb_basic_line"
+	icon_frame = 1
+	power = -15
+	operative_officers = 10
+	resources = { category = ship_components cost = { alloys = 15 } }
+	ship_behavior = "hrb_line"
+	class_restriction = { shipclass_military }
+	size_restriction = { cp26_dominion_battle_cruiser cp26_dominion_battleship }
+	component_set = "combat_computers"
+	ship_modifier = { ship_fire_rate_mult = 0.15 ship_tracking_add = 5 }
+	ai_weight = { weight = 10 }
+}

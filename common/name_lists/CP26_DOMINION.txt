@@ -1,0 +1,37 @@
+CP26_DOMINION = {
+	category = "Humanoid"
+	should_name_home_system_planets = no
+
+	ship_names = {
+		generic = {
+			"Tenacity" "Resolve" "Obedience" "Victory" "Supremacy" "Loyalty"
+			"Unyielding" "Purpose" "Order" "Ascendancy" "Judgment" "Devotion"
+		}
+	}
+
+	fleet_names = {
+		random_names = { "Jem'Hadar Vanguard" "Dominion Battle Group" "White Squadron" "Gamma Expeditionary Force" }
+		sequential_name = "Dominion Fleet %CC%"
+	}
+
+	army_names = {
+		defense_army = { sequential_name = "Jem'Hadar Garrison %O%" }
+		assault_army = { sequential_name = "Jem'Hadar Order %O%" }
+	}
+
+	planet_names = {
+		generic = { names = { "Omarion" "Kurill" "Callinon" "New Eddington" "Rondac" "Torga" "Vandros" } }
+	}
+
+	character_names = {
+		default = {
+			full_names = { "Weyoun" "Kilana" "Eris" "Borath" "Keevan" "Yelgrun" "Gelnon" "Luaran" "Ikat'ika" "Omet'iklan" "Remata'Klan" "Virak'kara" "Kudak'Etan" }
+			first_names = {}
+			second_names = {}
+			regnal_first_names = { "Founder" }
+			regnal_second_names = { "of the Great Link" }
+		}
+	}
+
+	ruler_names = { default = { full_names = { "The Female Founder" "The Founder" } } }
+}

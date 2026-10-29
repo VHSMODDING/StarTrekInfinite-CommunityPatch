@@ -1,0 +1,11 @@
+component_set = {
+	key = "CP26_DOMINION_POLARON"
+	icon = "GFX_ship_weapon_phaser_array"
+	icon_frame = 1
+}
+
+component_set = {
+	key = "CP26_DOMINION_POLARON_TORPEDO"
+	icon = "GFX_ship_weapon_photon_torpedoes"
+	icon_frame = 1
+}

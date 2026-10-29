@@ -1,0 +1,16 @@
+auth_cp26_great_link = {
+	icon = "gfx/interface/icons/governments/authorities/auth_dictatorial.dds"
+	has_agendas = no
+
+	potential = {
+		country_id = { value = "dominion" }
+	}
+
+	possible = { always = yes }
+
+	country_modifier = {
+		country_war_exhaustion_mult = -0.25
+		empire_size_penalty_mult = -0.20
+		country_influence_produces_mult = 0.10
+	}
+}

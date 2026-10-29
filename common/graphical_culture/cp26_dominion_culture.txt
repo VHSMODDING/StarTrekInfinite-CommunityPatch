@@ -1,0 +1,26 @@
+dominion = {
+	fallback = mammalian_01
+	has_city_graphics = no
+	ship_color = no
+	ship_lighting = {
+		cam_light_1_dir = { 0.5 0.0 0.5 }
+		cam_light_2_dir = { -0.5 0.2 0.0 }
+		cam_light_3_dir = { 0.5 -1.0 0.0 }
+		intensity_near = 0.35
+		intensity_far = 0.75
+		near_value = 700
+		far_value = 700
+		rim_start_near = 0.5
+		rim_stop_near = 0.99
+		rim_start_far = 0.4
+		rim_stop_far = 0.99
+		ambient_near = 0.1
+		ambient_far = 1.0
+	}
+}
+
+dominion_01 = {
+	fallback = dominion
+	has_city_graphics = no
+	ship_color = no
+}

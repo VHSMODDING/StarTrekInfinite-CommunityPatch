@@ -1,90 +1,29 @@
+# CP26: authentic Gorn portraits adapted from Star Trek: New Horizons.
+
 portraits = {
-
-	gorn_01 = {	entity = "portrait_reptilian_17_entity"	clothes_selector = "no_texture"	hair_selector = "no_texture"	greeting_sound = "greetings_reptilian_special"
-		character_textures = {
-			"gfx/models/portraits/reptilian/reptilian_17_green_red.dds"
-			"gfx/models/portraits/reptilian/reptilian_17_gold.dds"
-			"gfx/models/portraits/reptilian/reptilian_17_green.dds"
-			"gfx/models/portraits/reptilian/reptilian_17_black_orange.dds"
-		}
-	}
-
+	gorn_01 = { entity = "cp26_nh_gorn_entity" clothes_selector = "no_texture" hair_selector = "cp26_nh_gorn_head_01" greeting_sound = "greetings_reptilian_special" character_textures = { "gfx/models/portraits/cp26_nh_gorn/gorn_body_01.dds" } }
+	gorn_02 = { entity = "cp26_nh_gorn_entity" clothes_selector = "no_texture" hair_selector = "cp26_nh_gorn_head_01" greeting_sound = "greetings_reptilian_special" character_textures = { "gfx/models/portraits/cp26_nh_gorn/gorn_body_02.dds" } }
+	gorn_03 = { entity = "cp26_nh_gorn_entity" clothes_selector = "no_texture" hair_selector = "cp26_nh_gorn_head_01" greeting_sound = "greetings_reptilian_special" character_textures = { "gfx/models/portraits/cp26_nh_gorn/gorn_body_03.dds" } }
+	gorn_04 = { entity = "cp26_nh_gorn_entity" clothes_selector = "no_texture" hair_selector = "cp26_nh_gorn_head_02" greeting_sound = "greetings_reptilian_special" character_textures = { "gfx/models/portraits/cp26_nh_gorn/gorn_body_04.dds" } }
+	gorn_05 = { entity = "cp26_nh_gorn_entity" clothes_selector = "no_texture" hair_selector = "cp26_nh_gorn_head_03" greeting_sound = "greetings_reptilian_special" character_textures = { "gfx/models/portraits/cp26_nh_gorn/gorn_body_05.dds" } }
 }
 
 portrait_groups = {
 	gorn = {
 		default = gorn_01
 		game_setup = {
-			add = {
-				trigger = {
-					ruler = { gender = male }
-				}
-				portraits = {
-					gorn_01
-				}
-			}
-			add = {
-				trigger = {
-					ruler = { gender = female }
-				}
-				portraits = {
-					gorn_01
-				}
-			}
+			add = { trigger = { ruler = { gender = male } } portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } }
+			add = { trigger = { ruler = { gender = female } } portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } }
 		}
-
-		species = {
-			add = {
-				portraits = {
-					gorn_01
-				}
-			}
-		}
-
-		pop = {
-			add = {
-				portraits = {
-					gorn_01
-				}
-			}
-		}
-
+		species = { add = { portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } } }
+		pop = { add = { portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } } }
 		leader = {
-			add = {
-				trigger = {
-					gender = female
-				}
-				portraits = {
-					gorn_01
-				}
-			}
-			add = {
-				trigger = {
-					gender = male
-				}
-				portraits = {
-					gorn_01
-				}
-			}
+			add = { trigger = { gender = female } portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } }
+			add = { trigger = { gender = male } portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } }
 		}
-
 		ruler = {
-			add = {
-				trigger = {
-					gender = female
-				}
-				portraits = {
-					gorn_01
-				}
-			}
-			add = {
-				trigger = {
-					gender = male
-				}
-				portraits = {
-					gorn_01
-				}
-			}
+			add = { trigger = { gender = female } portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } }
+			add = { trigger = { gender = male } portraits = { gorn_01 gorn_02 gorn_03 gorn_04 gorn_05 } }
 		}
 	}
 }

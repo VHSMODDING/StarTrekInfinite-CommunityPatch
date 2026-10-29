@@ -1,0 +1,26 @@
+cp26_jemhadar_assault_army = {
+	damage = 2.50
+	morale_damage = 3.00
+	collateral_damage = 0.85
+	war_exhaustion = 2.00
+	health = 2.25
+	morale = 3.00
+	time = 75
+	icon_frame = 2
+	prerequisites = { "tech_cp26_ketracel_white" }
+
+	resources = {
+		category = armies
+		cost = { minerals = 225 energy = 175 }
+		upkeep = { energy = 2 food = 1 }
+		upkeep = { deuterium = 1 }
+	}
+
+	show_tech_unlock_if = { is_cp26_dominion = yes }
+
+	potential = {
+		from = { is_sapient = yes }
+		owner = { is_cp26_dominion = yes }
+		from = { is_species = "CP26 Jem'Hadar" }
+	}
+}

@@ -1,0 +1,47 @@
+cp26_dominion_expansionists = {
+	aggressiveness = 2.0
+	trade_willingness = 0.1
+	bravery = 1.8
+	combat_bravery = 2.0
+	military_spending = 1.20
+	colony_spending = 0.90
+
+	federation_acceptance = -999
+	nap_acceptance = -150
+	commercial_pact_acceptance = -200
+	research_agreement_acceptance = -200
+	share_warp_agreement_acceptance = -200
+	defensive_pact_acceptance = -200
+	migration_pact_acceptance = -999
+
+	advanced_start_chance = 100
+	weapon_preferences = weapon_type_energy
+	armor_ratio = 0.60
+	shields_ratio = 0.40
+	hull_ratio = 0.0
+	threat_modifier = 1.8
+	threat_others_modifier = 1.5
+	friction_modifier = 1.5
+	claims_modifier = 1.7
+
+	behaviour = {
+		conqueror = yes
+		subjugator = yes
+		liberator = no
+		opportunist = yes
+		slaver = no
+		uplifter = no
+		purger = no
+		displacer = yes
+		dominator = yes
+		infiltrator = yes
+		robot_exploiter = no
+		robot_liberator = no
+		propagator = yes
+		multispecies = yes
+		crisis_fighter = yes
+	}
+
+	allow = { is_cp26_dominion = yes }
+	weight_modifier = { weight = 10000 }
+}

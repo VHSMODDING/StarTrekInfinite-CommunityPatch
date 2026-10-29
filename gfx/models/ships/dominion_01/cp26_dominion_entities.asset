@@ -1,0 +1,31 @@
+################################################################################
+# Dominion meshes and textures adapted for CP26 from Star Trek: New Horizons.
+# Imported with the project owner's permission; gameplay definitions are CP26.
+################################################################################
+
+entity = {
+	name = "cp26_dominion_attack_ship_entity"
+	pdxmesh = "dominion_01_corvette_coreA_mesh"
+	locator = { name = "part1" position = { 0 0 0 } }
+	locator = { name = "root" rotation = { 0 0 0 } }
+	scale = 0.36
+	game_data = { size = 4 }
+}
+
+entity = {
+	name = "cp26_dominion_battle_cruiser_entity"
+	pdxmesh = "dominion_01_exploration_cruiser_coreA_mesh"
+	locator = { name = "part1" position = { 0 0 0 } }
+	locator = { name = "root" rotation = { 0 0 0 } }
+	scale = 0.47
+	game_data = { size = 9 }
+}
+
+entity = {
+	name = "cp26_dominion_battleship_entity"
+	pdxmesh = "dominion_01_assault_cruiser_new_mesh"
+	locator = { name = "part1" position = { 0 0 0 } }
+	locator = { name = "root" rotation = { 0 0 0 } }
+	scale = 0.90
+	game_data = { size = 15 }
+}

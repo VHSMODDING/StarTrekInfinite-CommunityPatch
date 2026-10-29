@@ -1,0 +1,26 @@
+CP26_FOUNDER = {
+	archetype = BIOLOGICAL
+	portraits = { "cp26_founder" }
+	non_randomized_portraits = { "cp26_founder" }
+	graphical_culture = dominion
+	move_pop_sound_effect = "moving_pop_confirmation"
+	resources = {}
+}
+
+CP26_VORTA = {
+	archetype = BIOLOGICAL
+	portraits = { "cp26_vorta" }
+	non_randomized_portraits = { "cp26_vorta" }
+	graphical_culture = dominion
+	move_pop_sound_effect = "moving_pop_confirmation"
+	resources = {}
+}
+
+CP26_JEMHADAR = {
+	archetype = BIOLOGICAL
+	portraits = { "cp26_jemhadar" }
+	non_randomized_portraits = { "cp26_jemhadar" }
+	graphical_culture = dominion
+	move_pop_sound_effect = "reptilian_pops_move"
+	resources = {}
+}

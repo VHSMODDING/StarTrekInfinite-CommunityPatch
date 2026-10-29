@@ -1,0 +1,7 @@
+gov_cp26_great_link = {
+	ruler_title = RT_CP26_FOUNDER
+	ruler_title_female = RT_CP26_FOUNDER
+	should_force_rename = yes
+	possible = { has_authority = auth_cp26_great_link }
+	weight = { base = 10000 }
+}

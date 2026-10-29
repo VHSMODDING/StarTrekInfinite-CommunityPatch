@@ -7,7 +7,7 @@
  cp26_vger_probe_plural: "V'ger Probes"
  cp26_vger_chain_title: "V'ger"
  cp26_vger_chain_desc: "An enigmatic mechanical entity is holding position above one of our colonies. A science ship in orbit can begin a deeper analysis."
- cp26_vger_arrival_message: "An enigmatic presence has appeared within one of our systems."
+ cp26_vger_arrival_message: "V'ger has entered orbit around $TARGET$. The §HAnalyze V'ger§! project is now available in the Situation Log."
  cp26_vger.5.title: "V'ger"
  cp26_vger.5.desc: "A vast mechanical entity has entered orbit around [event_target:cp26_vger_present_world.GetName]. Its trajectories, inertia, and surface scans resemble a methodical survey far more than an attack. Our oldest records speak of a very ancient contact with V'ger, yet this new pass reveals something else: a secondary signal, old and fragmented, whose harmonics faintly echo the whale probe without truly matching it. A thorough analysis may reveal what V'ger has been following all this time."
  cp26_vger.5.a: "Begin analysis"

@@ -1,0 +1,37 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_ST_empty_room_dominion"
+		texturefile = "gfx/portraits/city_sets/dominion_room.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/capitalview_mask.dds"
+	}
+	spriteType = {
+		name = "GFX_ST_empty_room_dominion_01"
+		texturefile = "gfx/portraits/city_sets/dominion_room.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/capitalview_mask.dds"
+	}
+	spriteType = {
+		name = "GFX_ST_capital_empty_room_dominion"
+		texturefile = "gfx/portraits/city_sets/dominion_room.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/smaller/capitalview_mask.dds"
+	}
+	spriteType = {
+		name = "GFX_ST_capital_empty_room_dominion_01"
+		texturefile = "gfx/portraits/city_sets/dominion_room.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/smaller/capitalview_mask.dds"
+	}
+	spriteType = {
+		name = "GFX_ST_empty_room_dominion_loadgame"
+		texturefile = "gfx/portraits/city_sets/dominion_room.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/capitalview_mask.dds"
+	}
+	spriteType = {
+		name = "GFX_ST_empty_room_dominion_01_loadgame"
+		texturefile = "gfx/portraits/city_sets/dominion_room.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/capitalview_mask.dds"
+	}
+	spriteType = {
+		name = "GFX_flag_cp26_dominion_small"
+		texturefile = "flags/emblem/small/flag_cp26_dominion.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+}

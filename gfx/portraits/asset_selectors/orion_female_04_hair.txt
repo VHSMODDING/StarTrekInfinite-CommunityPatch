@@ -1,6 +1,6 @@
 # This is a template which multiple species can use. 
   
-orion_female_hair_03 = {
+orion_female_hair_04 = {
 	default = "gfx/models/portraits/orion/orion_female_hair01.dds"
 	
 	game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist

@@ -35,6 +35,7 @@ is_regular_empire = {
 		}
 		is_gorn_hegemony = yes
 		is_orion_syndicate = yes
+		is_cp26_dominion = yes
 	}
 }
 

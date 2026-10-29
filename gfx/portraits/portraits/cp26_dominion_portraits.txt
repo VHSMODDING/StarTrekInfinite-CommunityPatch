@@ -1,0 +1,130 @@
+# Dominion portrait textures adapted for CP26 from Star Trek: New Horizons.
+# Imported with the project owner's permission; selectors are Infinite-native.
+portraits = {
+	cp26_founder_female_01 = {
+		entity = "portrait_changeling_female_01_entity"
+		clothes_selector = "cp26_founder_female_clothes"
+		hair_selector = "cp26_founder_female_hair"
+		greeting_sound = "human_female_greetings_01"
+		character_textures = { "gfx/models/portraits/changeling/changeling_female_body_01.dds" }
+	}
+	cp26_founder_male_01 = {
+		entity = "portrait_changeling_male_04_entity"
+		clothes_selector = "cp26_founder_male_clothes"
+		hair_selector = "cp26_founder_male_hair"
+		greeting_sound = "human_male_greetings_01"
+		character_textures = { "gfx/models/portraits/changeling/changeling_male_body_04.dds" }
+	}
+
+	cp26_vorta_female_01 = {
+		entity = "portrait_vorta_female_01_entity"
+		clothes_selector = "cp26_vorta_female_clothes"
+		hair_selector = "cp26_vorta_female_hair"
+		greeting_sound = "human_female_greetings_01"
+		character_textures = { "gfx/models/portraits/vorta/vorta_female_body_01.dds" }
+	}
+	cp26_vorta_female_02 = {
+		entity = "portrait_vorta_female_02_entity"
+		clothes_selector = "cp26_vorta_female_clothes"
+		hair_selector = "cp26_vorta_female_hair"
+		greeting_sound = "human_female_greetings_02"
+		character_textures = { "gfx/models/portraits/vorta/vorta_female_body_02.dds" }
+	}
+	cp26_vorta_female_03 = {
+		entity = "portrait_vorta_female_03_entity"
+		clothes_selector = "cp26_vorta_female_clothes"
+		hair_selector = "cp26_vorta_female_hair"
+		greeting_sound = "human_female_greetings_03"
+		character_textures = { "gfx/models/portraits/vorta/vorta_female_body_03.dds" }
+	}
+	cp26_vorta_female_04 = {
+		entity = "portrait_vorta_female_04_entity"
+		clothes_selector = "cp26_vorta_female_clothes"
+		hair_selector = "cp26_vorta_female_hair"
+		greeting_sound = "human_female_greetings_04"
+		character_textures = { "gfx/models/portraits/vorta/vorta_female_body_04.dds" }
+	}
+	cp26_vorta_male_01 = {
+		entity = "portrait_vorta_male_04_entity"
+		clothes_selector = "cp26_vorta_male_clothes"
+		hair_selector = "cp26_vorta_male_hair"
+		greeting_sound = "human_male_greetings_01"
+		character_textures = { "gfx/models/portraits/vorta/vorta_male_body_01.dds" }
+	}
+	cp26_vorta_male_02 = {
+		entity = "portrait_vorta_male_01_entity"
+		clothes_selector = "cp26_vorta_male_clothes"
+		hair_selector = "cp26_vorta_male_hair"
+		greeting_sound = "human_male_greetings_02"
+		character_textures = { "gfx/models/portraits/vorta/vorta_male_body_02.dds" }
+	}
+
+	cp26_jemhadar_male_01 = {
+		entity = "portrait_jem'hadar_male_01_entity"
+		clothes_selector = "cp26_jemhadar_clothes"
+		hair_selector = "cp26_jemhadar_hair_01"
+		greeting_sound = "grumpy_male_greetings_01"
+		character_textures = { "gfx/models/portraits/jem'hadar/jem'hadar_male_body_01.dds" }
+	}
+	cp26_jemhadar_male_02 = {
+		entity = "portrait_jem'hadar_male_01_entity"
+		clothes_selector = "cp26_jemhadar_clothes"
+		hair_selector = "cp26_jemhadar_hair_02"
+		greeting_sound = "grumpy_male_greetings_01"
+		character_textures = { "gfx/models/portraits/jem'hadar/jem'hadar_male_body_02.dds" }
+	}
+	cp26_jemhadar_male_03 = {
+		entity = "portrait_jem'hadar_male_01_entity"
+		clothes_selector = "cp26_jemhadar_clothes"
+		hair_selector = "cp26_jemhadar_hair_03"
+		greeting_sound = "grumpy_male_greetings_01"
+		character_textures = { "gfx/models/portraits/jem'hadar/jem'hadar_male_body_03.dds" }
+	}
+}
+
+portrait_groups = {
+	cp26_founder = {
+		default = cp26_founder_female_01
+		game_setup = {
+			add = { trigger = { ruler = { gender = female } } portraits = { cp26_founder_female_01 } }
+			add = { trigger = { ruler = { gender = male } } portraits = { cp26_founder_male_01 } }
+		}
+		species = { add = { portraits = { cp26_founder_female_01 cp26_founder_male_01 } } }
+		pop = { add = { portraits = { cp26_founder_female_01 cp26_founder_male_01 } } }
+		leader = {
+			add = { trigger = { gender = female } portraits = { cp26_founder_female_01 } }
+			add = { trigger = { gender = male } portraits = { cp26_founder_male_01 } }
+		}
+		ruler = {
+			add = { trigger = { gender = female } portraits = { cp26_founder_female_01 } }
+			add = { trigger = { gender = male } portraits = { cp26_founder_male_01 } }
+		}
+	}
+
+	cp26_vorta = {
+		default = cp26_vorta_female_01
+		game_setup = {
+			add = { trigger = { ruler = { gender = female } } portraits = { cp26_vorta_female_01 cp26_vorta_female_02 cp26_vorta_female_03 cp26_vorta_female_04 } }
+			add = { trigger = { ruler = { gender = male } } portraits = { cp26_vorta_male_01 cp26_vorta_male_02 } }
+		}
+		species = { add = { portraits = { cp26_vorta_female_01 cp26_vorta_female_02 cp26_vorta_female_03 cp26_vorta_female_04 cp26_vorta_male_01 cp26_vorta_male_02 } } }
+		pop = { add = { portraits = { cp26_vorta_female_01 cp26_vorta_female_02 cp26_vorta_female_03 cp26_vorta_female_04 cp26_vorta_male_01 cp26_vorta_male_02 } } }
+		leader = {
+			add = { trigger = { gender = female } portraits = { cp26_vorta_female_01 cp26_vorta_female_02 cp26_vorta_female_03 cp26_vorta_female_04 } }
+			add = { trigger = { gender = male } portraits = { cp26_vorta_male_01 cp26_vorta_male_02 } }
+		}
+		ruler = {
+			add = { trigger = { gender = female } portraits = { cp26_vorta_female_01 cp26_vorta_female_02 cp26_vorta_female_03 cp26_vorta_female_04 } }
+			add = { trigger = { gender = male } portraits = { cp26_vorta_male_01 cp26_vorta_male_02 } }
+		}
+	}
+
+	cp26_jemhadar = {
+		default = cp26_jemhadar_male_01
+		game_setup = { add = { portraits = { cp26_jemhadar_male_01 cp26_jemhadar_male_02 cp26_jemhadar_male_03 } } }
+		species = { add = { portraits = { cp26_jemhadar_male_01 cp26_jemhadar_male_02 cp26_jemhadar_male_03 } } }
+		pop = { add = { portraits = { cp26_jemhadar_male_01 cp26_jemhadar_male_02 cp26_jemhadar_male_03 } } }
+		leader = { add = { portraits = { cp26_jemhadar_male_01 cp26_jemhadar_male_02 cp26_jemhadar_male_03 } } }
+		ruler = { add = { portraits = { cp26_jemhadar_male_01 cp26_jemhadar_male_02 cp26_jemhadar_male_03 } } }
+	}
+}

@@ -195,6 +195,17 @@ planet_event = {
 			if = {
 				limit = { NOT = { has_country_flag = cp26_vger_contact_notified } }
 				set_country_flag = cp26_vger_contact_notified
+				create_message = {
+					type = OBJECT_DETECTED_MESSAGE_TYPE
+					localization = cp26_vger_arrival_message
+					days = 30
+					target = prev
+					variable = {
+						type = name
+						localization = TARGET
+						scope = prev
+					}
+				}
 			}
 			if = {
 				limit = {

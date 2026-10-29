@@ -1,0 +1,120 @@
+namespace = cp26_dominion
+
+# Developer-only bootstrap. It is never called by an on_action and is kept
+# separate from the future Bajoran wormhole chain.
+# Console: event cp26_dominion.900
+country_event = {
+	id = cp26_dominion.900
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		NOT = { has_global_flag = cp26_dominion_test_spawned }
+	}
+
+	immediate = {
+		set_global_flag = cp26_dominion_test_spawned
+
+		capital_scope = {
+			solar_system = { save_global_event_target_as = cp26_dominion_test_system }
+
+			create_species = {
+				class = "CP26_FOUNDER"
+				portrait = "cp26_founder_female_01"
+				name = "CP26 Founder"
+				plural = "CP26 Founders"
+				adjective = "Founder"
+				name_list = "CP26_DOMINION"
+				traits = { trait = "trait_cp26_founder_shapeshifter" }
+			}
+
+			create_species = {
+				class = "CP26_VORTA"
+				portrait = "cp26_vorta_male_01"
+				name = "CP26 Vorta"
+				plural = "CP26 Vorta"
+				adjective = "Vorta"
+				name_list = "CP26_DOMINION"
+				traits = { trait = "trait_cp26_vorta_cloned_administrator" }
+			}
+
+			create_species = {
+				class = "CP26_JEMHADAR"
+				portrait = "cp26_jemhadar_male_01"
+				name = "CP26 Jem'Hadar"
+				plural = "CP26 Jem'Hadar"
+				adjective = "Jem'Hadar"
+				name_list = "CP26_DOMINION"
+				traits = { trait = "trait_cp26_jemhadar_engineered_soldier" }
+			}
+
+			create_country = {
+				species = "CP26 Founder"
+				country_id = "dominion"
+				type = cp26_dominion
+				contact_rule = does_first_contact_sites
+				ship_prefix = "DVS"
+				name_list = "CP26_DOMINION"
+				authority = auth_cp26_great_link
+				civics = { civic = civic_cp26_great_link }
+				civics = { civic = civic_cp26_engineered_castes }
+				origin = "origin_default"
+				flag = {
+					icon = { category = "emblem" file = "flag_cp26_dominion.dds" }
+					background = { category = "backgrounds" file = "00_solid.dds" }
+					colors = { "dark_purple" "black" "null" "null" }
+				}
+				ethos = {
+					ethic = ethic_authoritarian
+					ethic = ethic_militarist
+					ethic = ethic_xenophobe
+				}
+				ignore_initial_colony_error = yes
+			}
+
+			last_created_country = {
+				set_name = "NAME_CP26_The_Dominion"
+				set_adjective = "ADJ_CP26_Dominion"
+				set_graphical_culture = dominion
+				set_country_flag = cp26_dominion
+				save_global_event_target_as = cp26_dominion_country
+				create_leader = {
+					class = ruler
+					species = "CP26 Founder"
+					name = "NAME_CP26_Female_Founder"
+					gender = female
+					skill = 7
+				}
+				set_leader = last_created_leader
+			}
+		}
+
+		event_target:cp26_dominion_country = {
+			give_technology = { tech = tech_corvette_unlock message = no }
+			give_technology = { tech = tech_destroyer_unlock message = no }
+			give_technology = { tech = tech_cruiser_unlock message = no }
+			give_technology = { tech = tech_battleship_unlock message = no }
+			give_technology = { tech = tech_phaser_3 message = no }
+			give_technology = { tech = tech_torpedo_2 message = no }
+			give_technology = { tech = tech_cp26_dominion_attack_ship message = no }
+			give_technology = { tech = tech_cp26_dominion_battle_cruiser message = no }
+			give_technology = { tech = tech_cp26_dominion_battleship message = no }
+			give_technology = { tech = tech_cp26_dominion_polaron_beam message = no }
+			give_technology = { tech = tech_cp26_dominion_polaron_torpedo message = no }
+			give_technology = { tech = tech_cp26_jemhadar_cloning message = no }
+			give_technology = { tech = tech_cp26_ketracel_white message = no }
+
+			create_fleet = {
+				name = "NAME_CP26_Dominion_Test_Fleet"
+				effect = {
+					create_ship = { name = random design = "NAME_CP26_DominionAttackShip" graphical_culture = "dominion_01" }
+					create_ship = { name = random design = "NAME_CP26_DominionBattleCruiser" graphical_culture = "dominion_01" }
+					create_ship = { name = random design = "NAME_CP26_DominionBattleship" graphical_culture = "dominion_01" }
+					set_owner = prev
+					set_location = event_target:cp26_dominion_test_system
+				}
+			}
+		}
+	}
+}

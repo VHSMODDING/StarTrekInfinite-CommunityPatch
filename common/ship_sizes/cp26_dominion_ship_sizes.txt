@@ -1,0 +1,122 @@
+cp26_dominion_attack_ship = {
+	formation_priority = 12
+	max_speed = 145
+	acceleration = 0.40
+	rotation_speed = 0.35
+	collision_radius = 2.4
+	max_hitpoints = 900
+	operative_officers = 15
+	officers_escape_perc = 5
+	fleet_view_background = "military_small"
+	ship_modifier = { ship_evasion_add = 55 }
+	size_multiplier = 2
+	fleet_slot_size = 1
+	graphical_culture = no
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 2
+	is_space_station = no
+	icon_frame = 2
+	text_icon = military_size_1
+	base_buildtime = 75
+	can_have_federation_design = yes
+	enable_default_design = yes
+	enable_3dview_in_ship_browser = yes
+	default_behavior = "hrb_interceptor"
+	prerequisites = { "tech_cp26_dominion_attack_ship" }
+	potential_country = { is_cp26_dominion = yes }
+	combat_disengage_chance = 0.25
+	class = shipclass_military
+	construction_type = starbase_shipyard
+	required_component_set = "power_core"
+	required_component_set = "ftl_components"
+	required_component_set = "thruster_components"
+	required_component_set = "sensor_components"
+	required_component_set = "combat_computers"
+	resources = {
+		category = ships
+		upkeep = { deuterium = 0.15 alloys = 0.15 }
+	}
+	min_upgrade_cost = { alloys = 1 }
+}
+
+cp26_dominion_battle_cruiser = {
+	formation_priority = 35
+	max_speed = 65
+	acceleration = 0.18
+	rotation_speed = 0.15
+	collision_radius = 6.0
+	max_hitpoints = 4200
+	operative_officers = 45
+	officers_escape_perc = 10
+	fleet_view_background = "military_medium"
+	ship_modifier = { ship_evasion_add = 20 }
+	size_multiplier = 6
+	fleet_slot_size = 4
+	graphical_culture = no
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 4
+	is_space_station = no
+	icon_frame = 4
+	text_icon = military_size_3
+	base_buildtime = 320
+	can_have_federation_design = yes
+	enable_default_design = yes
+	enable_3dview_in_ship_browser = yes
+	default_behavior = "hrb_line"
+	prerequisites = { "tech_cp26_dominion_battle_cruiser" }
+	potential_country = { is_cp26_dominion = yes }
+	combat_disengage_chance = 0.50
+	class = shipclass_military
+	construction_type = starbase_shipyard
+	required_component_set = "power_core"
+	required_component_set = "ftl_components"
+	required_component_set = "thruster_components"
+	required_component_set = "sensor_components"
+	required_component_set = "combat_computers"
+	resources = {
+		category = ships
+		upkeep = { deuterium = 0.6 alloys = 0.6 }
+	}
+	min_upgrade_cost = { alloys = 1 }
+}
+
+cp26_dominion_battleship = {
+	formation_priority = 60
+	max_speed = 34
+	acceleration = 0.10
+	rotation_speed = 0.08
+	collision_radius = 10.0
+	max_hitpoints = 12000
+	operative_officers = 90
+	officers_escape_perc = 15
+	fleet_view_background = "military_large"
+	ship_modifier = { ship_evasion_add = 7 }
+	size_multiplier = 12
+	fleet_slot_size = 10
+	graphical_culture = no
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 6
+	is_space_station = no
+	icon_frame = 5
+	text_icon = military_size_4
+	base_buildtime = 720
+	can_have_federation_design = yes
+	enable_default_design = yes
+	enable_3dview_in_ship_browser = yes
+	default_behavior = "hrb_artillery"
+	prerequisites = { "tech_cp26_dominion_battleship" }
+	potential_country = { is_cp26_dominion = yes }
+	combat_disengage_chance = 0.75
+	class = shipclass_military
+	construction_type = starbase_shipyard
+	required_component_set = "power_core"
+	required_component_set = "ftl_components"
+	required_component_set = "thruster_components"
+	required_component_set = "sensor_components"
+	required_component_set = "combat_computers"
+	resources = {
+		category = ships
+		upkeep = { deuterium = 1.3 alloys = 1.3 }
+	}
+	min_upgrade_cost = { alloys = 1 }
+}

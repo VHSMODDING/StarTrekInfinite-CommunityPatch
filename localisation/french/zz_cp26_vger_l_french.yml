@@ -7,7 +7,7 @@
  cp26_vger_probe_plural:0 "Sondes de V'ger"
  cp26_vger_chain_title:0 "V'ger"
  cp26_vger_chain_desc:0 "Une entité mécanique énigmatique stationne au-dessus de l'une de nos colonies. Un vaisseau scientifique en orbite peut lancer une analyse approfondie."
- cp26_vger_arrival_message:0 "Une présence énigmatique vient d'apparaître dans l'un de nos systèmes."
+ cp26_vger_arrival_message:0 "V'ger est entré en orbite autour de $TARGET$. Le projet §HAnalyser V'ger§! est maintenant disponible dans le journal de situation."
  cp26_vger.5.title:0 "V'ger"
  cp26_vger.5.desc:0 "Une immense entité mécanique est entrée en orbite de [event_target:cp26_vger_present_world.GetName]. Ses trajectoires, son inertie et ses balayages de surface rappellent moins une attaque qu'une analyse méthodique. Les archives les plus anciennes évoquent un contact très ancien avec V'ger, mais ce nouveau passage révèle autre chose : un signal secondaire, ancien, fragmentaire, dont les harmoniques rappellent vaguement la sonde des baleines sans pourtant s'y confondre. Une étude approfondie pourrait révéler ce que V'ger a suivi jusqu'ici."
  cp26_vger.5.a:0 "Lancer l'analyse"

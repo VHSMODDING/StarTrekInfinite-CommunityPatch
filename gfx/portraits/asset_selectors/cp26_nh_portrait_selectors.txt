@@ -1,0 +1,14 @@
+cp26_nh_orion_female_clothes = { default = "gfx/models/portraits/cp26_nh_orion/orion_female_clothes_01.dds" }
+cp26_nh_orion_female_hair = { default = "gfx/models/portraits/cp26_nh_orion/orion_female_hair_01.dds" }
+cp26_nh_orion_male_clothes = { default = "gfx/models/portraits/cp26_nh_orion/orion_male_clothes_01.dds" }
+cp26_nh_orion_male_hair = { default = "gfx/models/portraits/cp26_nh_orion/orion_male_head_attach_01.dds" }
+
+cp26_nh_denobulan_female_clothes = { default = "gfx/models/portraits/cp26_nh_denobulan/denobulan_female_clothes_01.dds" }
+cp26_nh_denobulan_female_hair = { default = "gfx/models/portraits/cp26_nh_denobulan/denobulan_female_hair_01.dds" }
+cp26_nh_denobulan_male_clothes = { default = "gfx/models/portraits/cp26_nh_denobulan/denobulan_male_clothes_01.dds" }
+cp26_nh_denobulan_male_hair = { default = "gfx/models/portraits/cp26_nh_denobulan/denobulan_male_hair_01.dds" }
+
+cp26_nh_gorn_clothes = { default = "gfx/models/portraits/cp26_nh_gorn/gorn_clothes_01.dds" }
+cp26_nh_gorn_head_01 = { default = "gfx/models/portraits/cp26_nh_gorn/gorn_head_01.dds" }
+cp26_nh_gorn_head_02 = { default = "gfx/models/portraits/cp26_nh_gorn/gorn_head_07.dds" }
+cp26_nh_gorn_head_03 = { default = "gfx/models/portraits/cp26_nh_gorn/gorn_head_06.dds" }

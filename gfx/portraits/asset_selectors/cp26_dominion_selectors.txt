@@ -1,0 +1,77 @@
+cp26_founder_female_clothes = {
+	default = "gfx/models/portraits/changeling/changeling_female_clothes_01.dds"
+	game_setup = { default = "gfx/models/portraits/changeling/changeling_female_clothes_01.dds" }
+	species = { default = "gfx/models/portraits/changeling/changeling_female_clothes_01.dds" }
+	pop = { default = "gfx/models/portraits/changeling/changeling_female_clothes_01.dds" }
+	leader = { default = "gfx/models/portraits/changeling/changeling_female_clothes_01.dds" }
+	ruler = { default = "gfx/models/portraits/changeling/changeling_female_clothes_01.dds" }
+}
+cp26_founder_female_hair = {
+	default = "gfx/models/portraits/changeling/changeling_female_hair_style_01.dds"
+	game_setup = { default = "gfx/models/portraits/changeling/changeling_female_hair_style_01.dds" }
+	species = { default = "gfx/models/portraits/changeling/changeling_female_hair_style_01.dds" }
+	pop = { default = "gfx/models/portraits/changeling/changeling_female_hair_style_01.dds" }
+	leader = { default = "gfx/models/portraits/changeling/changeling_female_hair_style_01.dds" }
+	ruler = { default = "gfx/models/portraits/changeling/changeling_female_hair_style_01.dds" }
+}
+cp26_founder_male_clothes = {
+	default = "gfx/models/portraits/changeling/changeling_male_clothes_01.dds"
+	game_setup = { default = "gfx/models/portraits/changeling/changeling_male_clothes_01.dds" }
+	species = { default = "gfx/models/portraits/changeling/changeling_male_clothes_01.dds" }
+	pop = { default = "gfx/models/portraits/changeling/changeling_male_clothes_01.dds" }
+	leader = { default = "gfx/models/portraits/changeling/changeling_male_clothes_01.dds" }
+	ruler = { default = "gfx/models/portraits/changeling/changeling_male_clothes_01.dds" }
+}
+cp26_founder_male_hair = {
+	default = "gfx/models/portraits/changeling/changeling_male_hair_style_01.dds"
+	game_setup = { default = "gfx/models/portraits/changeling/changeling_male_hair_style_01.dds" }
+	species = { default = "gfx/models/portraits/changeling/changeling_male_hair_style_01.dds" }
+	pop = { default = "gfx/models/portraits/changeling/changeling_male_hair_style_01.dds" }
+	leader = { default = "gfx/models/portraits/changeling/changeling_male_hair_style_01.dds" }
+	ruler = { default = "gfx/models/portraits/changeling/changeling_male_hair_style_01.dds" }
+}
+
+cp26_vorta_female_clothes = {
+	default = "gfx/models/portraits/vorta/vorta_female_clothes_01.dds"
+	game_setup = { default = "gfx/models/portraits/vorta/vorta_female_clothes_01.dds" }
+	species = { default = "gfx/models/portraits/vorta/vorta_female_clothes_01.dds" }
+	pop = { default = "gfx/models/portraits/vorta/vorta_female_clothes_01.dds" }
+	leader = { default = "gfx/models/portraits/vorta/vorta_female_clothes_01.dds" }
+	ruler = { default = "gfx/models/portraits/vorta/vorta_female_clothes_01.dds" }
+}
+cp26_vorta_female_hair = {
+	default = "gfx/models/portraits/vorta/vorta_female_hair_black_style_01.dds"
+	game_setup = { default = "gfx/models/portraits/vorta/vorta_female_hair_black_style_01.dds" }
+	species = { default = "gfx/models/portraits/vorta/vorta_female_hair_black_style_01.dds" }
+	pop = { default = "gfx/models/portraits/vorta/vorta_female_hair_black_style_01.dds" }
+	leader = { default = "gfx/models/portraits/vorta/vorta_female_hair_black_style_01.dds" }
+	ruler = { default = "gfx/models/portraits/vorta/vorta_female_hair_black_style_01.dds" }
+}
+cp26_vorta_male_clothes = {
+	default = "gfx/models/portraits/vorta/vorta_male_clothes_01.dds"
+	game_setup = { default = "gfx/models/portraits/vorta/vorta_male_clothes_01.dds" }
+	species = { default = "gfx/models/portraits/vorta/vorta_male_clothes_01.dds" }
+	pop = { default = "gfx/models/portraits/vorta/vorta_male_clothes_01.dds" }
+	leader = { default = "gfx/models/portraits/vorta/vorta_male_clothes_01.dds" }
+	ruler = { default = "gfx/models/portraits/vorta/vorta_male_clothes_01.dds" }
+}
+cp26_vorta_male_hair = {
+	default = "gfx/models/portraits/vorta/vorta_male_hair_black_style_01.dds"
+	game_setup = { default = "gfx/models/portraits/vorta/vorta_male_hair_black_style_01.dds" }
+	species = { default = "gfx/models/portraits/vorta/vorta_male_hair_black_style_01.dds" }
+	pop = { default = "gfx/models/portraits/vorta/vorta_male_hair_black_style_01.dds" }
+	leader = { default = "gfx/models/portraits/vorta/vorta_male_hair_black_style_01.dds" }
+	ruler = { default = "gfx/models/portraits/vorta/vorta_male_hair_black_style_01.dds" }
+}
+
+cp26_jemhadar_clothes = {
+	default = "gfx/models/portraits/jem'hadar/jem'hadar_male_clothes_01.dds"
+	game_setup = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_clothes_01.dds" }
+	species = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_clothes_01.dds" }
+	pop = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_clothes_01.dds" }
+	leader = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_clothes_01.dds" }
+	ruler = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_clothes_01.dds" }
+}
+cp26_jemhadar_hair_01 = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_hair_01.dds" }
+cp26_jemhadar_hair_02 = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_hair_02.dds" }
+cp26_jemhadar_hair_03 = { default = "gfx/models/portraits/jem'hadar/jem'hadar_male_hair_03.dds" }
