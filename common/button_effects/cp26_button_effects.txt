@@ -20,6 +20,46 @@ effect = {
 	}
 }
 
+# Player-only command displayed on the selected fleet while it is in Bajor or
+# Idran. The actual move is kept in a fleet event so the scope is explicit and
+# the command can also be tested from the console on a selected fleet.
+cp26_traverse_bajoran_wormhole = {
+	potential = {
+		is_scope_type = fleet
+		exists = owner
+		owner = {
+			is_same_value = from
+			is_ai = no
+			has_country_flag = cp26_bajoran_wormhole_discovered
+		}
+		has_global_flag = cp26_bajoran_wormhole_spawned
+		exists = event_target:bajoran_system
+		exists = event_target:cp26_gamma_idran_system
+		OR = {
+			solar_system = { has_star_flag = bajoran_system }
+			solar_system = { has_star_flag = cp26_gamma_idran_system }
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = CP26_TRAVERSE_BAJORAN_WORMHOLE_COMBAT
+			is_in_combat = no
+		}
+		custom_tooltip = {
+			fail_text = CP26_TRAVERSE_BAJORAN_WORMHOLE_MIA
+			is_mia = no
+		}
+	}
+
+	effect = {
+		custom_tooltip = CP26_TRAVERSE_BAJORAN_WORMHOLE_EFFECT
+		hidden_effect = {
+			fleet_event = { id = cp26_bajoran_wormhole.110 }
+		}
+	}
+}
+
 cp26_build_ferengi_branch_nagus = {
 	potential = { from = { is_ferengi_empire = yes } exists = event_target:cp26_branch_selected_planet exists = event_target:cp26_branch_host_country }
 	allow = {

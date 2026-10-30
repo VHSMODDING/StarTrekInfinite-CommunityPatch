@@ -1,0 +1,6 @@
+﻿l_french:
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_TOOLTIP:0 "Traverser le vortex\nTéléporte immédiatement cette flotte entre Bajor et Idran."
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_EFFECT:0 "Traverser le vortex"
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_COMBAT:0 "£trigger_no£ Une flotte engagée au combat ne peut pas traverser le vortex."
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_MIA:0 "£trigger_no£ Cette flotte est actuellement portée disparue."
+ CP26_BAJORAN_WORMHOLE_USE_FLEET_COMMAND:0 "£trigger_no£ Sélectionnez une flotte dans Bajor ou Idran, puis utilisez la commande « Traverser le vortex »."

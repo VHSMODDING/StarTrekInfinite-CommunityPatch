@@ -860,7 +860,14 @@ can_subjugate_empires = {
 
 # THIS = Fleet
 can_jump_drive = {
-	always = yes	# Moved cooldown to code
+	# Gamma Quadrant fleets must leave through the Bajoran wormhole rather than
+	# jumping directly back into Alpha/Beta space.
+	custom_tooltip = {
+		fail_text = cannot_jump_to_system
+		NOT = {
+			solar_system = { has_star_flag = cp26_gamma_quadrant_system }
+		}
+	}
 }
 
 # this = country
@@ -887,6 +894,10 @@ can_enter_system_by_jump = {
 	custom_tooltip = {
 #		success_text = "debug: can jump"
 		fail_text = cannot_jump_to_system
+
+		# No jump-drive entry into the isolated Gamma pocket. Its only external
+		# entrance is the linked Bajor-Idran wormhole.
+		NOT = { has_star_flag = cp26_gamma_quadrant_system }
 
 		# Sealed system
 		OR = {

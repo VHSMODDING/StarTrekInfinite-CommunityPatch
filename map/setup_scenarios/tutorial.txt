@@ -112,6 +112,34 @@ bespoke_procedural_scenario = {
 
 	#--------- Bespoke Systems ---------#
 
+	#--------- CP26 Gamma Quadrant Pocket ---------#
+	# Isolated above Alpha/Beta, near the map edge but clear of bespoke systems;
+	# internally connected by warp.
+	system = {
+		name = "Idran" position = { x = 305.0 y = 720.0 }
+		initializer = cp26_gamma_idran_initializer spawn_weight = { base = 1 }
+	}
+	system = {
+		name = "New Bajor" position = { x = 280.0 y = 705.0 }
+		initializer = cp26_gamma_new_bajor_initializer spawn_weight = { base = 1 }
+	}
+	system = {
+		name = "Karemma" position = { x = 330.0 y = 705.0 }
+		initializer = cp26_gamma_karemma_initializer spawn_weight = { base = 1 }
+	}
+	system = {
+		name = "Teplan" position = { x = 295.0 y = 680.0 }
+		initializer = cp26_gamma_teplan_initializer spawn_weight = { base = 1 }
+	}
+	system = {
+		name = "Rondac" position = { x = 325.0 y = 680.0 }
+		initializer = cp26_gamma_rondac_initializer spawn_weight = { base = 1 }
+	}
+	system = {
+		name = "Omarion" position = { x = 355.0 y = 685.0 }
+		initializer = cp26_gamma_omarion_initializer spawn_weight = { base = 1 }
+	}
+
 	system = {
     id = "2"
 		name = "NAME_Acamarian" position = { x = -77.6 y = 463.4 }
@@ -128,7 +156,6 @@ bespoke_procedural_scenario = {
 		name = "NAME_Bajor" position = { x = 45.1 y = 459.5 }
 		initializer = bajoran_bajor_initializer spawn_weight = { base = 1 }
 	}
-
 
 	system = {
 		id = "968"

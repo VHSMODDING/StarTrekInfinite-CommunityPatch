@@ -1,0 +1,26 @@
+# Fleet scope. Used by the Dominion AI either directly in Idran or as the
+# arrival effect of its scripted move from the rest of the Gamma pocket.
+cp26_ai_dominion_cross_bajoran_wormhole = {
+	if = {
+		limit = {
+			exists = owner
+			owner = {
+				is_ai = yes
+				is_cp26_dominion = yes
+				is_at_war = yes
+			}
+			exists = event_target:bajoran_system
+			is_in_combat = no
+			is_mia = no
+			solar_system = { has_star_flag = cp26_gamma_idran_system }
+		}
+		set_location = {
+			target = event_target:bajoran_system
+			distance = 25
+			angle = random
+			direction = in_system
+		}
+		clear_orders = yes
+		clear_fleet_actions = this
+	}
+}

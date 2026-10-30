@@ -9,6 +9,8 @@
 # cp26_bajoran_wormhole.50  - Anomalie de Bajor — Ferengi
 # cp26_bajoran_wormhole.55  - Touriste Ferengi : timer 360j → découverte
 # cp26_bajoran_wormhole.100 - Découverte du trou de ver (tous empires)
+# cp26_bajoran_wormhole.110 - Traversée instantanée par commande de flotte
+# cp26_bajoran_wormhole.120 - Gestion mensuelle du passage Dominion IA
 ##########################################################################
 
 namespace = cp26_bajoran_wormhole
@@ -53,6 +55,109 @@ country_event = {
 		else_if = {
 			limit = { is_ferengi_empire = yes }
 			country_event = { id = cp26_bajoran_wormhole.50 }
+		}
+	}
+}
+
+##########################################################################
+# 110 - Commande de flotte : traversée instantanée Bajor <-> Idran
+##########################################################################
+fleet_event = {
+	id = cp26_bajoran_wormhole.110
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { has_country_flag = cp26_bajoran_wormhole_discovered }
+		has_global_flag = cp26_bajoran_wormhole_spawned
+		exists = event_target:bajoran_system
+		exists = event_target:cp26_gamma_idran_system
+		is_in_combat = no
+		is_mia = no
+		OR = {
+			solar_system = { has_star_flag = bajoran_system }
+			solar_system = { has_star_flag = cp26_gamma_idran_system }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { solar_system = { has_star_flag = bajoran_system } }
+			set_location = {
+				target = event_target:cp26_gamma_idran_system
+				distance = 25
+				angle = random
+				direction = in_system
+			}
+		}
+		else = {
+			set_location = {
+				target = event_target:bajoran_system
+				distance = 25
+				angle = random
+				direction = in_system
+			}
+		}
+		clear_orders = yes
+		clear_fleet_actions = this
+	}
+}
+
+##########################################################################
+# 120 - Dominion IA : envoie une flotte de guerre Gamma vers Idran
+##########################################################################
+country_event = {
+	id = cp26_bajoran_wormhole.120
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = yes
+		is_cp26_dominion = yes
+		is_at_war = yes
+		has_global_flag = cp26_bajoran_wormhole_spawned
+		exists = event_target:bajoran_system
+		exists = event_target:cp26_gamma_idran_system
+		any_owned_fleet = {
+			is_ship_class = shipclass_military
+			is_in_combat = no
+			is_mia = no
+			solar_system = { has_star_flag = cp26_gamma_quadrant_system }
+		}
+	}
+
+	immediate = {
+		# Resolve the star every time so this also works on saves created before
+		# the scripted transit command was added.
+		event_target:cp26_gamma_idran_system = {
+			random_system_planet = {
+				limit = { is_star = yes }
+				save_global_event_target_as = cp26_gamma_idran_transit_star
+			}
+		}
+
+		if = {
+			limit = { exists = event_target:cp26_gamma_idran_transit_star }
+			random_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_military
+					is_in_combat = no
+					is_mia = no
+					solar_system = { has_star_flag = cp26_gamma_quadrant_system }
+				}
+				if = {
+					limit = { solar_system = { has_star_flag = cp26_gamma_idran_system } }
+					cp26_ai_dominion_cross_bajoran_wormhole = yes
+				}
+				else = {
+					auto_move_to_planet = {
+						target = event_target:cp26_gamma_idran_transit_star
+						clear_auto_move_on_arrival = yes
+						arrival_effect = cp26_ai_dominion_cross_bajoran_wormhole
+					}
+				}
+			}
 		}
 	}
 }
@@ -271,19 +376,50 @@ country_event = {
 	immediate = {
 		set_country_flag = cp26_bajoran_wormhole_discovered
 		end_event_chain = cp26_bajoran_wormhole_chain
-		# Spawner le trou de ver dans le système Bajoran (une seule fois)
+		add_seen_bypass_type = cp26_bajoran_wormhole
+		set_country_flag = encountered_first_wormhole
+
+		# Create and explicitly link both natural-wormhole endpoints.
 		if = {
 			limit = {
 				NOT = { has_global_flag = cp26_bajoran_wormhole_spawned }
 				exists = event_target:bajoran_system
+				exists = event_target:cp26_gamma_idran_system
 			}
-			set_global_flag = cp26_bajoran_wormhole_spawned
 			event_target:bajoran_system = {
-				spawn_natural_wormhole = {
-					bypass_type = wormhole
-					random_pos = yes
+				if = {
+					limit = { has_natural_wormhole = no }
+					spawn_natural_wormhole = {
+						bypass_type = cp26_bajoran_wormhole
+						random_pos = no
+						orbit_angle = 100
+						orbit_distance = -150
+					}
 				}
 			}
+			event_target:cp26_gamma_idran_system = {
+				if = {
+					limit = { has_natural_wormhole = no }
+					spawn_natural_wormhole = {
+						bypass_type = cp26_bajoran_wormhole
+						random_pos = no
+						orbit_angle = 360
+						orbit_distance = 20
+					}
+				}
+				link_wormholes = event_target:bajoran_system
+			}
+			set_global_flag = cp26_bajoran_wormhole_spawned
+		}
+
+		# Spawn the Dominion beyond the newly opened passage without granting
+		# communications. It remains unknown until normal first contact begins.
+		if = {
+			limit = {
+				NOT = { has_global_flag = cp26_dominion_spawned }
+				exists = event_target:cp26_gamma_omarion_system
+			}
+			country_event = { id = cp26_dominion.1 }
 		}
 	}
 

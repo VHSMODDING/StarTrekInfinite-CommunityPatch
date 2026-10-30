@@ -27,6 +27,8 @@
  dderidex_hero_plural:0 "Vaisseaux amiraux D'deridex"
 
  HIGHWAY_GALACTIC:0 "Conduit de transdistorsion"
+ BYPASS_HIGHWAY:0 "$HIGHWAY_GALACTIC$"
+ BYPASS_CP26_BAJORAN_WORMHOLE:0 "Vortex bajoran"
  HIGHWAY_DESC:0 "Ce système contient un §Y$HIGHWAY_GALACTIC$§!."
  HIGHWAY_DESC_UNEXPLORED:0 "Ce système contient un §Y$HIGHWAY_GALACTIC$§! encore §Rinexploré§!."
  HIGHWAY_COUNTRY_CANNOT_USE:0 "$TRIGGER_FAIL$ Nous ne disposons pas des moyens nécessaires pour utiliser le §Y$HIGHWAY_GALACTIC$§!."

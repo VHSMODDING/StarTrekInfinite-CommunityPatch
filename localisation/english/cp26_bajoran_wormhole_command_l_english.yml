@@ -1,0 +1,6 @@
+﻿l_english:
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_TOOLTIP:0 "Traverse the Wormhole\nImmediately teleports this fleet between Bajor and Idran."
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_EFFECT:0 "Traverse the Wormhole"
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_COMBAT:0 "£trigger_no£ A fleet engaged in combat cannot traverse the wormhole."
+ CP26_TRAVERSE_BAJORAN_WORMHOLE_MIA:0 "£trigger_no£ This fleet is currently missing in action."
+ CP26_BAJORAN_WORMHOLE_USE_FLEET_COMMAND:0 "£trigger_no£ Select a fleet in Bajor or Idran, then use the ‘Traverse the Wormhole’ command."

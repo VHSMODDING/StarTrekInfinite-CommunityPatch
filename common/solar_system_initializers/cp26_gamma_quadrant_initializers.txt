@@ -1,0 +1,149 @@
+# CP26 - Small isolated Gamma Quadrant pocket.
+# These systems use native Star Trek: Infinite initializers and portrait-era
+# planet classes. Access from Alpha/Beta is provided only by the Bajoran wormhole.
+
+cp26_gamma_idran_initializer = {
+	name = "Idran"
+	class = sc_g
+	usage = misc_system_init
+	flags = { cp26_gamma_quadrant_system cp26_gamma_idran_system idran_system sealed_system }
+
+	planet = {
+		name = "Idran A"
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 28
+		has_ring = no
+	}
+	change_orbit = 32
+	planet = { count = 2 class = rl_unhabitable_planets orbit_distance = 18 size = { min = 10 max = 16 } }
+	change_orbit = 28
+	planet = {
+		name = "Idran III"
+		class = pc_gas_giant
+		orbit_distance = 22
+		size = 22
+		moon = {
+			name = "Idran IIIa"
+			class = pc_barren
+			orbit_distance = 8
+			size = 8
+			init_effect = { prevent_anomaly = yes }
+		}
+	}
+
+	init_effect = {
+		save_global_event_target_as = cp26_gamma_idran_system
+		save_global_event_target_as = idran_system
+	}
+}
+
+cp26_gamma_new_bajor_initializer = {
+	name = "New Bajor"
+	class = sc_f
+	usage = misc_system_init
+	flags = { cp26_gamma_quadrant_system cp26_gamma_new_bajor_system sealed_system }
+
+	planet = { name = "New Bajor Star" class = star orbit_distance = 0 orbit_angle = 1 size = 24 has_ring = no }
+	change_orbit = 28
+	planet = { count = 2 class = rl_unhabitable_planets orbit_distance = 16 size = { min = 8 max = 14 } }
+	planet = {
+		name = "New Bajor Prime"
+		class = pc_continental
+		subclass = psc_class_m
+		orbit_distance = 24
+		size = 15
+		flags = { cp26_gamma_new_bajor_prime }
+		init_effect = { prevent_anomaly = yes }
+	}
+	init_effect = { save_global_event_target_as = cp26_gamma_new_bajor_system }
+}
+
+cp26_gamma_karemma_initializer = {
+	name = "Karemma"
+	class = sc_k
+	usage = misc_system_init
+	flags = { cp26_gamma_quadrant_system cp26_gamma_karemma_system sealed_system }
+
+	planet = { name = "Karemma Star" class = star orbit_distance = 0 orbit_angle = 1 size = 26 has_ring = no }
+	change_orbit = 25
+	planet = { count = 3 class = rl_unhabitable_planets orbit_distance = 15 size = { min = 8 max = 15 } }
+	planet = {
+		name = "Karemma"
+		class = pc_savannah
+		subclass = psc_class_m
+		orbit_distance = 24
+		size = 17
+		flags = { cp26_gamma_karemma_homeworld }
+		init_effect = { prevent_anomaly = yes }
+	}
+	init_effect = { save_global_event_target_as = cp26_gamma_karemma_system }
+}
+
+cp26_gamma_teplan_initializer = {
+	name = "Teplan"
+	class = sc_g
+	usage = misc_system_init
+	flags = { cp26_gamma_quadrant_system cp26_gamma_teplan_system sealed_system }
+
+	planet = { name = "Teplan Star" class = star orbit_distance = 0 orbit_angle = 1 size = 25 has_ring = no }
+	change_orbit = 24
+	planet = { count = 2 class = rl_unhabitable_planets orbit_distance = 16 size = { min = 9 max = 15 } }
+	planet = {
+		name = "Teplan"
+		class = pc_arid
+		subclass = psc_class_m
+		orbit_distance = 25
+		size = 16
+		flags = { cp26_gamma_teplan_homeworld }
+		init_effect = { prevent_anomaly = yes }
+	}
+	init_effect = { save_global_event_target_as = cp26_gamma_teplan_system }
+}
+
+cp26_gamma_rondac_initializer = {
+	name = "Rondac"
+	class = sc_a
+	usage = misc_system_init
+	flags = { cp26_gamma_quadrant_system cp26_gamma_rondac_system sealed_system }
+
+	planet = { name = "Rondac Star" class = star orbit_distance = 0 orbit_angle = 1 size = 30 has_ring = no }
+	change_orbit = 30
+	planet = { count = 3 class = rl_unhabitable_planets orbit_distance = 18 size = { min = 10 max = 17 } }
+	planet = {
+		name = "Rondac III"
+		class = pc_tundra
+		subclass = psc_class_m
+		orbit_distance = 28
+		size = 15
+		flags = { cp26_gamma_rondac_facility }
+		init_effect = { prevent_anomaly = yes }
+	}
+	init_effect = { save_global_event_target_as = cp26_gamma_rondac_system }
+}
+
+cp26_gamma_omarion_initializer = {
+	name = "Omarion"
+	class = sc_m
+	usage = misc_system_init
+	flags = { cp26_gamma_quadrant_system cp26_gamma_omarion_system sealed_system }
+
+	planet = { name = "Omarion" class = star orbit_distance = 0 orbit_angle = 1 size = 30 has_ring = no }
+	change_orbit = 32
+	asteroid_belt = { type = rocky_asteroid_belt radius = 55 }
+	planet = { count = 2 class = rl_unhabitable_planets orbit_distance = 18 size = { min = 8 max = 16 } }
+	planet = {
+		name = "NAME_CP26_Founders_Homeworld"
+		class = pc_ocean
+		subclass = psc_class_m
+		orbit_distance = 28
+		size = 22
+		flags = { cp26_dominion_homeworld }
+		init_effect = {
+			prevent_anomaly = yes
+			save_global_event_target_as = cp26_dominion_homeworld
+		}
+	}
+	init_effect = { save_global_event_target_as = cp26_gamma_omarion_system }
+}

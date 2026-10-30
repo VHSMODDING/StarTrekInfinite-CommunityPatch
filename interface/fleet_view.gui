@@ -968,6 +968,19 @@ guiTypes = {
 			}
 		}
 
+		# CP26: explicit Bajor <-> Idran transit. The scripted button only
+		# appears for a player-owned fleet in either endpoint system.
+		effectbuttonType = {
+			name = "cp26_traverse_bajoran_wormhole_button"
+			quadTextureSprite = "GFX_fleet_action_button_jump"
+			position = { x = 245 y = 109 }
+			orientation = upper_left
+			oversound = mouse_over
+			clicksound = confirmation
+			pdx_tooltip = "CP26_TRAVERSE_BAJORAN_WORMHOLE_TOOLTIP"
+			effect = "cp26_traverse_bajoran_wormhole"
+		}
+
 		buttonType = {
 			name = "orders_bg"
 			spriteType = "GFX_tile_0_a"

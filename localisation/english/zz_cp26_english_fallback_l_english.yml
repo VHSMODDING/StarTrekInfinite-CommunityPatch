@@ -26,6 +26,9 @@
  NAME_Voyager_Fleet:0 "U.S.S. Voyager"
  dderidex_hero_plural:0 "D'deridex Flagships"
 
+ BYPASS_HIGHWAY:0 "$HIGHWAY_GALACTIC$"
+ BYPASS_CP26_BAJORAN_WORMHOLE:0 "Bajoran Wormhole"
+
  START_SCREEN_DOOMSDAY:0 "Your homeworld is doomed. Your people must leave their cradle before it is too late."
  START_SCREEN_LITHOID:0 "Your civilization arose from mineral-based lifeforms, durable and adapted to worlds others would consider hostile."
  START_SCREEN_LOST_COLONY:0 "Your people descend from a forgotten colony. The time has come to discover what happened to your original homeworld."
