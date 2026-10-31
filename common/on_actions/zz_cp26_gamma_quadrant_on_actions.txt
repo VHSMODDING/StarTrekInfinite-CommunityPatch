@@ -4,12 +4,17 @@ on_game_start = {
 	}
 }
 
-# The normal military AI cannot plan a route through a scripted teleport.
-# This pulse lets the Dominion stage one Gamma fleet at a time through Idran
-# when it is at war.
+# THIS = fleet, FROM = destination system, FROMFROM = origin system.
+on_entering_cp26_bajoran_wormhole = {
+	events = {
+		cp26_bajoran_wormhole.121
+	}
+}
+
 on_monthly_pulse_country = {
 	events = {
 		cp26_dominion.2
-		cp26_bajoran_wormhole.120
+		cp26_dominion.3
+		cp26_dominion.4
 	}
 }

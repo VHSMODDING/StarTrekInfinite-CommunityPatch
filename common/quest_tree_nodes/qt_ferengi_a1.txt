@@ -3,7 +3,7 @@
 # Condition : 3 pactes commerciaux actifs
 
 qt_ferengi_a1 = {
-	position = { x = 0 y = 0 }
+	position = { x = 6 y = 0 }
 
 	potential = {
 		has_country_id = ferengi
@@ -34,11 +34,10 @@ qt_ferengi_a1 = {
 			energy    = 800
 			influence = 150
 		}
+		add_modifier = { modifier = qt_ferengi_a1_effect }
 	}
 
-	modifier = {
-		commercial_pacts_influence_upkeep_mult = -1.0
-	}
+	modifier = { }
 
 	ai_weight = {
 		factor = 1000

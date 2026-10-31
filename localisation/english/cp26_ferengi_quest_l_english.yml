@@ -12,9 +12,9 @@
 
  # A3 - Rule 3
  qt_ferengi_a3:0                "Rule 3"
- qt_ferengi_a3_desc:0           "\"War is good for business.\"\n\nWhile others fight for ideals, the Alliance fights for profit. Sell weapons to one of the factions involved in the Bajor crisis to validate this rule."
- qt_ferengi_a3_weapons_tooltip_success:0 "£trigger_yes£ Weapons sold during the §YBajor§! crisis"
- qt_ferengi_a3_weapons_tooltip_fail:0    "£trigger_no£ No weapons sold during the §YBajor§! crisis"
+ qt_ferengi_a3_desc:0           "\"War is good for business.\"\n\nWhile others fight for ideals, the Alliance fights for profit. Sell weapons during the Bajor crisis, or maintain three thousand Energy Credits while the Alliance is at war."
+ qt_ferengi_a3_weapons_tooltip_success:0 "£trigger_yes£ Profited from the §YBajor§! crisis, or hold §Y3000§! Energy Credits while at war"
+ qt_ferengi_a3_weapons_tooltip_fail:0    "£trigger_no£ Profit from the §YBajor§! crisis, or hold §Y3000§! Energy Credits while at war"
 
  # A4 - Rule 4
  qt_ferengi_a4:0                "Rule 4"
@@ -28,7 +28,7 @@
 
  # A6 - Rule 6
  qt_ferengi_a6:0                "Rule 6"
- qt_ferengi_a6_desc:0           "\"Free advice is seldom cheap.\"\n\nEvery word of counsel has a price. The Alliance does not offer wisdom for nothing - it deploys envoys to extract information, forge deals, and keep rivals guessing. Recruit six envoys to put this rule into practice."
+ qt_ferengi_a6_desc:0           "\"Free advice is seldom cheap.\"\n\nEvery word of counsel has a price. Employ two envoys and maintain two research agreements so that every exchange of advice benefits the Alliance."
 
  # A7 - Rule 7
  qt_ferengi_a7:0                "Rule 7"
@@ -52,6 +52,20 @@
  qt_ferengi_a10:0               "Rule 10"
  qt_ferengi_a10_desc:0          "\"Opportunity plus instinct equals profit.\"\n\nThe greatest fortunes are built not by luck, but by recognizing opportunity before anyone else does, and acting on it without hesitation. Construct five megastructures - monuments to Ferengi ambition carved into the fabric of the Galaxy."
 
+ # A11-A16 - completed CP26 branches and finale
+ qt_ferengi_a11:0               "Markets Without Borders"
+ qt_ferengi_a11_desc:0          "A customer on one world is an opportunity. Customers on every world are an empire. Maintain at least three active Ferengi orbital platforms in foreign partner empires."
+ qt_ferengi_a12:0               "The Platform Portfolio"
+ qt_ferengi_a12_desc:0          "No market should depend on a single product. Master Grand Nagus Enclaves, Acquisition Platforms and Quark orbital franchises to complete the Alliance's commercial portfolio."
+ qt_ferengi_a13:0               "Protect the Investment"
+ qt_ferengi_a13_desc:0          "Profit attracts customers, competitors and thieves. Hold ten thousand Energy Credits and field enough naval power to make every contract enforceable."
+ qt_ferengi_a14:0               "Galactic Franchise Network"
+ qt_ferengi_a14_desc:0          "Turn diplomacy into dependable revenue. Maintain five commercial pacts and an Energy Credit income of at least 150 per month."
+ qt_ferengi_a15:0               "Liquid Assets"
+ qt_ferengi_a15_desc:0          "A Grand Nagus must be able to buy an opportunity the moment it appears. Accumulate fifteen thousand Energy Credits, seven thousand five hundred Minerals and five hundred Influence."
+ qt_ferengi_a16:0               "The Grand Nagus's Ledger"
+ qt_ferengi_a16_desc:0          "Every market, platform and contract now feeds the same ledger. The Ferengi Alliance has become a galactic commercial power whose influence is measured in profit."
+
  # Condition tooltips
  qt_ferengi_a1_pacts_tooltip_success:0  "£trigger_yes£ Have §Y3§! active commercial pacts"
  qt_ferengi_a1_pacts_tooltip_fail:0     "£trigger_no£ Have §Y3§! active commercial pacts"
@@ -59,12 +73,26 @@
  qt_ferengi_a2_pacts_tooltip_fail:0     "£trigger_no£ Have §Y2§! active migration pacts"
  qt_ferengi_a5_colonies_tooltip_success:0 "£trigger_yes£ Own §Y4§! colonized planets"
  qt_ferengi_a5_colonies_tooltip_fail:0    "£trigger_no£ Own §Y4§! colonized planets"
- qt_ferengi_a6_envoys_tooltip_success:0 "£trigger_yes£ Recruit §Y6§! envoys"
- qt_ferengi_a6_envoys_tooltip_fail:0    "£trigger_no£ Recruit §Y6§! envoys"
+ qt_ferengi_a6_envoys_tooltip_success:0 "£trigger_yes£ Employ §Y2§! envoys"
+ qt_ferengi_a6_envoys_tooltip_fail:0    "£trigger_no£ Employ §Y2§! envoys"
  qt_ferengi_a9_spy_tooltip_success:0    "£trigger_yes£ Complete §Y3§! successful spy missions"
  qt_ferengi_a9_spy_tooltip_fail:0       "£trigger_no£ Complete §Y3§! successful spy missions"
  qt_ferengi_a10_mega_tooltip_success:0  "£trigger_yes£ Own §Y5§! megastructures"
  qt_ferengi_a10_mega_tooltip_fail:0     "£trigger_no£ Own §Y5§! megastructures"
+ qt_ferengi_a11_branches_tooltip_success:0 "£trigger_yes£ Maintain §Y3§! active foreign Ferengi platforms (§Y[This.cp26_branch_total_count]§!/§Y3§!)"
+ qt_ferengi_a11_branches_tooltip_fail:0    "£trigger_no£ Maintain §Y3§! active foreign Ferengi platforms (§Y[This.cp26_branch_total_count]§!/§Y3§!)"
+
+ qt_ferengi_a1_effect:0  "Acquisition Without Overhead"
+ qt_ferengi_a3_effect:0  "Wartime Margins"
+ qt_ferengi_a5_effect:0  "Expansion Capital"
+ qt_ferengi_a7_effect:0  "Calculated Peace"
+ qt_ferengi_a9_effect:0  "Market Intelligence"
+ qt_ferengi_a11_effect:0 "Foreign Franchise Network"
+ qt_ferengi_a12_effect:0 "Standardized Orbital Commerce"
+ qt_ferengi_a13_effect:0 "Protected Investments"
+ qt_ferengi_a14_effect:0 "Galactic Franchise Network"
+ qt_ferengi_a15_effect:0 "Deep Reserves"
+ qt_ferengi_a16_effect:0 "Commercial Hegemony"
 
  mod_commercial_pacts_influence_upkeep_mult:0 "Commercial pact influence upkeep"
  commercial_pacts_influence_upkeep_mult:0 "Commercial pact influence upkeep"

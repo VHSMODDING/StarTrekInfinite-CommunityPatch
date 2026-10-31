@@ -1,18 +1,20 @@
 # Ferengi Quest Tree - A3
 # Règle 3 : "War is good for business."
 # Condition : avoir vendu des armes dans l'arc Libération de Bajor
+#          OU disposer de 3000 crédits pendant une guerre
 #   - aux Bajorans (5.a)    → cp26_bajor_opt_feren
 #   - aux Cardassiens (5.b) → cp26_bajor_cardassia_delivery
 #   - aux deux camps (5.c)  → cp26_bajor_feren_both
 
 qt_ferengi_a3 = {
-	position = { x = 0 y = 2 }
+	position = { x = 10 y = 1 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a1
 	}
 
 	blocked_by = {
@@ -25,6 +27,10 @@ qt_ferengi_a3 = {
 					has_country_flag = cp26_bajor_opt_feren
 					has_country_flag = cp26_bajor_cardassia_delivery
 					has_country_flag = cp26_bajor_feren_both
+					AND = {
+						is_at_war = yes
+						resource_stockpile_compare = { resource = energy value >= 3000 }
+					}
 				}
 			}
 			set_variable = { which = qt_ferengi_a3_weapons_sold value = 1 }
@@ -56,6 +62,7 @@ qt_ferengi_a3 = {
 			energy    = 1000
 			influence = 200
 		}
+		add_modifier = { modifier = qt_ferengi_a3_effect years = 20 }
 	}
 
 	modifier = {

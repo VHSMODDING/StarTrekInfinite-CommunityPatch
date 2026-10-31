@@ -10,7 +10,8 @@
 # cp26_bajoran_wormhole.55  - Touriste Ferengi : timer 360j → découverte
 # cp26_bajoran_wormhole.100 - Découverte du trou de ver (tous empires)
 # cp26_bajoran_wormhole.110 - Traversée instantanée par commande de flotte
-# cp26_bajoran_wormhole.120 - Gestion mensuelle du passage Dominion IA
+# cp26_bajoran_wormhole.120 - Ancien palliatif IA (non appelé, conservé pour compatibilité)
+# cp26_bajoran_wormhole.121 - Traversée instantanée choisie par le pathfinding IA
 ##########################################################################
 
 namespace = cp26_bajoran_wormhole
@@ -105,7 +106,45 @@ fleet_event = {
 }
 
 ##########################################################################
-# 120 - Dominion IA : envoie une flotte de guerre Gamma vers Idran
+# 121 - IA : le pathfinding choisit le vortex, le script termine le saut
+##########################################################################
+fleet_event = {
+	id = cp26_bajoran_wormhole.121
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		owner = { is_ai = yes }
+		exists = from
+		exists = fromfrom
+		OR = {
+			AND = {
+				from = { has_star_flag = bajoran_system }
+				fromfrom = { has_star_flag = cp26_gamma_idran_system }
+			}
+			AND = {
+				from = { has_star_flag = cp26_gamma_idran_system }
+				fromfrom = { has_star_flag = bajoran_system }
+			}
+		}
+	}
+
+	immediate = {
+		set_location = {
+			target = from
+			distance = 25
+			angle = random
+			direction = in_system
+		}
+		# The strategic AI immediately replans from the correct side of the route.
+		clear_orders = yes
+		clear_fleet_actions = this
+	}
+}
+
+##########################################################################
+# 120 - Compatibilité : remplacé par le routage natif IA du bypass
 ##########################################################################
 country_event = {
 	id = cp26_bajoran_wormhole.120
@@ -114,31 +153,50 @@ country_event = {
 
 	trigger = {
 		is_ai = yes
-		is_cp26_dominion = yes
-		is_at_war = yes
 		has_global_flag = cp26_bajoran_wormhole_spawned
 		exists = event_target:bajoran_system
 		exists = event_target:cp26_gamma_idran_system
-		any_owned_fleet = {
-			is_ship_class = shipclass_military
-			is_in_combat = no
-			is_mia = no
-			solar_system = { has_star_flag = cp26_gamma_quadrant_system }
+		exists = event_target:cp26_dominion_country
+		OR = {
+			is_cp26_dominion = yes
+			has_country_flag = cp26_bajoran_wormhole_discovered
+			AND = {
+				is_at_war = yes
+				is_at_war_with = event_target:cp26_dominion_country
+			}
 		}
 	}
 
 	immediate = {
-		# Resolve the star every time so this also works on saves created before
-		# the scripted transit command was added.
 		event_target:cp26_gamma_idran_system = {
 			random_system_planet = {
 				limit = { is_star = yes }
 				save_global_event_target_as = cp26_gamma_idran_transit_star
 			}
 		}
+		event_target:bajoran_system = {
+			random_system_planet = {
+				limit = { is_star = yes }
+				save_global_event_target_as = cp26_bajoran_transit_star
+			}
+		}
 
+		# First contact with the route is an exploration decision, independent of
+		# war. The Dominion sends a single scout through Idran; an Alpha/Beta AI
+		# that discovered the vortex sends one science ship through Bajor.
 		if = {
-			limit = { exists = event_target:cp26_gamma_idran_transit_star }
+			limit = {
+				is_cp26_dominion = yes
+				NOT = { has_country_flag = cp26_ai_alpha_wormhole_expedition_sent }
+				exists = event_target:cp26_gamma_idran_transit_star
+				any_owned_fleet = {
+					is_ship_class = shipclass_military
+					is_in_combat = no
+					is_mia = no
+					solar_system = { has_star_flag = cp26_gamma_quadrant_system }
+				}
+			}
+			set_country_flag = cp26_ai_alpha_wormhole_expedition_sent
 			random_owned_fleet = {
 				limit = {
 					is_ship_class = shipclass_military
@@ -148,13 +206,101 @@ country_event = {
 				}
 				if = {
 					limit = { solar_system = { has_star_flag = cp26_gamma_idran_system } }
-					cp26_ai_dominion_cross_bajoran_wormhole = yes
+					cp26_ai_cross_bajoran_wormhole = yes
 				}
 				else = {
 					auto_move_to_planet = {
 						target = event_target:cp26_gamma_idran_transit_star
 						clear_auto_move_on_arrival = yes
-						arrival_effect = cp26_ai_dominion_cross_bajoran_wormhole
+						arrival_effect = cp26_ai_cross_bajoran_wormhole
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { is_cp26_dominion = yes }
+				has_country_flag = cp26_bajoran_wormhole_discovered
+				NOT = { has_country_flag = cp26_ai_gamma_wormhole_expedition_sent }
+				exists = event_target:cp26_bajoran_transit_star
+				any_owned_fleet = {
+					is_ship_class = shipclass_science_ship
+					is_in_combat = no
+					is_mia = no
+					solar_system = { NOT = { has_star_flag = cp26_gamma_quadrant_system } }
+				}
+			}
+			set_country_flag = cp26_ai_gamma_wormhole_expedition_sent
+			random_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_science_ship
+					is_in_combat = no
+					is_mia = no
+					solar_system = { NOT = { has_star_flag = cp26_gamma_quadrant_system } }
+				}
+				if = {
+					limit = { solar_system = { has_star_flag = bajoran_system } }
+					cp26_ai_cross_bajoran_wormhole = yes
+				}
+				else = {
+					auto_move_to_planet = {
+						target = event_target:cp26_bajoran_transit_star
+						clear_auto_move_on_arrival = yes
+						arrival_effect = cp26_ai_cross_bajoran_wormhole
+					}
+				}
+			}
+		}
+		# Once exploration has happened, military transit is only an assistance to
+		# wars the normal AI has independently chosen to wage.
+		else_if = {
+			limit = {
+				is_cp26_dominion = yes
+				is_at_war = yes
+				exists = event_target:cp26_gamma_idran_transit_star
+			}
+			random_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_military
+					is_in_combat = no
+					is_mia = no
+					solar_system = { has_star_flag = cp26_gamma_quadrant_system }
+				}
+				if = {
+					limit = { solar_system = { has_star_flag = cp26_gamma_idran_system } }
+					cp26_ai_cross_bajoran_wormhole = yes
+				}
+				else = {
+					auto_move_to_planet = {
+						target = event_target:cp26_gamma_idran_transit_star
+						clear_auto_move_on_arrival = yes
+						arrival_effect = cp26_ai_cross_bajoran_wormhole
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				is_at_war = yes
+				is_at_war_with = event_target:cp26_dominion_country
+				exists = event_target:cp26_bajoran_transit_star
+			}
+			random_owned_fleet = {
+				limit = {
+					is_ship_class = shipclass_military
+					is_in_combat = no
+					is_mia = no
+					solar_system = { NOT = { has_star_flag = cp26_gamma_quadrant_system } }
+				}
+				if = {
+					limit = { solar_system = { has_star_flag = bajoran_system } }
+					cp26_ai_cross_bajoran_wormhole = yes
+				}
+				else = {
+					auto_move_to_planet = {
+						target = event_target:cp26_bajoran_transit_star
+						clear_auto_move_on_arrival = yes
+						arrival_effect = cp26_ai_cross_bajoran_wormhole
 					}
 				}
 			}
@@ -393,7 +539,8 @@ country_event = {
 						bypass_type = cp26_bajoran_wormhole
 						random_pos = no
 						orbit_angle = 100
-						orbit_distance = -150
+						# Keep the approach short: the bypass jump itself is instant.
+						orbit_distance = 30
 					}
 				}
 			}

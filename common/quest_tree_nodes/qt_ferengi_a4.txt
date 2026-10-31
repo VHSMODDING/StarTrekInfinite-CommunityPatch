@@ -4,13 +4,14 @@
 #          OU avoir envoyé une flotte militaire à Bajor (arc Libération)
 
 qt_ferengi_a4 = {
-	position = { x = 0 y = 3 }
+	position = { x = 10 y = 2 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a3
 	}
 
 	blocked_by = {

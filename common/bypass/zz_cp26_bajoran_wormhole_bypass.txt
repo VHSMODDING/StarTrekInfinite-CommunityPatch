@@ -1,11 +1,9 @@
-# Dedicated Bajor-Idran natural wormhole. It remains separate from ordinary
-# wormholes so its long-distance travel factor can be tuned independently.
+# Dedicated Bajor-Idran wormhole. The AI sees it as a normal route and can
+# therefore use its ordinary exploration, military and civilian pathfinding.
+# Human players keep the explicit instant fleet command.
 cp26_bajoran_wormhole = {
 	name = NATURAL_WORMHOLE_GALACTIC
-	# Passage is handled by the explicit fleet command. Keeping this out of
-	# automatic pathfinding prevents the engine from starting its slow generic
-	# bypass travel animation instead of the instantaneous scripted transfer.
-	is_pathfind = no
+	is_pathfind = yes
 	uses_action = no
 	requires_exploration = yes
 	always_active = yes
@@ -27,9 +25,25 @@ cp26_bajoran_wormhole = {
 	country_can_use = {
 		custom_tooltip = {
 			fail_text = CP26_BAJORAN_WORMHOLE_USE_FLEET_COMMAND
-			always = no
+			is_ai = yes
+			OR = {
+				is_cp26_dominion = yes
+				has_country_flag = cp26_bajoran_wormhole_discovered
+				has_seen_any_bypass = cp26_bajoran_wormhole
+			}
+			OR = {
+				NOT = { exists = from }
+				from = { NOT = { has_closed_borders = root } }
+				from = { is_at_war_with = root }
+				from = {
+					NOT = { is_country_type = default }
+					NOT = { is_country_type = cp26_dominion }
+				}
+			}
 		}
 	}
 
-	on_action = "on_entering_wormhole"
+	# The route is native for AI planning, but the actual crossing is completed
+	# by CP26's instant scripted transfer when the fleet enters the bypass.
+	on_action = "on_entering_cp26_bajoran_wormhole"
 }

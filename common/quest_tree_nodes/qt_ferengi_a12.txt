@@ -1,0 +1,22 @@
+# Ferengi Quest Tree - A12
+# Master every Ferengi orbital platform technology.
+
+qt_ferengi_a12 = {
+	position = { x = 6 y = 4 }
+	potential = { has_country_id = ferengi }
+	parents = { qt_ferengi_a10 }
+	blocked_by = { }
+	possible = {
+		has_technology = tech_cp26_ferengi_trade_platforms
+		has_technology = tech_cp26_ferengi_mining_platforms
+		has_technology = tech_cp26_ferengi_quark_platforms
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { energy = 2200 minerals = 1500 }
+		add_modifier = { modifier = qt_ferengi_a12_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}

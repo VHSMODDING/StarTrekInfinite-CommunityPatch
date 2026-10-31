@@ -3,13 +3,14 @@
 # Condition : avoir 3 scientifiques ET 3 amiraux
 
 qt_ferengi_a8 = {
-	position = { x = 2 y = 1 }
+	position = { x = 6 y = 2 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a5
 	}
 
 	blocked_by = {

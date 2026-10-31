@@ -3,13 +3,14 @@
 # Condition : avoir déclaré un statu quo (flag set par on_status_quo)
 
 qt_ferengi_a7 = {
-	position = { x = 2 y = 0 }
+	position = { x = 10 y = 3 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a4
 	}
 
 	blocked_by = {
@@ -47,6 +48,7 @@ qt_ferengi_a7 = {
 			energy    = 800
 			influence = 150
 		}
+		add_modifier = { modifier = qt_ferengi_a7_effect }
 	}
 
 	modifier = {

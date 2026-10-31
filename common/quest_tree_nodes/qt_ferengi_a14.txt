@@ -1,0 +1,22 @@
+# Ferengi Quest Tree - A14
+# Unite the diplomatic and industrial halves of the commercial network.
+
+qt_ferengi_a14 = {
+	position = { x = 4 y = 5 }
+	potential = { has_country_id = ferengi }
+	parents = { qt_ferengi_a11 qt_ferengi_a12 }
+	dotted_parents = { qt_ferengi_a11 qt_ferengi_a12 }
+	blocked_by = { }
+	possible = {
+		num_commercial_pacts >= 5
+		has_monthly_income = { resource = energy value >= 150 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { energy = 3000 influence = 300 }
+		add_modifier = { modifier = qt_ferengi_a14_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}

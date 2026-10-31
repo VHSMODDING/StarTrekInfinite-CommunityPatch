@@ -32,7 +32,8 @@ cp26_dominion = {
 		follow = yes
 		can_use_market = yes
 		espionage = yes
-		quest_tree = no
+		# CP26 gives the Dominion a complete, AI-driven quest tree.
+		quest_tree = yes
 		modules = {
 			military_minister_module
 			foreign_minister_module

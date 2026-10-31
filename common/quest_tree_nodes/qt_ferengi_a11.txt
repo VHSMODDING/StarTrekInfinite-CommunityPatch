@@ -1,0 +1,26 @@
+# Ferengi Quest Tree - A11
+# Develop a genuine foreign platform network.
+
+qt_ferengi_a11 = {
+	position = { x = 2 y = 4 }
+	potential = { has_country_id = ferengi }
+	parents = { qt_ferengi_a9 }
+	blocked_by = { }
+
+	possible = {
+		custom_tooltip = {
+			success_text = qt_ferengi_a11_branches_tooltip_success
+			fail_text = qt_ferengi_a11_branches_tooltip_fail
+			check_variable = { which = cp26_branch_total_count value >= 3 }
+		}
+	}
+
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { energy = 1800 influence = 200 }
+		add_modifier = { modifier = qt_ferengi_a11_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}

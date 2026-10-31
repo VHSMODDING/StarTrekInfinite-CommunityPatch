@@ -1,0 +1,19 @@
+# Ferengi Quest Tree - A16
+# Final convergence: the Alliance has become a galactic commercial power.
+
+qt_ferengi_a16 = {
+	position = { x = 6 y = 6 }
+	potential = { has_country_id = ferengi }
+	parents = { qt_ferengi_a14 qt_ferengi_a15 }
+	dotted_parents = { qt_ferengi_a14 qt_ferengi_a15 }
+	blocked_by = { }
+	possible = { always = yes }
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { energy = 5000 influence = 500 unity = 7500 }
+		add_modifier = { modifier = qt_ferengi_a16_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}

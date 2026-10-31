@@ -3,13 +3,14 @@
 # Condition : avoir réussi 3 missions d'espionnage
 
 qt_ferengi_a9 = {
-	position = { x = 2 y = 2 }
+	position = { x = 2 y = 3 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a6
 	}
 
 	blocked_by = {
@@ -34,6 +35,7 @@ qt_ferengi_a9 = {
 			energy    = 800
 			influence = 150
 		}
+		add_modifier = { modifier = qt_ferengi_a9_effect }
 	}
 
 	modifier = {

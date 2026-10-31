@@ -1,0 +1,21 @@
+# Ferengi Quest Tree - A13
+# Keep enough liquid capital and force to protect every contract.
+
+qt_ferengi_a13 = {
+	position = { x = 10 y = 4 }
+	potential = { has_country_id = ferengi }
+	parents = { qt_ferengi_a7 }
+	blocked_by = { }
+	possible = {
+		resource_stockpile_compare = { resource = energy value >= 10000 }
+		fleet_power >= 4000
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { influence = 350 unity = 2500 }
+		add_modifier = { modifier = qt_ferengi_a13_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}

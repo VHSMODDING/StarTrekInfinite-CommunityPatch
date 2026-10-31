@@ -3,13 +3,14 @@
 # Condition : posséder 4 planètes colonisées (Ferenginar + 3 colonies)
 
 qt_ferengi_a5 = {
-	position = { x = 0 y = 4 }
+	position = { x = 6 y = 1 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a1
 	}
 
 	blocked_by = {
@@ -36,6 +37,7 @@ qt_ferengi_a5 = {
 			energy    = 1000
 			influence = 200
 		}
+		add_modifier = { modifier = qt_ferengi_a5_effect }
 	}
 
 	modifier = {

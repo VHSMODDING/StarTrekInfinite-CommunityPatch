@@ -1,0 +1,332 @@
+# Community Patch 2026 - Dominion quest tree
+# Three canonical branches: administration, Jem'Hadar war machine, and
+# Founder/Vorta intelligence.  All conditions are live game-state checks so
+# the non-playable Dominion AI can complete the tree without scripted wars.
+
+qt_cp26_dominion_1 = {
+	position = { x = 6 y = 0 }
+	potential = { is_cp26_dominion = yes }
+	parents = { }
+	blocked_by = { }
+	possible = {
+		has_technology = tech_cp26_dominion_polaron_beam
+		has_technology = tech_cp26_jemhadar_cloning
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { unity = 1500 influence = 100 }
+		add_modifier = { modifier = qt_cp26_dominion_1_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+# Vorta administration / Gamma Quadrant order
+qt_cp26_dominion_2 = {
+	position = { x = 2 y = 1 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_1 }
+	blocked_by = { }
+	possible = {
+		has_monthly_income = { resource = energy value >= 45 }
+		has_monthly_income = { resource = minerals value >= 45 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { energy = 2000 minerals = 2000 }
+		add_modifier = { modifier = qt_cp26_dominion_2_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_3 = {
+	position = { x = 2 y = 2 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_2 }
+	blocked_by = { }
+	possible = { count_owned_planet = { count >= 3 } }
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 2500 influence = 150 }
+		add_modifier = { modifier = qt_cp26_dominion_3_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_4 = {
+	position = { x = 2 y = 3 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_3 }
+	blocked_by = { }
+	possible = {
+		count_owned_planet = { count >= 5 }
+		resource_stockpile_compare = { resource = influence value >= 300 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { unity = 3000 influence = 200 }
+		add_modifier = { modifier = qt_cp26_dominion_4_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_5 = {
+	position = { x = 2 y = 4 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_4 }
+	blocked_by = { }
+	possible = {
+		count_owned_planet = { count >= 7 }
+		has_monthly_income = { resource = unity value >= 50 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { energy = 4000 minerals = 4000 unity = 4000 }
+		add_modifier = { modifier = qt_cp26_dominion_5_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+# Jem'Hadar war machine
+qt_cp26_dominion_6 = {
+	position = { x = 6 y = 1 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_1 }
+	blocked_by = { }
+	possible = { fleet_power >= 4000 }
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 2000 food = 2000 }
+		add_modifier = { modifier = qt_cp26_dominion_6_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_7 = {
+	position = { x = 6 y = 2 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_6 }
+	blocked_by = { }
+	possible = {
+		has_technology = tech_cp26_ketracel_white
+		resource_stockpile_compare = { resource = food value >= 5000 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 2500 food = 3500 }
+		add_modifier = { modifier = qt_cp26_dominion_7_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_8 = {
+	position = { x = 6 y = 3 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_7 }
+	blocked_by = { }
+	possible = {
+		fleet_power >= 9000
+		resource_stockpile_compare = { resource = alloys value >= 5000 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 4000 influence = 150 }
+		add_modifier = { modifier = qt_cp26_dominion_8_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_9 = {
+	position = { x = 6 y = 4 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_8 }
+	blocked_by = { }
+	possible = {
+		fleet_power >= 14000
+		has_monthly_income = { resource = alloys value >= 75 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 5000 unity = 3000 }
+		add_modifier = { modifier = qt_cp26_dominion_9_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+# Founders and Vorta: contact, intelligence and manipulation
+qt_cp26_dominion_10 = {
+	position = { x = 10 y = 1 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_1 }
+	blocked_by = { }
+	on_before_possible = {
+		set_variable = { which = cp26_dominion_known_empires value = 0 }
+		every_country = {
+			limit = { has_communications = root is_regular_empire = yes NOT = { is_same_value = root } }
+			root = { change_variable = { which = cp26_dominion_known_empires value = 1 } }
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			success_text = qt_cp26_dominion_contacts_2_success
+			fail_text = qt_cp26_dominion_contacts_2_fail
+			check_variable = { which = cp26_dominion_known_empires value >= 2 }
+		}
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { influence = 150 unity = 1500 }
+		add_modifier = { modifier = qt_cp26_dominion_10_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_11 = {
+	position = { x = 10 y = 2 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_10 }
+	blocked_by = { }
+	possible = { successful_spy_mission_count >= 1 }
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { influence = 200 unity = 2000 }
+		add_modifier = { modifier = qt_cp26_dominion_11_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_12 = {
+	position = { x = 10 y = 3 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_11 }
+	blocked_by = { }
+	on_before_possible = {
+		set_variable = { which = cp26_dominion_known_empires value = 0 }
+		every_country = {
+			limit = { has_communications = root is_regular_empire = yes NOT = { is_same_value = root } }
+			root = { change_variable = { which = cp26_dominion_known_empires value = 1 } }
+		}
+	}
+	possible = {
+		successful_spy_mission_count >= 3
+		custom_tooltip = {
+			success_text = qt_cp26_dominion_contacts_4_success
+			fail_text = qt_cp26_dominion_contacts_4_fail
+			check_variable = { which = cp26_dominion_known_empires value >= 4 }
+		}
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { influence = 250 unity = 2500 }
+		add_modifier = { modifier = qt_cp26_dominion_12_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_13 = {
+	position = { x = 10 y = 4 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_12 }
+	blocked_by = { }
+	possible = {
+		successful_spy_mission_count >= 5
+		resource_stockpile_compare = { resource = influence value >= 500 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { influence = 300 unity = 3500 }
+		add_modifier = { modifier = qt_cp26_dominion_13_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+# Convergence and Dominion War-era heavy fleet
+qt_cp26_dominion_14 = {
+	position = { x = 6 y = 5 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_5 qt_cp26_dominion_9 qt_cp26_dominion_13 }
+	dotted_parents = { qt_cp26_dominion_5 qt_cp26_dominion_9 qt_cp26_dominion_13 }
+	blocked_by = { }
+	possible = {
+		count_owned_planet = { count >= 7 }
+		fleet_power >= 16000
+		successful_spy_mission_count >= 5
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 6000 influence = 300 unity = 5000 }
+		add_modifier = { modifier = qt_cp26_dominion_14_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_15 = {
+	position = { x = 6 y = 6 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_14 }
+	blocked_by = { }
+	possible = {
+		years_passed > 28
+		fleet_power >= 20000
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		if = {
+			limit = { NOT = { has_technology = tech_cp26_dominion_battleship } }
+			give_technology = { tech = tech_cp26_dominion_battleship message = no }
+			create_ship_design = { design = "NAME_CP26_DominionBattleship" }
+			add_ship_design = last_created_design
+		}
+		add_resource = { alloys = 8000 unity = 5000 }
+		add_modifier = { modifier = qt_cp26_dominion_15_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}
+
+qt_cp26_dominion_16 = {
+	position = { x = 6 y = 7 }
+	potential = { is_cp26_dominion = yes }
+	parents = { qt_cp26_dominion_15 }
+	blocked_by = { }
+	possible = {
+		fleet_power >= 26000
+		count_owned_planet = { count >= 9 }
+	}
+	on_started = { }
+	on_blocked = { }
+	on_finished = {
+		add_resource = { alloys = 10000 influence = 500 unity = 10000 }
+		add_modifier = { modifier = qt_cp26_dominion_16_effect }
+	}
+	modifier = { }
+	ai_weight = { factor = 1000 }
+}

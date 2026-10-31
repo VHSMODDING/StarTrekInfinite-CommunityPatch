@@ -12,9 +12,9 @@
 
  # A3 - Règle 3
  qt_ferengi_a3:0                "Règle 3"
- qt_ferengi_a3_desc:0           "« La guerre est bonne pour les affaires. »\n\nPendant que les autres se battent pour des idéaux, l'Alliance se bat pour le profit. Vendez des armes à l'un des camps impliqués dans la crise de Bajor pour valider cette règle."
- qt_ferengi_a3_weapons_tooltip_success:0 "£trigger_yes£ Armes vendues pendant la crise de §YBajor§!"
- qt_ferengi_a3_weapons_tooltip_fail:0    "£trigger_no£ Aucune vente d'armes réalisée pendant la crise de §YBajor§!"
+ qt_ferengi_a3_desc:0           "« La guerre est bonne pour les affaires. »\n\nPendant que les autres se battent pour des idéaux, l'Alliance se bat pour le profit. Vendez des armes pendant la crise de Bajor, ou conservez trois mille crédits énergétiques pendant que l'Alliance est en guerre."
+ qt_ferengi_a3_weapons_tooltip_success:0 "£trigger_yes£ Profit tiré de la crise de §YBajor§!, ou §Y3000§! crédits énergétiques détenus en temps de guerre"
+ qt_ferengi_a3_weapons_tooltip_fail:0    "£trigger_no£ Profiter de la crise de §YBajor§!, ou détenir §Y3000§! crédits énergétiques en temps de guerre"
 
  # A4 - Règle 4
  qt_ferengi_a4:0                "Règle 4"
@@ -28,7 +28,7 @@
 
  # A6 - Règle 6
  qt_ferengi_a6:0                "Règle 6"
- qt_ferengi_a6_desc:0           "« Les conseils gratuits coûtent souvent cher. »\n\nChaque mot de conseil a un prix. L'Alliance ne prodigue pas la sagesse gratuitement - elle déploie des émissaires pour soutirer des informations, conclure des accords et garder les rivaux dans l'incertitude. Recrutez six émissaires pour mettre cette règle en pratique."
+ qt_ferengi_a6_desc:0           "« Les conseils gratuits coûtent souvent cher. »\n\nChaque conseil a un prix. Employez deux émissaires et maintenez deux accords de recherche afin que chaque échange de connaissances profite à l'Alliance."
 
  # A7 - Règle 7
  qt_ferengi_a7:0                "Règle 7"
@@ -52,6 +52,20 @@
  qt_ferengi_a10:0               "Règle 10"
  qt_ferengi_a10_desc:0          "« Opportunité plus instinct égale profit. »\n\nLes plus grandes fortunes ne sont pas bâties par chance, mais en reconnaissant une opportunité avant tout le monde et en agissant sans hésitation. Construisez cinq mégastructures - des monuments à l'ambition Ferengi gravés dans le tissu de la Galaxie."
 
+ # A11-A16 - branches CP26 complétées et conclusion
+ qt_ferengi_a11:0               "Des marchés sans frontières"
+ qt_ferengi_a11_desc:0          "Un client sur un monde est une opportunité. Des clients sur chaque monde forment un empire. Maintenez au moins trois plateformes orbitales ferengies actives dans des empires partenaires étrangers."
+ qt_ferengi_a12:0               "Le portefeuille orbital"
+ qt_ferengi_a12_desc:0          "Aucun marché ne doit dépendre d'un seul produit. Maîtrisez les enclaves du Grand Nagus, les plateformes d'acquisition et les franchises orbitales de Quark."
+ qt_ferengi_a13:0               "Protéger l'investissement"
+ qt_ferengi_a13_desc:0          "Le profit attire les clients, les concurrents et les voleurs. Conservez dix mille crédits énergétiques et déployez une puissance navale suffisante pour faire respecter chaque contrat."
+ qt_ferengi_a14:0               "Réseau de franchises galactique"
+ qt_ferengi_a14_desc:0          "Transformez la diplomatie en revenus réguliers. Maintenez cinq pactes commerciaux et un revenu d'au moins 150 crédits énergétiques par mois."
+ qt_ferengi_a15:0               "Actifs liquides"
+ qt_ferengi_a15_desc:0          "Un Grand Nagus doit pouvoir acheter une opportunité dès qu'elle apparaît. Accumulez quinze mille crédits énergétiques, sept mille cinq cents minerais et cinq cents points d'influence."
+ qt_ferengi_a16:0               "Le grand livre du Grand Nagus"
+ qt_ferengi_a16_desc:0          "Chaque marché, plateforme et contrat alimente désormais le même grand livre. L'Alliance ferengie est devenue une puissance commerciale galactique dont l'influence se mesure en profits."
+
  # Condition tooltips
  qt_ferengi_a1_pacts_tooltip_success:0  "£trigger_yes£ Avoir §Y3§! pactes commerciaux actifs"
  qt_ferengi_a1_pacts_tooltip_fail:0     "£trigger_no£ Avoir §Y3§! pactes commerciaux actifs"
@@ -59,12 +73,26 @@
  qt_ferengi_a2_pacts_tooltip_fail:0     "£trigger_no£ Avoir §Y2§! traités migratoires actifs"
  qt_ferengi_a5_colonies_tooltip_success:0 "£trigger_yes£ Posséder §Y4§! planètes colonisées"
  qt_ferengi_a5_colonies_tooltip_fail:0    "£trigger_no£ Posséder §Y4§! planètes colonisées"
- qt_ferengi_a6_envoys_tooltip_success:0 "£trigger_yes£ Recruter §Y6§! émissaires"
- qt_ferengi_a6_envoys_tooltip_fail:0    "£trigger_no£ Recruter §Y6§! émissaires"
+ qt_ferengi_a6_envoys_tooltip_success:0 "£trigger_yes£ Employer §Y2§! émissaires"
+ qt_ferengi_a6_envoys_tooltip_fail:0    "£trigger_no£ Employer §Y2§! émissaires"
  qt_ferengi_a9_spy_tooltip_success:0    "£trigger_yes£ Réussir §Y3§! missions d'espionnage"
  qt_ferengi_a9_spy_tooltip_fail:0       "£trigger_no£ Réussir §Y3§! missions d'espionnage"
  qt_ferengi_a10_mega_tooltip_success:0  "£trigger_yes£ Posséder §Y5§! mégastructures"
  qt_ferengi_a10_mega_tooltip_fail:0     "£trigger_no£ Posséder §Y5§! mégastructures"
+ qt_ferengi_a11_branches_tooltip_success:0 "£trigger_yes£ Maintenir §Y3§! plateformes ferengies étrangères actives (§Y[This.cp26_branch_total_count]§!/§Y3§!)"
+ qt_ferengi_a11_branches_tooltip_fail:0    "£trigger_no£ Maintenir §Y3§! plateformes ferengies étrangères actives (§Y[This.cp26_branch_total_count]§!/§Y3§!)"
+
+ qt_ferengi_a1_effect:0  "Acquisition sans frais"
+ qt_ferengi_a3_effect:0  "Marges de guerre"
+ qt_ferengi_a5_effect:0  "Capital d'expansion"
+ qt_ferengi_a7_effect:0  "Paix calculée"
+ qt_ferengi_a9_effect:0  "Renseignement commercial"
+ qt_ferengi_a11_effect:0 "Réseau de franchises étrangères"
+ qt_ferengi_a12_effect:0 "Commerce orbital standardisé"
+ qt_ferengi_a13_effect:0 "Investissements protégés"
+ qt_ferengi_a14_effect:0 "Réseau de franchises galactique"
+ qt_ferengi_a15_effect:0 "Réserves profondes"
+ qt_ferengi_a16_effect:0 "Hégémonie commerciale"
 
  mod_commercial_pacts_influence_upkeep_mult:0 "Entretien en influence des pactes commerciaux"
  commercial_pacts_influence_upkeep_mult:0 "Entretien en influence des pactes commerciaux"

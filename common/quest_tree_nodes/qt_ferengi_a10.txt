@@ -3,13 +3,14 @@
 # Condition : posséder 5 mégastructures
 
 qt_ferengi_a10 = {
-	position = { x = 2 y = 3 }
+	position = { x = 6 y = 3 }
 
 	potential = {
 		has_country_id = ferengi
 	}
 
 	parents = {
+		qt_ferengi_a8
 	}
 
 	blocked_by = {

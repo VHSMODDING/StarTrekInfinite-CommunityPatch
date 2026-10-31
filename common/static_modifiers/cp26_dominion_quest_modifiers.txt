@@ -1,0 +1,90 @@
+qt_cp26_dominion_1_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_unity_gu.dds"
+	country_unity_produces_mult = 0.05
+}
+
+qt_cp26_dominion_2_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_production_generic_gu.dds"
+	country_energy_produces_mult = 0.05
+	country_minerals_produces_mult = 0.05
+}
+
+qt_cp26_dominion_3_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_empire_spread_gu.dds"
+	empire_size_colonies_mult = -0.05
+	planet_building_build_speed_mult = 0.10
+}
+
+qt_cp26_dominion_4_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_unity_gu.dds"
+	country_unity_produces_mult = 0.10
+}
+
+qt_cp26_dominion_5_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_production_gu.dds"
+	country_energy_produces_mult = 0.05
+	country_minerals_produces_mult = 0.05
+	country_alloys_produces_add = 8
+}
+
+qt_cp26_dominion_6_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_armies_gu.dds"
+	army_damage_mult = 0.10
+}
+
+qt_cp26_dominion_7_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_armies_gu.dds"
+	army_damage_mult = 0.10
+	planet_army_build_speed_mult = 0.15
+}
+
+qt_cp26_dominion_8_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_gu.dds"
+	ship_fire_rate_mult = 0.05
+}
+
+qt_cp26_dominion_9_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_starbase_gu.dds"
+	starbase_shipyard_build_speed_mult = 0.15
+	ships_upkeep_mult = -0.05
+}
+
+qt_cp26_dominion_10_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_diplomacy_gu.dds"
+	country_diplomatic_relation_trust_mult = 0.05
+}
+
+qt_cp26_dominion_11_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_espionage_gu.dds"
+	country_spy_missions_speed_mult = 0.10
+}
+
+qt_cp26_dominion_12_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_espionage_gu.dds"
+	spies_cap_add = 1
+}
+
+qt_cp26_dominion_13_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_espionage_gu.dds"
+	country_spy_missions_speed_mult = 0.15
+}
+
+qt_cp26_dominion_14_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_production_gu.dds"
+	country_alloys_produces_add = 12
+	country_unity_produces_mult = 0.05
+}
+
+qt_cp26_dominion_15_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_gu.dds"
+	ship_hull_mult = 0.10
+	starbase_shipyard_build_speed_mult = 0.15
+}
+
+qt_cp26_dominion_16_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_gu.dds"
+	ship_weapon_damage = 0.10
+	ship_fire_rate_mult = 0.10
+	ships_upkeep_mult = -0.10
+	country_unity_produces_mult = 0.10
+}

@@ -307,3 +307,73 @@ cp26_ferengi_branch_energy_income_22 = {
 cp26_ferengi_branch_energy_income_23 = {
 	country_energy_produces_add = 214
 }
+
+# Ferengi quest-tree rewards. Their strength follows the permanent rewards of
+# the vanilla major-power trees while remaining focused on trade and contracts.
+qt_ferengi_a1_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_diplomacy_gu.dds"
+	commercial_pacts_influence_upkeep_mult = -0.50
+}
+
+qt_ferengi_a3_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_energy_gu.dds"
+	country_energy_produces_mult = 0.10
+	ships_upkeep_mult = -0.05
+}
+
+qt_ferengi_a5_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_empire_spread_gu.dds"
+	empire_size_colonies_mult = -0.10
+	planet_building_build_speed_mult = 0.10
+}
+
+qt_ferengi_a7_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_diplomacy_gu.dds"
+	country_diplomatic_relation_trust_mult = 0.10
+	country_war_exhaustion_mult = -0.10
+}
+
+qt_ferengi_a9_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_espionage_gu.dds"
+	spies_cap_add = 1
+	country_spy_missions_speed_mult = 0.10
+}
+
+qt_ferengi_a11_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_starbase_gu.dds"
+	country_commercial_pact_mult = 0.15
+	country_starbases_trade_collection_range_mult = 0.20
+}
+
+qt_ferengi_a12_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_production_generic_gu.dds"
+	megastructure_build_speed_mult = 0.15
+	megastructure_build_cost_mult = -0.10
+}
+
+qt_ferengi_a13_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_ship_gu.dds"
+	ships_upkeep_mult = -0.10
+	ship_fire_rate_mult = 0.05
+}
+
+qt_ferengi_a14_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_diplomacy_gu.dds"
+	country_commercial_pact_mult = 0.25
+	commercial_pacts_influence_upkeep_mult = -0.25
+}
+
+qt_ferengi_a15_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_production_gu.dds"
+	country_energy_produces_mult = 0.10
+	country_minerals_produces_mult = 0.10
+	starbase_shipyard_build_speed_mult = 0.15
+}
+
+qt_ferengi_a16_effect = {
+	icon = "gfx/interface/icons/modifiers/mod_energy_gu.dds"
+	country_energy_produces_mult = 0.15
+	country_unity_produces_mult = 0.10
+	country_diplomatic_relation_trust_mult = 0.15
+	trade_value_mult = 0.15
+}

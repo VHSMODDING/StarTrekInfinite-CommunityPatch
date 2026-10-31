@@ -51,9 +51,9 @@ tech_cp26_dominion_battleship = {
 		desc = tech_cp26_dominion_battleship_desc
 		icon = tech_icon_dominion_polaron_beam
 	}
-	# Infinite starts in 2340: this keeps the largest Dominion hull out of the
-	# initial Gamma Quadrant contact and lets it enter around the 2374 war era.
-	weight_modifier = { modifier = { factor = 0 years_passed < 34 } modifier = { factor = 10 years_passed > 33 } }
+	# The CP26 campaign starts in 2345: the heaviest Dominion hull belongs to
+	# the 2374 war era, not to initial Gamma Quadrant contact.
+	weight_modifier = { modifier = { factor = 0 years_passed < 29 } modifier = { factor = 10 years_passed > 28 } }
 	ai_weight = { factor = 12 }
 }
 

@@ -1748,6 +1748,7 @@ country_event = {
 		set_variable = { which = cp26_branch_trade_count value = 0 }
 		set_variable = { which = cp26_branch_mining_count value = 0 }
 		set_variable = { which = cp26_branch_energy_count value = 0 }
+		set_variable = { which = cp26_branch_total_count value = 0 }
 
 		every_country = {
 			limit = {
@@ -1769,6 +1770,7 @@ country_event = {
 			}
 			root = {
 				change_variable = { which = cp26_branch_trade_count value = 1 }
+				change_variable = { which = cp26_branch_total_count value = 1 }
 			}
 			random_owned_planet = {
 				limit = {
@@ -1888,6 +1890,7 @@ country_event = {
 			}
 			root = {
 				change_variable = { which = cp26_branch_mining_count value = 1 }
+				change_variable = { which = cp26_branch_total_count value = 1 }
 			}
 			random_owned_planet = {
 				limit = {
@@ -2007,6 +2010,7 @@ country_event = {
 			}
 			root = {
 				change_variable = { which = cp26_branch_energy_count value = 1 }
+				change_variable = { which = cp26_branch_total_count value = 1 }
 			}
 			random_owned_planet = {
 				limit = {
