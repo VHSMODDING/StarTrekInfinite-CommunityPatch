@@ -77,6 +77,7 @@ country_event = {
 			last_created_species = { save_global_event_target_as = cp26_jemhadar_species }
 
 			create_country = {
+				name = "NAME_CP26_The_Dominion"
 				species = event_target:cp26_founder_species
 				country_id = "dominion"
 				type = cp26_dominion
@@ -100,7 +101,6 @@ country_event = {
 			}
 
 			last_created_country = {
-				set_name = "NAME_CP26_The_Dominion"
 				set_adjective = "ADJ_CP26_Dominion"
 				set_graphical_culture = dominion
 				set_country_flag = cp26_dominion
@@ -108,7 +108,7 @@ country_event = {
 				create_leader = {
 					class = ruler
 					species = event_target:cp26_founder_species
-					name = "NAME_CP26_Female_Founder"
+					name = NAME_CP26_Female_Founder
 					gender = female
 					skill = 7
 				}

@@ -21,6 +21,8 @@
 
  cp26_dominion:0 "Dominion"
  cp26_dominion_desc:0 "A hierarchical Gamma Quadrant power ruled by the Founders and administered by their genetically engineered servants."
+ personality_cp26_dominion_expansionists:0 "Dominion Hegemony"
+ personality_cp26_dominion_expansionists_desc:0 "The Dominion seeks to impose the Founders' order upon other civilizations through subjugation, infiltration and, when necessary, war."
  auth_cp26_great_link:0 "Great Link"
  auth_cp26_great_link_desc:0 "The Founders govern as a single fluid collective. Their will is executed by the Vorta and enforced by the Jem'Hadar."
  gov_cp26_great_link:0 "Dominion Hierarchy"

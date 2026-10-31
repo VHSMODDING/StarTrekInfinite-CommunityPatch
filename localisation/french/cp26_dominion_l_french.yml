@@ -21,6 +21,8 @@
 
  cp26_dominion:0 "Dominion"
  cp26_dominion_desc:0 "Une puissance hiérarchique du Quadrant Gamma, dirigée par les Fondateurs et administrée par leurs serviteurs génétiquement conçus."
+ personality_cp26_dominion_expansionists:0 "Hégémonie du Dominion"
+ personality_cp26_dominion_expansionists_desc:0 "Le Dominion cherche à imposer l'ordre des Fondateurs aux autres civilisations par la soumission, l'infiltration et, si nécessaire, la guerre."
  auth_cp26_great_link:0 "Grand Lien"
  auth_cp26_great_link_desc:0 "Les Fondateurs gouvernent comme un collectif fluide unique. Leur volonté est exécutée par les Vortas et imposée par les Jem'Hadar."
  gov_cp26_great_link:0 "Hiérarchie du Dominion"

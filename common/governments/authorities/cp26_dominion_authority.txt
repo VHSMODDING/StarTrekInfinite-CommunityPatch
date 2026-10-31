@@ -2,9 +2,9 @@ auth_cp26_great_link = {
 	icon = "gfx/interface/icons/governments/authorities/auth_dictatorial.dds"
 	has_agendas = no
 
-	potential = {
-		country_id = { value = "dominion" }
-	}
+	# The authority is assigned while create_country is still resolving its
+	# government, before the Dominion country ID/flags are available.
+	potential = { always = yes }
 
 	possible = { always = yes }
 

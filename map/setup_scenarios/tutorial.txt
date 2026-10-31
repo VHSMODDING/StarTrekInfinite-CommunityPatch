@@ -113,30 +113,30 @@ bespoke_procedural_scenario = {
 	#--------- Bespoke Systems ---------#
 
 	#--------- CP26 Gamma Quadrant Pocket ---------#
-	# Isolated above Alpha/Beta, near the map edge but clear of bespoke systems;
+	# Isolated above Alpha/Beta, just beyond the upper edge of the visible galaxy;
 	# internally connected by warp.
 	system = {
-		name = "Idran" position = { x = 305.0 y = 720.0 }
+		name = "Idran" position = { x = 425.0 y = -145.0 }
 		initializer = cp26_gamma_idran_initializer spawn_weight = { base = 1 }
 	}
 	system = {
-		name = "New Bajor" position = { x = 280.0 y = 705.0 }
+		name = "New Bajor" position = { x = 400.0 y = -130.0 }
 		initializer = cp26_gamma_new_bajor_initializer spawn_weight = { base = 1 }
 	}
 	system = {
-		name = "Karemma" position = { x = 330.0 y = 705.0 }
+		name = "Karemma" position = { x = 450.0 y = -130.0 }
 		initializer = cp26_gamma_karemma_initializer spawn_weight = { base = 1 }
 	}
 	system = {
-		name = "Teplan" position = { x = 295.0 y = 680.0 }
+		name = "Teplan" position = { x = 415.0 y = -105.0 }
 		initializer = cp26_gamma_teplan_initializer spawn_weight = { base = 1 }
 	}
 	system = {
-		name = "Rondac" position = { x = 325.0 y = 680.0 }
+		name = "Rondac" position = { x = 445.0 y = -105.0 }
 		initializer = cp26_gamma_rondac_initializer spawn_weight = { base = 1 }
 	}
 	system = {
-		name = "Omarion" position = { x = 355.0 y = 685.0 }
+		name = "Omarion" position = { x = 475.0 y = -110.0 }
 		initializer = cp26_gamma_omarion_initializer spawn_weight = { base = 1 }
 	}
 
@@ -1376,7 +1376,7 @@ bespoke_procedural_scenario = {
 	{
 		camera_limit_min_x = -800
 		camera_limit_max_x = 800
-		camera_limit_min_y = -70
+		camera_limit_min_y = -300
 		camera_limit_max_y = 880
 		camera_limit_min_pitch = 40
 		camera_limit_max_pitch = 85
@@ -1386,7 +1386,7 @@ bespoke_procedural_scenario = {
 	{
 		camera_limit_min_x = -768
 		camera_limit_max_x = 768
-		camera_limit_min_y = -20
+		camera_limit_min_y = -280
 		camera_limit_max_y = 880
 		camera_limit_min_pitch = 40
 		camera_limit_max_pitch = 85
@@ -1396,7 +1396,7 @@ bespoke_procedural_scenario = {
 	{
 		camera_limit_min_x = -640
 		camera_limit_max_x = 640
-		camera_limit_min_y = 20
+		camera_limit_min_y = -260
 		camera_limit_max_y = 830
 		camera_limit_min_pitch = 65
 		camera_limit_max_pitch = 85
@@ -1406,7 +1406,7 @@ bespoke_procedural_scenario = {
 	{
 		camera_limit_min_x = -576
 		camera_limit_max_x = 576
-		camera_limit_min_y = 80
+		camera_limit_min_y = -240
 		camera_limit_max_y = 780
 		camera_limit_min_pitch = 65
 		camera_limit_max_pitch = 85
@@ -1415,8 +1415,8 @@ bespoke_procedural_scenario = {
 	camera_limits_max_zoom =
 	{
 		camera_limit_min_x = -416
-		camera_limit_max_x = 416
-		camera_limit_min_y = 180
+		camera_limit_max_x = 560
+		camera_limit_min_y = -220
 		camera_limit_max_y = 672
 		camera_limit_min_pitch = 65
 		camera_limit_max_pitch = 85
@@ -1425,8 +1425,8 @@ bespoke_procedural_scenario = {
 	camera_limits_max_zoom =
 	{
 		camera_limit_min_x = -384
-		camera_limit_max_x = 384
-		camera_limit_min_y = 220
+		camera_limit_max_x = 540
+		camera_limit_min_y = -200
 		camera_limit_max_y = 624
 		camera_limit_min_pitch = 85
 		camera_limit_max_pitch = 85
