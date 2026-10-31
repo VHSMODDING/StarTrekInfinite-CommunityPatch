@@ -1,4 +1,4 @@
-CP26_DOMINION = {
+﻿CP26_DOMINION = {
 	category = "Humanoid"
 	should_name_home_system_planets = no
 

@@ -11,15 +11,12 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_shield }
 	power = -16
-	min_damage = 30
-	max_damage = 48
+	damage = { min = 30 max = 48 }
 	shield_damage = 1.5
 	shield_penetration = 0.5
 	armor_damage = 0.75
 	hull_damage = 1.0
-	min_windup = 2
-	max_windup = 18
-	cooldown = 70
+	windup = { min = 2 max = 18 }
 	range = 55
 	accuracy = 0.90
 	tracking = 0.55
@@ -39,15 +36,12 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_shield }
 	power = -32
-	min_damage = 55
-	max_damage = 90
+	damage = { min = 55 max = 90 }
 	shield_damage = 1.5
 	shield_penetration = 0.5
 	armor_damage = 0.75
 	hull_damage = 1.0
-	min_windup = 2
-	max_windup = 18
-	cooldown = 75
+	windup = { min = 2 max = 18 }
 	range = 80
 	accuracy = 0.90
 	tracking = 0.35
@@ -67,15 +61,12 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_artillery }
 	power = -64
-	min_damage = 105
-	max_damage = 170
+	damage = { min = 105 max = 170 }
 	shield_damage = 1.5
 	shield_penetration = 0.5
 	armor_damage = 0.75
 	hull_damage = 1.0
-	min_windup = 2
-	max_windup = 18
-	cooldown = 80
+	windup = { min = 2 max = 18 }
 	range = 105
 	accuracy = 0.90
 	tracking = 0.15
@@ -95,15 +86,13 @@ weapon_component_template = {
 	tags = { weapon_type_explosive }
 	ai_tags = { weapon_role_artillery }
 	power = -28
-	min_damage = 75
-	max_damage = 120
+	damage = { min = 75 max = 120 }
 	shield_damage = 0.75
 	shield_penetration = 0.35
 	armor_damage = 1.25
 	hull_damage = 1.25
-	min_windup = 1
-	max_windup = 12
-	cooldown = 150
+	windup = { min = 1 max = 12 }
+	total_fire_time = 150
 	range = 110
 	accuracy = 1.0
 	tracking = 0.30

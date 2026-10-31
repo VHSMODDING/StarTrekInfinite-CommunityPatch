@@ -348,7 +348,6 @@ qt_ferengi_a11_effect = {
 qt_ferengi_a12_effect = {
 	icon = "gfx/interface/icons/modifiers/mod_production_generic_gu.dds"
 	megastructure_build_speed_mult = 0.15
-	megastructure_build_cost_mult = -0.10
 }
 
 qt_ferengi_a13_effect = {

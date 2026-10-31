@@ -10,7 +10,7 @@
 # cp26_bajoran_wormhole.55  - Touriste Ferengi : timer 360j → découverte
 # cp26_bajoran_wormhole.100 - Découverte du trou de ver (tous empires)
 # cp26_bajoran_wormhole.110 - Traversée instantanée par commande de flotte
-# cp26_bajoran_wormhole.120 - Ancien palliatif IA (non appelé, conservé pour compatibilité)
+# cp26_bajoran_wormhole.120 - Controle mensuel IA : exploration puis transit de guerre
 # cp26_bajoran_wormhole.121 - Traversée instantanée choisie par le pathfinding IA
 ##########################################################################
 
@@ -144,7 +144,7 @@ fleet_event = {
 }
 
 ##########################################################################
-# 120 - Compatibilité : remplacé par le routage natif IA du bypass
+# 120 - Filet de securite IA autour du routage natif du bypass
 ##########################################################################
 country_event = {
 	id = cp26_bajoran_wormhole.120

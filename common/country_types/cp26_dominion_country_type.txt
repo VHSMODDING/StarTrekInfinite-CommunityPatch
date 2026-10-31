@@ -32,8 +32,10 @@ cp26_dominion = {
 		follow = yes
 		can_use_market = yes
 		espionage = yes
-		# CP26 gives the Dominion a complete, AI-driven quest tree.
-		quest_tree = yes
+		# Infinite 1.0.7 crashes when a dynamically-created custom country
+		# completes a native quest node. CP26 mirrors the Dominion tree through
+		# the safe monthly progression event cp26_dominion.10 instead.
+		quest_tree = no
 		modules = {
 			military_minister_module
 			foreign_minister_module

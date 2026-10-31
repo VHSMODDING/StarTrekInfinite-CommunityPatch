@@ -16,5 +16,8 @@ on_monthly_pulse_country = {
 		cp26_dominion.2
 		cp26_dominion.3
 		cp26_dominion.4
+		cp26_dominion.5
+		cp26_dominion.10
+		cp26_bajoran_wormhole.120
 	}
 }

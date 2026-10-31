@@ -314,6 +314,348 @@ country_event = {
 }
 
 ##########################################################################
+# 5 - Bootstrap civil du Dominion.
+#
+# Les pays crees dynamiquement recoivent bien les modeles civils generiques,
+# mais l'IA d'Infinite ne lance pas toujours leur premiere construction. Ce
+# filet de securite ne s'execute qu'une fois et complete uniquement les
+# effectifs manquants. La gestion normale de l'IA reprend ensuite.
+##########################################################################
+country_event = {
+	id = cp26_dominion.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_cp26_dominion = yes
+		NOT = { has_country_flag = cp26_dominion_civilian_bootstrap_complete }
+		exists = capital_scope
+	}
+
+	immediate = {
+		# Premier vaisseau scientifique et son officier.
+		if = {
+			limit = {
+				count_owned_ship = {
+					count < 1
+					limit = { is_ship_class = shipclass_science_ship }
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = prev
+					create_ship = {
+						name = random
+						random_existing_design = science
+					}
+					set_fleet_stance = evasive
+					set_location = prev.capital_scope.star
+					owner = {
+						create_leader = {
+							class = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+						}
+					}
+					set_leader = last_created_leader
+				}
+			}
+		}
+
+		# Deuxieme scientifique : la poche Gamma comporte deux branches.
+		if = {
+			limit = {
+				count_owned_ship = {
+					count < 2
+					limit = { is_ship_class = shipclass_science_ship }
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = prev
+					create_ship = {
+						name = random
+						random_existing_design = science
+					}
+					set_fleet_stance = evasive
+					set_location = prev.capital_scope.star
+					owner = {
+						create_leader = {
+							class = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+						}
+					}
+					set_leader = last_created_leader
+				}
+			}
+		}
+
+		# Deux constructeurs permettent de revendiquer les deux branches sans
+		# remplacer les choix d'expansion de l'IA par un script.
+		if = {
+			limit = {
+				count_owned_ship = {
+					count < 1
+					limit = { is_ship_class = shipclass_constructor }
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = prev
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+					set_fleet_stance = evasive
+					set_location = prev.capital_scope.star
+				}
+			}
+		}
+		if = {
+			limit = {
+				count_owned_ship = {
+					count < 2
+					limit = { is_ship_class = shipclass_constructor }
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = prev
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+					set_fleet_stance = evasive
+					set_location = prev.capital_scope.star
+				}
+			}
+		}
+
+		set_country_flag = cp26_dominion_civilian_bootstrap_complete
+	}
+}
+
+##########################################################################
+# 10 - Safe AI progression for the Dominion mission tree.
+#
+# Infinite 1.0.7's native quest-tree module is unsafe for a custom country
+# created after game start (CQuestStateManager::MoveNode crash).  This event
+# evaluates the same sixteen milestones and grants the same rewards without
+# calling ForceNodeCompleted.
+##########################################################################
+country_event = {
+	id = cp26_dominion.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { is_cp26_dominion = yes }
+
+	immediate = {
+		# Root - The Great Link
+		if = {
+			limit = {
+				NOT = { has_country_flag = cp26_dominion_mission_1 }
+				has_technology = tech_cp26_dominion_polaron_beam
+				has_technology = tech_cp26_jemhadar_cloning
+			}
+			set_country_flag = cp26_dominion_mission_1
+			add_resource = { unity = 1500 influence = 100 }
+			add_modifier = { modifier = qt_cp26_dominion_1_effect }
+		}
+
+		# Administration branch
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_1
+				NOT = { has_country_flag = cp26_dominion_mission_2 }
+				has_monthly_income = { resource = energy value >= 45 }
+				has_monthly_income = { resource = minerals value >= 45 }
+			}
+			set_country_flag = cp26_dominion_mission_2
+			add_resource = { energy = 2000 minerals = 2000 }
+			add_modifier = { modifier = qt_cp26_dominion_2_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_2
+				NOT = { has_country_flag = cp26_dominion_mission_3 }
+				count_owned_planet = { count >= 3 }
+			}
+			set_country_flag = cp26_dominion_mission_3
+			add_resource = { alloys = 2500 influence = 150 }
+			add_modifier = { modifier = qt_cp26_dominion_3_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_3
+				NOT = { has_country_flag = cp26_dominion_mission_4 }
+				count_owned_planet = { count >= 5 }
+				resource_stockpile_compare = { resource = influence value >= 300 }
+			}
+			set_country_flag = cp26_dominion_mission_4
+			add_resource = { unity = 3000 influence = 200 }
+			add_modifier = { modifier = qt_cp26_dominion_4_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_4
+				NOT = { has_country_flag = cp26_dominion_mission_5 }
+				count_owned_planet = { count >= 7 }
+				has_monthly_income = { resource = unity value >= 50 }
+			}
+			set_country_flag = cp26_dominion_mission_5
+			add_resource = { energy = 4000 minerals = 4000 unity = 4000 }
+			add_modifier = { modifier = qt_cp26_dominion_5_effect }
+		}
+
+		# Jem'Hadar branch
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_1
+				NOT = { has_country_flag = cp26_dominion_mission_6 }
+				fleet_power >= 4000
+			}
+			set_country_flag = cp26_dominion_mission_6
+			add_resource = { alloys = 2000 food = 2000 }
+			add_modifier = { modifier = qt_cp26_dominion_6_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_6
+				NOT = { has_country_flag = cp26_dominion_mission_7 }
+				has_technology = tech_cp26_ketracel_white
+				resource_stockpile_compare = { resource = food value >= 5000 }
+			}
+			set_country_flag = cp26_dominion_mission_7
+			add_resource = { alloys = 2500 food = 3500 }
+			add_modifier = { modifier = qt_cp26_dominion_7_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_7
+				NOT = { has_country_flag = cp26_dominion_mission_8 }
+				fleet_power >= 9000
+				resource_stockpile_compare = { resource = alloys value >= 5000 }
+			}
+			set_country_flag = cp26_dominion_mission_8
+			add_resource = { alloys = 4000 influence = 150 }
+			add_modifier = { modifier = qt_cp26_dominion_8_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_8
+				NOT = { has_country_flag = cp26_dominion_mission_9 }
+				fleet_power >= 14000
+				has_monthly_income = { resource = alloys value >= 75 }
+			}
+			set_country_flag = cp26_dominion_mission_9
+			add_resource = { alloys = 5000 unity = 3000 }
+			add_modifier = { modifier = qt_cp26_dominion_9_effect }
+		}
+
+		# Founder/Vorta intelligence branch
+		set_variable = { which = cp26_dominion_known_empires value = 0 }
+		every_country = {
+			limit = {
+				has_communications = root
+				is_regular_empire = yes
+				NOT = { is_same_value = root }
+			}
+			root = { change_variable = { which = cp26_dominion_known_empires value = 1 } }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_1
+				NOT = { has_country_flag = cp26_dominion_mission_10 }
+				check_variable = { which = cp26_dominion_known_empires value >= 2 }
+			}
+			set_country_flag = cp26_dominion_mission_10
+			add_resource = { influence = 150 unity = 1500 }
+			add_modifier = { modifier = qt_cp26_dominion_10_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_10
+				NOT = { has_country_flag = cp26_dominion_mission_11 }
+				successful_spy_mission_count >= 1
+			}
+			set_country_flag = cp26_dominion_mission_11
+			add_resource = { influence = 200 unity = 2000 }
+			add_modifier = { modifier = qt_cp26_dominion_11_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_11
+				NOT = { has_country_flag = cp26_dominion_mission_12 }
+				successful_spy_mission_count >= 3
+				check_variable = { which = cp26_dominion_known_empires value >= 4 }
+			}
+			set_country_flag = cp26_dominion_mission_12
+			add_resource = { influence = 250 unity = 2500 }
+			add_modifier = { modifier = qt_cp26_dominion_12_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_12
+				NOT = { has_country_flag = cp26_dominion_mission_13 }
+				successful_spy_mission_count >= 5
+				resource_stockpile_compare = { resource = influence value >= 500 }
+			}
+			set_country_flag = cp26_dominion_mission_13
+			add_resource = { influence = 300 unity = 3500 }
+			add_modifier = { modifier = qt_cp26_dominion_13_effect }
+		}
+
+		# Convergence and heavy warship era
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_5
+				has_country_flag = cp26_dominion_mission_9
+				has_country_flag = cp26_dominion_mission_13
+				NOT = { has_country_flag = cp26_dominion_mission_14 }
+				count_owned_planet = { count >= 7 }
+				fleet_power >= 16000
+				successful_spy_mission_count >= 5
+			}
+			set_country_flag = cp26_dominion_mission_14
+			add_resource = { alloys = 6000 influence = 300 unity = 5000 }
+			add_modifier = { modifier = qt_cp26_dominion_14_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_14
+				NOT = { has_country_flag = cp26_dominion_mission_15 }
+				years_passed > 28
+				fleet_power >= 20000
+			}
+			set_country_flag = cp26_dominion_mission_15
+			if = {
+				limit = { NOT = { has_technology = tech_cp26_dominion_battleship } }
+				give_technology = { tech = tech_cp26_dominion_battleship message = no }
+				create_ship_design = { design = "NAME_CP26_DominionBattleship" }
+				add_ship_design = last_created_design
+			}
+			add_resource = { alloys = 8000 unity = 5000 }
+			add_modifier = { modifier = qt_cp26_dominion_15_effect }
+		}
+		if = {
+			limit = {
+				has_country_flag = cp26_dominion_mission_15
+				NOT = { has_country_flag = cp26_dominion_mission_16 }
+				fleet_power >= 26000
+				count_owned_planet = { count >= 9 }
+			}
+			set_country_flag = cp26_dominion_mission_16
+			add_resource = { alloys = 10000 influence = 500 unity = 10000 }
+			add_modifier = { modifier = qt_cp26_dominion_16_effect }
+		}
+	}
+}
+
+##########################################################################
 # 900 - Developer wrapper. Console: event cp26_dominion.900
 ##########################################################################
 country_event = {

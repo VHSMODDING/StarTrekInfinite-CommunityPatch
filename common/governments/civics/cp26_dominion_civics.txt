@@ -3,7 +3,6 @@ civic_cp26_great_link = {
 	potential = { always = no }
 	modifier = {
 		country_unity_produces_mult = 0.15
-		governing_ethics_attraction = 0.35
 		planet_stability_add = 5
 	}
 }

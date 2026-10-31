@@ -36,8 +36,14 @@ cp26_traverse_bajoran_wormhole = {
 		exists = event_target:bajoran_system
 		exists = event_target:cp26_gamma_idran_system
 		OR = {
-			solar_system = { has_star_flag = bajoran_system }
-			solar_system = { has_star_flag = cp26_gamma_idran_system }
+			# Button effects can evaluate a selected fleet while it has no valid
+			# direct solar_system context. Query both endpoint systems instead.
+			event_target:bajoran_system = {
+				any_fleet_in_system = { is_same_value = root }
+			}
+			event_target:cp26_gamma_idran_system = {
+				any_fleet_in_system = { is_same_value = root }
+			}
 		}
 	}
 

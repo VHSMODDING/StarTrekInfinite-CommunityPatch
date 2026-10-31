@@ -8,8 +8,15 @@ entity = {
 	pdxmesh = "dominion_01_corvette_coreA_mesh"
 	locator = { name = "part1" position = { 0 0 0 } }
 	locator = { name = "root" rotation = { 0 0 0 } }
+	# Imported Stellaris meshes contain weapon locators but no engine locators.
+	# Infinite uses these two names to generate the empire-coloured ship trail.
+	locator = { name = "engine_small_01" position = { 0.75 0.0 2.4 } }
+	locator = { name = "engine_small_02" position = { -0.75 0.0 2.4 } }
 	scale = 0.36
-	game_data = { size = 4 }
+	game_data = {
+		trail_width = 0.55
+		size = 4
+	}
 }
 
 entity = {
@@ -17,8 +24,13 @@ entity = {
 	pdxmesh = "dominion_01_exploration_cruiser_coreA_mesh"
 	locator = { name = "part1" position = { 0 0 0 } }
 	locator = { name = "root" rotation = { 0 0 0 } }
+	locator = { name = "engine_small_01" position = { 1.8 0.2 4.5 } }
+	locator = { name = "engine_small_02" position = { -1.8 0.2 4.5 } }
 	scale = 0.47
-	game_data = { size = 9 }
+	game_data = {
+		trail_width = 1.05
+		size = 9
+	}
 }
 
 entity = {
@@ -26,6 +38,11 @@ entity = {
 	pdxmesh = "dominion_01_assault_cruiser_new_mesh"
 	locator = { name = "part1" position = { 0 0 0 } }
 	locator = { name = "root" rotation = { 0 0 0 } }
+	locator = { name = "engine_small_01" position = { 3.0 0.4 6.5 } }
+	locator = { name = "engine_small_02" position = { -3.0 0.4 6.5 } }
 	scale = 0.90
-	game_data = { size = 15 }
+	game_data = {
+		trail_width = 1.70
+		size = 15
+	}
 }

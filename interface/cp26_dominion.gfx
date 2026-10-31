@@ -34,4 +34,14 @@ spriteTypes = {
 		texturefile = "flags/emblem/small/flag_cp26_dominion.dds"
 		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
 	}
+	spriteType = {
+		name = "flag_cp26_dominion_bottombar"
+		texturefile = "flags/emblem/flag_cp26_dominion.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+	spriteType = {
+		name = "GFX_flag_cp26_dominion_bottombar"
+		texturefile = "flags/emblem/flag_cp26_dominion.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
 }
