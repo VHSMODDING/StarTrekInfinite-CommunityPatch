@@ -1,9 +1,11 @@
 romulan_dewa_initializer = {
 	name = "NAME_Dewa"
-	flags = { outpost romulan_system romulan }
+	# Dewa begins as a normal Romulan Star Empire outpost.  Keep the identity
+	# and CP26's lookup key in one declaration: duplicate `flags` entries can
+	# replace the first set during initializer parsing.
+	flags = { outpost romulan_system romulan dewa }
 	class = "rl_all_stars"
 	usage = static_system_init
-	flags = { dewa }
 
 	planet = {
 		class = star
@@ -57,8 +59,19 @@ romulan_dewa_initializer = {
 
 	late_init_effect = {
 		create_starbase = {
-			size = starbase_outpost
+			# Dewa is an established Romulan system before the supernova and the
+			# future seat of the Republic, so it starts with a functional starport.
+			size = starbase_starport
 			owner = event_target:romulan_country
+		}
+		if = {
+			limit = { exists = starbase }
+			starbase = {
+				set_starbase_module = {
+					slot = 1
+					module = shipyard
+				}
+			}
 		}
 	}
 }

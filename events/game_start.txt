@@ -423,6 +423,7 @@ country_event = {
 								OR = {
 									has_country_flag = cp26_romulan_republic
 									has_country_flag = cp26_romulan_star_empire_successor
+									has_country_flag = cp26_romulan_successor_starter
 								}
 							}
 						}

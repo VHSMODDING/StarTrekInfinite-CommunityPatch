@@ -104,6 +104,43 @@ country_event = {
 					}
 				}
 			}
+
+			# `every_system` only guarantees access to systems already held by the
+			# country. If Dewa's initializer missed its station, resolve Dewa
+			# globally through Mol'Rihan and establish its pre-supernova Romulan
+			# starport directly.
+			random_galaxy_planet = {
+				limit = { has_planet_flag = cp26_mol_rihan }
+				solar_system = {
+					set_star_flag = outpost
+					set_star_flag = romulan_system
+					set_star_flag = romulan
+					set_star_flag = dewa
+					if = {
+						limit = { exists = starbase }
+						starbase = {
+							set_owner = root
+							if = {
+								limit = { has_starbase_size = starbase_outpost }
+								set_starbase_size = starbase_starport
+							}
+							if = {
+								limit = { NOT = { has_starbase_module = shipyard } }
+								set_starbase_module = { slot = 1 module = shipyard }
+							}
+						}
+					}
+					else = {
+						create_starbase = {
+							size = starbase_starport
+							owner = root
+						}
+						starbase = {
+							set_starbase_module = { slot = 1 module = shipyard }
+						}
+					}
+				}
+			}
 		}
 
 		if = {
