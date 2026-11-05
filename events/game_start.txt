@@ -1031,7 +1031,9 @@ event = {
 			# For the tutorial match, this is handled right after the end
 			if = {
 				limit = { is_tutorial = no }
-				country_event = { id = romulan_supernova.1 }
+				# The campaign-options popup is country-scoped and arrives at game
+				# start.  Wait for it before committing the irreversible vanilla arc.
+				country_event = { id = cp26_romulan_split.0 days = 60 }
 			}
 		}
 

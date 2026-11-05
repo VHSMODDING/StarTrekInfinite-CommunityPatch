@@ -213,6 +213,69 @@ cp26_tal_shiar_doctrine = {
 
 
 # =============================================================================
+# ROMULAN REPUBLIC - Mol'Rihan reformers: outward-looking, defensive, and
+# science-led.  This is deliberately unlike the Star Empire's Tal Shiar AI.
+# =============================================================================
+cp26_romulan_republic_reformers = {
+	aggressiveness = 0.65
+	trade_willingness = 1.25
+	bravery = 1.0
+	combat_bravery = 1.15
+
+	military_spending = 0.95
+	colony_spending = 1.15
+
+	federation_acceptance = 45
+	nap_acceptance = 70
+	commercial_pact_acceptance = 55
+	research_agreement_acceptance = 70
+	share_warp_agreement_acceptance = 25
+	defensive_pact_acceptance = 55
+	migration_pact_acceptance = 50
+
+	advanced_start_chance = 100
+
+	# Keeps the Romulan naval identity while favoring survival and defence.
+	weapon_preferences = weapon_type_energy
+	armor_ratio = 0.20
+	shields_ratio = 0.60
+	hull_ratio = 0.20
+
+	threat_modifier = 0.85
+	threat_others_modifier = 0.75
+	friction_modifier = 0.65
+	claims_modifier = 0.65
+
+	behaviour = {
+		conqueror = no
+		subjugator = no
+		liberator = yes
+		opportunist = no
+		slaver = no
+		uplifter = yes
+		purger = no
+		displacer = no
+		infiltrator = no
+		dominator = no
+		robot_exploiter = no
+		robot_liberator = yes
+		propagator = no
+		multispecies = yes
+		crisis_fighter = yes
+	}
+
+	allow = {
+		is_country_type = default
+		has_country_id = "cp26_romulan_republic"
+	}
+
+	weight_modifier = {
+		weight = 1000
+	}
+}
+
+
+# =============================================================================
 # CARDASSIAN UNION - Central Command militarism, expansionist exploitation.
 # =============================================================================
 # Cardassians are militaristic, xenophobic, and prone to occupying weaker

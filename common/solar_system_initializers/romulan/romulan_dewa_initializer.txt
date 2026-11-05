@@ -21,10 +21,38 @@ romulan_dewa_initializer = {
 	change_orbit = 50
 	
 	planet = {
-		count = { min = 3 max = 8 }
+		count = { min = 2 max = 7 }
 		class = rl_unhabitable_planets
 		orbit_distance = { min = 20 max = 30 }
 		home_planet = no
+	}
+
+	# New Romulus / Mol'Rihan is intentionally added to Infinite's own Dewa
+	# initializer.  The Stellaris mod supplied the setting reference only.
+	planet = {
+		name = "NAME_CP26_Mol_Rihan"
+		count = 1
+		class = pc_continental
+		subclass = psc_class_m
+		orbit_distance = { min = 20 max = 30 }
+		size = 16
+		home_planet = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = cp26_mol_rihan
+		}
+		moon = {
+			name = "NAME_CP26_Mol_Rihan_a"
+			class = pc_barren_cold
+			size = 6
+			orbit_distance = 10
+		}
+		moon = {
+			name = "NAME_CP26_Mol_Rihan_b"
+			class = pc_barren_cold
+			size = 3
+			orbit_distance = 7
+		}
 	}
 
 	late_init_effect = {

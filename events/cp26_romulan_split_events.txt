@@ -1,0 +1,210 @@
+namespace = cp26_romulan_split
+
+# Start-gate for the vanilla supernova chain.  This is deliberately a separate
+# event rather than an override of romulan_supernova.1: Infinite rejects event
+# ID duplicates.  Once this gate has run, changing the setup option later
+# cannot retroactively add or remove the arc for this campaign.
+country_event = {
+	id = cp26_romulan_split.0
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = romulan
+		NOT = { has_country_flag = cp26_supernova_start_gate_resolved }
+		NOT = { has_global_flag = cp26_block_supernova_arc }
+		exists = event_target:romulan_homeworld
+	}
+
+	immediate = {
+		set_country_flag = cp26_supernova_start_gate_resolved
+		country_event = { id = romulan_supernova.1 }
+		# Vanilla: 20 years to detection, then 24 to destruction.  This follows
+		# the explosion by one day and only exists in enabled campaigns.
+		country_event = { id = cp26_romulan_split.1 days = 15841 }
+	}
+}
+
+# The vanilla supernova chain remains authoritative.  This follows it by one
+# day, checks its romulan_homeworld_rip flag, then establishes the two canon
+# successor states on planets that exist in Infinite's static map.
+country_event = {
+	id = cp26_romulan_split.1
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = romulan
+		has_country_flag = romulan_homeworld_rip
+		NOT = { has_country_flag = cp26_romulan_successors_created }
+		exists = event_target:cp26_reman_species
+	}
+
+	immediate = {
+		set_country_flag = cp26_romulan_successors_created
+		owner_main_species = { save_event_target_as = cp26_romulan_species }
+
+		random_galaxy_planet = {
+			limit = { has_planet_flag = cp26_rator_iii }
+			save_global_event_target_as = cp26_rator_iii
+		}
+		random_galaxy_planet = {
+			limit = { has_planet_flag = cp26_mol_rihan }
+			save_global_event_target_as = cp26_mol_rihan
+		}
+
+		# The original country persists as the Romulan Star Empire at Rator III.
+		if = {
+			limit = { exists = event_target:cp26_rator_iii }
+			event_target:cp26_rator_iii = {
+				set_owner = root
+				if = { limit = { is_colony = no } create_colony = { owner = root } }
+				set_capital = yes
+				while = {
+					count = 4
+					create_pop = { species = event_target:cp26_reman_species }
+				}
+			}
+		}
+		# Re-establish the Star Empire's operational core at Rator III.  This
+		# uses Infinite's own safe starter-fleet initializer: science ship with
+		# scientist, constructor, and a two-corvette military patrol.
+		country_event = { id = game_start.9 }
+
+		# The Republic is deliberately a native Infinite default country.  It does
+		# not import Stellaris-only governments, scripted effects, or assumptions.
+		if = {
+			limit = { exists = event_target:cp26_mol_rihan }
+			create_country = {
+				name = "NAME_CP26_Romulan_Republic"
+				adjective = "ADJ_CP26_Romulan_Republic"
+				species = event_target:cp26_romulan_species
+				country_id = "cp26_romulan_republic"
+				type = default
+				ship_prefix = "IRW"
+				name_list = "RML1"
+				# The Republic follows the source mod's post-imperial concept, but
+				# uses only governments/civics that exist in Star Trek: Infinite.
+				authority = auth_democratic
+				civics = { civic = civic_higher_education }
+				civics = { civic = civic_diplomatic_expertise }
+				origin = origin_separatists
+				flag = {
+					icon = { category = emblem file = "flag_Romulan_12.dds" }
+					background = { category = backgrounds file = "00_solid.dds" }
+					colors = { "Romulan" "black" "null" "null" }
+				}
+				ethos = {
+					ethic = ethic_militarist
+					ethic = ethic_materialist
+				}
+				ignore_initial_colony_error = yes
+			}
+			last_created_country = {
+				# Both graphical cultures are required.  The first governs ships, the
+				# second governs cities and portrait presentation.
+				set_graphical_culture = romulan_01
+				set_city_graphical_culture = romulan_01
+				set_country_flag = cp26_romulan_republic
+				save_global_event_target_as = cp26_romulan_republic
+
+				# create_country otherwise leaves its default ruler to a generic
+				# selection.  Make the Republic's first ruler from the exact vanilla
+				# Romulan portrait pool, so clothes and hair resolve through the
+				# standard Romulan asset selectors.
+				create_leader = {
+					class = ruler
+					species = owner_main_species
+					name = random
+				}
+				set_leader = last_created_leader
+			}
+
+			event_target:cp26_mol_rihan = {
+				set_owner = event_target:cp26_romulan_republic
+				if = {
+					limit = { is_colony = no }
+					create_colony = { owner = event_target:cp26_romulan_republic }
+				}
+				set_capital = yes
+				while = {
+					count = 4
+					create_pop = { species = event_target:cp26_reman_species }
+				}
+				solar_system = {
+					if = {
+						limit = { exists = starbase }
+						starbase = {
+							set_owner = event_target:cp26_romulan_republic
+						}
+					}
+				}
+			}
+
+			event_target:cp26_romulan_republic = {
+				add_resource = { energy = 500 minerals = 300 food = 300 alloys = 200 }
+				establish_communications_no_message = root
+				country_event = { id = game_start.9 }
+			}
+			establish_communications_no_message = event_target:cp26_romulan_republic
+
+		# The Republic is the Federation-facing successor.  Both countries get
+		# lasting initial trust and open borders, while the Star Empire remains
+		# diplomatically separate and keeps its Tal Shiar behaviour.
+		if = {
+			limit = { exists = event_target:ufop_country }
+			event_target:cp26_romulan_republic = {
+				establish_communications_no_message = event_target:ufop_country
+				set_closed_borders = { who = event_target:ufop_country status = no }
+				add_trust = { amount = 75 who = event_target:ufop_country }
+				add_opinion_modifier = {
+					who = event_target:ufop_country
+					modifier = opinion_cp26_romulan_republic_refuge
+				}
+			}
+			event_target:ufop_country = {
+				set_closed_borders = { who = event_target:cp26_romulan_republic status = no }
+				add_trust = { amount = 75 who = event_target:cp26_romulan_republic }
+				add_opinion_modifier = {
+					who = event_target:cp26_romulan_republic
+					modifier = opinion_cp26_romulan_republic_refuge
+				}
+			}
+		}
+		}
+
+		if = {
+			limit = {
+				is_ai = no
+				exists = event_target:cp26_romulan_republic
+			}
+			country_event = { id = cp26_romulan_split.2 }
+		}
+	}
+}
+
+# A human Romulan player selects the successor state; AI Romulans simply keep
+# the Star Empire, while the Republic receives normal AI control.
+country_event = {
+	id = cp26_romulan_split.2
+	title = cp26_romulan_split.2.name
+	desc = cp26_romulan_split.2.desc
+	picture = GFX_evt_shattered_planet_space_valdore_romulan
+	show_sound = event_terrifying_supernova_explosion
+	is_triggered_only = yes
+
+	option = {
+		name = cp26_romulan_split.2.a
+	}
+	option = {
+		name = cp26_romulan_split.2.b
+		trigger = { exists = event_target:cp26_romulan_republic }
+		hidden_effect = {
+			event_target:cp26_romulan_republic = {
+				set_player = root
+			}
+		}
+	}
+}

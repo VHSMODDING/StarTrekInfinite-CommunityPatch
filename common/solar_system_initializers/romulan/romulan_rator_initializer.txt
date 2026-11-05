@@ -46,6 +46,7 @@ romulan_rator_initializer = {
 		orbit_distance = { min = 20 max = 30 }
 		size = 7
 		home_planet = no
+		init_effect = { set_planet_flag = cp26_rator_iii }
 	}
 
 	planet = {

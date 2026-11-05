@@ -1,0 +1,7 @@
+# The Federation's assistance to the Mol'Rihan refugees becomes the durable
+# political foundation of the Romulan Republic's relationship with the UFoP.
+opinion_cp26_romulan_republic_refuge = {
+	opinion = {
+		base = 100
+	}
+}

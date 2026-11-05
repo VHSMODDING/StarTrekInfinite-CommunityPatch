@@ -1,0 +1,13 @@
+﻿l_french:
+ NAME_CP26_Reman:0 "Réman"
+ NAME_CP26_Remans:0 "Rémans"
+ ADJ_CP26_Reman:0 "réman"
+ NAME_CP26_Mol_Rihan:0 "Mol'Rihan"
+ NAME_CP26_Mol_Rihan_a:0 "Mol'Rihan a"
+ NAME_CP26_Mol_Rihan_b:0 "Mol'Rihan b"
+ NAME_CP26_Romulan_Republic:0 "République romulienne"
+ ADJ_CP26_Romulan_Republic:0 "romulienne"
+ cp26_romulan_split.2.name:0 "Le schisme romulien"
+ cp26_romulan_split.2.desc:0 "Romulus a disparu. Deux États lui succèdent : l'Empire stellaire romulien, établi sur Rator III, et la République romulienne, sur Mol'Rihan. Quel avenir conduirez-vous ?"
+ cp26_romulan_split.2.a:0 "Diriger l'Empire stellaire romulien depuis Rator III."
+ cp26_romulan_split.2.b:0 "Diriger la République romulienne depuis Mol'Rihan."
