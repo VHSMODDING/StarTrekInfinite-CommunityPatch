@@ -51,6 +51,26 @@ country_event = {
 	}
 }
 
+# Fires from on_system_lost.  Vanilla's supernova destroys the Romulus system,
+# including when it is invoked through the console test effect, so this is the
+# immediate production path; event .6 remains the delayed safety net.
+country_event = {
+	id = cp26_romulan_split.7
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = romulan
+		has_country_flag = romulan_homeworld_rip
+		NOT = { has_country_flag = cp26_romulan_successors_created }
+	}
+
+	immediate = {
+		log = "CP26 Romulan split: Romulus-system loss detected"
+		country_event = { id = cp26_romulan_split.1 days = 1 }
+	}
+}
+
 # The vanilla supernova chain remains authoritative.  Once the watcher sees its
 # romulan_homeworld_rip flag, this establishes the two canon successor states
 # on planets that exist in Infinite's static map.

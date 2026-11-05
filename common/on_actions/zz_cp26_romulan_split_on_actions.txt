@@ -1,0 +1,8 @@
+# The Romulus supernova destroys its system, which invokes on_system_lost on
+# the former owner.  This also covers the normal Vanilla chain and console
+# tests that call romulan_supernova.3 directly.
+on_system_lost = {
+	events = {
+		cp26_romulan_split.7
+	}
+}
