@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_flag_cp26_romulan_republic_icon"
+		texturefile = "flags/emblem/bottombar/flag_cp26_romulan_republic.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_flag_cp26_romulan_republic_small"
+		texturefile = "flags/emblem/small/flag_cp26_romulan_republic.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "flag_cp26_romulan_republic_bottombar"
+		texturefile = "flags/emblem/bottombar/flag_cp26_romulan_republic.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_flag_cp26_romulan_republic_bottombar"
+		texturefile = "flags/emblem/bottombar/flag_cp26_romulan_republic.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+		noOfFrames = 1
+	}
+}

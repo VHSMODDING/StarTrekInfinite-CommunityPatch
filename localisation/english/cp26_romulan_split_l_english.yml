@@ -11,6 +11,8 @@
  ADJ_CP26_Romulan_Star_Empire:0 "Romulan Star Empire"
  auth_cp26_romulan_republic:0 "Romulan Republic"
  auth_cp26_romulan_star_empire:0 "Romulan State Senate"
+ personality_cp26_romulan_republic_reformers:0 "Protectionist Republic"
+ personality_cp26_romulan_republic_reformers_desc:0 "The Romulan Republic prioritizes domestic stability, frontier defense, and cautious cooperation with its partners."
  cp26_romulan_split.2.name:0 "The Romulan Schism"
  cp26_romulan_split.2.desc:0 "Romulus is gone. Two successor states have emerged: the Romulan Star Empire from Rator III, and the Romulan Republic on Mol'Rihan. Which future will you lead?"
  cp26_romulan_split.2.a:0 "Lead the Romulan Star Empire from Rator III."

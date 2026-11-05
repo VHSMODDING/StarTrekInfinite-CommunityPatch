@@ -413,9 +413,29 @@ country_event = {
 
 				while = {
 					count = 2
-					create_ship = {
-						name = random
-						random_existing_design = corvette
+					# CP26 creates the two Romulan successor states during a running
+					# campaign.  They have no auto-generated corvette design yet, so
+					# random_existing_design would emit "invalid design" and spawn
+					# nothing.  NAME_Dagger is Infinite's native generic event corvette.
+					if = {
+						limit = {
+							owner = {
+								OR = {
+									has_country_flag = cp26_romulan_republic
+									has_country_flag = cp26_romulan_star_empire_successor
+								}
+							}
+						}
+						create_ship = {
+							name = random
+							design = "NAME_Dagger"
+						}
+					}
+					else = {
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+						}
 					}
 				}
 

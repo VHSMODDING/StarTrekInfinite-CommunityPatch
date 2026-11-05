@@ -51,9 +51,19 @@ country_event = {
 			limit = { has_planet_flag = planet_romulus }
 			solar_system = {
 				set_star_class = sc_black_hole
-				every_system_planet = {
-					limit = { is_star = yes }
+				# Romulus is a binary system.  `star` is its central star;
+				# converting every star would visibly create two black holes.  The
+				# companion is removed so the remnant is one central black hole.
+				star = {
+					set_planet_flag = cp26_romulus_black_hole
 					change_pc = pc_black_hole
+				}
+				every_system_planet = {
+					limit = {
+						is_star = yes
+						NOT = { has_planet_flag = cp26_romulus_black_hole }
+					}
+					remove_planet = yes
 				}
 			}
 		}
@@ -116,7 +126,9 @@ country_event = {
 				civics = { civic = civic_diplomatic_expertise }
 				origin = origin_separatists
 				flag = {
-					icon = { category = emblem file = "flag_Romulan_12.dds" }
+					# CP26's own white emblem mask.  The matching main/map/small/
+					# bottombar DDS variants live under flags/emblem/.
+					icon = { category = emblem file = "flag_cp26_romulan_republic.dds" }
 					background = { category = backgrounds file = "00_solid.dds" }
 					# A brighter post-imperial turquoise, distinct from the Star Empire's
 					# muted native Romulan green in the galaxy map.
@@ -149,29 +161,28 @@ country_event = {
 				set_leader = last_created_leader
 			}
 
+			# A country created mid-campaign is removed by Infinite if it reaches
+			# the next cleanup without a colony.  Give the provisional Republic
+			# Mol'Rihan immediately, before the player-choice event can fire.
+			# If the player selects the Republic, event .4 transfers this entire
+			# local system back to the original major country one day later.
 			event_target:cp26_mol_rihan = {
 				set_owner = event_target:cp26_romulan_republic
-				if = {
-					limit = { is_colony = no }
-					create_colony = { owner = event_target:cp26_romulan_republic }
-				}
+				set_controller = event_target:cp26_romulan_republic
+				if = { limit = { is_colony = no } create_colony = { owner = event_target:cp26_romulan_republic } }
 				set_capital = yes
-				while = {
-					count = 4
-					create_pop = { species = event_target:reman_species }
-				}
 				solar_system = {
+					every_system_planet = {
+						limit = { is_colony = yes }
+						set_owner = event_target:cp26_romulan_republic
+						set_controller = event_target:cp26_romulan_republic
+					}
 					if = {
 						limit = { exists = starbase }
-						starbase = {
-							set_owner = event_target:cp26_romulan_republic
-						}
+						starbase = { set_owner = event_target:cp26_romulan_republic }
 					}
 					else = {
-						create_starbase = {
-							size = starbase_outpost
-							owner = event_target:cp26_romulan_republic
-						}
+						create_starbase = { size = starbase_outpost owner = event_target:cp26_romulan_republic }
 					}
 				}
 			}
@@ -182,13 +193,8 @@ country_event = {
 				# starter package, so both successor states remain era-appropriate.
 				copy_techs_from = { target = root }
 				establish_communications_no_message = root
-					# A country created mid-campaign does not inherit a corvette design.
-				# Register Infinite's proven generic corvette design before the
-				# standard starter-fleet event runs; otherwise game_start.9 logs
-				# "invalid design" and omits the military escort.
-					give_technology = { tech = tech_corvette_unlock message = no }
-				create_ship_design = { design = "NAME_Dagger" }
-				country_event = { id = game_start.9 }
+				# Mol'Rihan is assigned above solely to keep this country alive.  The
+				# selected successor receives the final capital in its option.
 			}
 			establish_communications_no_message = event_target:cp26_romulan_republic
 
@@ -239,7 +245,10 @@ country_event = {
 				is_ai = no
 				exists = event_target:cp26_romulan_republic
 			}
-			country_event = { id = cp26_romulan_split.2 }
+			# The supernova remnant is established first.  The player receives the
+			# succession decision on the following day, rather than at the same
+			# instant as the explosion.
+			country_event = { id = cp26_romulan_split.2 days = 1 }
 		}
 	}
 }
@@ -257,6 +266,31 @@ country_event = {
 	option = {
 		name = cp26_romulan_split.2.a
 		hidden_effect = {
+			# The player keeps the original Star Empire.  Confirm the provisional
+			# Republic's Mol'Rihan capital and its system station.
+			event_target:cp26_mol_rihan = {
+				set_owner = event_target:cp26_romulan_republic
+				set_controller = event_target:cp26_romulan_republic
+				if = { limit = { is_colony = no } create_colony = { owner = event_target:cp26_romulan_republic } }
+				set_capital = yes
+				while = {
+					count = 4
+					create_pop = { species = event_target:reman_species }
+				}
+				solar_system = {
+					if = {
+						limit = { exists = starbase }
+						starbase = { set_owner = event_target:cp26_romulan_republic }
+					}
+					else = {
+						create_starbase = { size = starbase_outpost owner = event_target:cp26_romulan_republic }
+					}
+				}
+			}
+			event_target:cp26_romulan_republic = {
+				give_technology = { tech = tech_corvette_unlock message = no }
+				country_event = { id = game_start.9 }
+			}
 			country_event = { id = cp26_romulan_split.3 days = 1 }
 		}
 	}
@@ -271,6 +305,14 @@ country_event = {
 			set_name = "NAME_CP26_Romulan_Republic"
 			set_adjective = "ADJ_CP26_Romulan_Republic"
 			set_country_flag = cp26_romulan_republic_major
+			# Unlike script flags, this replaces the actual visual flag of the
+			# original major country.  The player therefore sees the Republic
+			# emblem after choosing the Republic, including on the galaxy map.
+			change_country_flag = {
+				icon = { category = emblem file = "flag_cp26_romulan_republic.dds" }
+				background = { category = backgrounds file = "00_solid.dds" }
+				colors = { "Romulan" "black" "null" "null" }
+			}
 			# The Republic keeps the major country's research, tree and visual
 			# identity, but not its State Senate / Tal Shiar civic package.
 			if = { limit = { has_civic = civic_closet_politics } force_remove_civic = civic_closet_politics }
@@ -288,6 +330,13 @@ country_event = {
 				set_name = "NAME_CP26_Romulan_Star_Empire"
 				set_adjective = "ADJ_CP26_Romulan_Star_Empire"
 				set_country_flag = cp26_romulan_star_empire_successor
+				# This country was initially generated as the Republic.  Reset its
+				# visible flag when it becomes the AI Star Empire.
+				change_country_flag = {
+					icon = { category = emblem file = "flag_Romulan_12.dds" }
+					background = { category = backgrounds file = "00_solid.dds" }
+					colors = { "Romulan" "black" "null" "null" }
+				}
 				if = { limit = { has_civic = civic_higher_education } force_remove_civic = civic_higher_education }
 				if = { limit = { has_civic = civic_diplomatic_expertise } force_remove_civic = civic_diplomatic_expertise }
 				force_add_civic = civic_closet_politics
@@ -300,6 +349,8 @@ country_event = {
 				event_target:cp26_rator_iii = {
 					set_owner = event_target:cp26_romulan_republic
 					set_controller = event_target:cp26_romulan_republic
+					if = { limit = { is_colony = no } create_colony = { owner = event_target:cp26_romulan_republic } }
+					set_capital = yes
 					solar_system = {
 						if = {
 							limit = { exists = starbase }
@@ -307,6 +358,10 @@ country_event = {
 						}
 					}
 				}
+			}
+			event_target:cp26_romulan_republic = {
+				give_technology = { tech = tech_corvette_unlock message = no }
+				country_event = { id = game_start.9 }
 			}
 			if = {
 				limit = { exists = event_target:cp26_rator_system }
@@ -317,18 +372,24 @@ country_event = {
 				}
 			}
 			if = {
-				limit = {
-					exists = event_target:cp26_mol_rihan
-					exists = event_target:cp26_original_romulan_country
-				}
+				limit = { exists = event_target:cp26_mol_rihan }
 				event_target:cp26_mol_rihan = {
-					set_owner = event_target:cp26_original_romulan_country
-					set_controller = event_target:cp26_original_romulan_country
+					# This option is evaluated by the original major country, which
+					# has just become the Republic.  Do not use the global target
+					# here: create_country can overwrite its runtime scope with the
+					# temporary Star Empire (and wrongly gives it Dewa).
+					set_owner = root
+					set_controller = root
+					if = { limit = { is_colony = no } create_colony = { owner = root } }
 					set_capital = yes
+					while = {
+						count = 4
+						create_pop = { species = event_target:reman_species }
+					}
 					solar_system = {
 						if = {
 							limit = { exists = starbase }
-							starbase = { set_owner = event_target:cp26_original_romulan_country }
+							starbase = { set_owner = root }
 						}
 					}
 				}
@@ -336,9 +397,7 @@ country_event = {
 			# Ownership and capitals are recalculated asynchronously by Infinite.
 			# Finalise the transfer on the selected major country itself one day
 			# later, so the former Rator capital cannot be retained.
-			event_target:cp26_original_romulan_country = {
-				country_event = { id = cp26_romulan_split.4 days = 1 }
-			}
+			country_event = { id = cp26_romulan_split.4 days = 1 }
 			country_event = { id = cp26_romulan_split.3 days = 1 }
 		}
 	}
@@ -352,18 +411,63 @@ country_event = {
 
 	trigger = {
 		has_country_flag = cp26_romulan_republic_major
-		exists = event_target:cp26_mol_rihan
 	}
 
 	immediate = {
-		event_target:cp26_mol_rihan = {
+		# Do a fresh lookup instead of using an event target saved before the
+		# country switch.  That target can resolve to the temporary AI country
+		# after a one-day delay, leaving Dewa as a Star Empire enclave.
+		random_galaxy_planet = {
+			limit = { has_planet_flag = cp26_mol_rihan }
 			set_owner = root
 			set_controller = root
 			set_capital = yes
 			solar_system = {
+				# Dewa is Mol'Rihan's system.  Transfer its whole local
+				# administration to the Republic, not merely its capital planet.
+				every_system_planet = {
+					limit = { is_colony = yes }
+					set_owner = root
+					set_controller = root
+				}
 				if = {
 					limit = { exists = starbase }
 					starbase = { set_owner = root }
+				}
+				else = {
+					create_starbase = {
+						size = starbase_outpost
+						owner = root
+					}
+				}
+			}
+		}
+	}
+}
+
+# One-shot repair command for a save in which the vanilla supernova has
+# already occurred.  It is intentionally independent from the succession
+# event so it cannot create either successor country a second time.
+country_event = {
+	id = cp26_romulan_split.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_galaxy_planet = {
+			limit = { has_planet_flag = planet_romulus }
+			solar_system = {
+				set_star_class = sc_black_hole
+				star = {
+					set_planet_flag = cp26_romulus_black_hole
+					change_pc = pc_black_hole
+				}
+				every_system_planet = {
+					limit = {
+						is_star = yes
+						NOT = { has_planet_flag = cp26_romulus_black_hole }
+					}
+					remove_planet = yes
 				}
 			}
 		}

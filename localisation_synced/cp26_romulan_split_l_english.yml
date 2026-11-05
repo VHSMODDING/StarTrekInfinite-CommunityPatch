@@ -10,3 +10,5 @@
  auth_cp26_romulan_star_empire: "Romulan State Senate"
  gov_cp26_romulan_republic: "Romulan Republic"
  gov_cp26_romulan_star_empire: "Romulan Star Empire"
+ personality_cp26_romulan_republic_reformers: "Protectionist Republic"
+ personality_cp26_romulan_republic_reformers_desc: "The Romulan Republic prioritizes domestic stability, frontier defense, and cautious cooperation with its partners."
