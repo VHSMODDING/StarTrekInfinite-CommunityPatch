@@ -1,10 +1,7 @@
 on_game_start = {
 	events = {
-		# CP26: disabled. Remus is already handled by game_start.txt, and
-		# creating a separate Reman species here can corrupt country species
-		# updates during the first daily tick.
-		# aa_colremus.1000
+		# Same startup path as Denobula: create the native species, claim its
+		# homeworld, then add its starting population.
+		aa_colremus.1000
 	}
 }
-
-#whatever

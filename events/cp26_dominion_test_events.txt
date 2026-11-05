@@ -113,6 +113,7 @@ country_event = {
 					gender = female
 					skill = 7
 				}
+				last_created_leader = { change_leader_portrait = cp26_founder_female_01 }
 				set_leader = last_created_leader
 			}
 		}
@@ -356,7 +357,10 @@ country_event = {
 							sub_type = survey
 							name = random
 							species = owner_main_species
+							gender = female
+							portrait = cp26_founder_female_01
 						}
+						last_created_leader = { change_leader_portrait = cp26_founder_female_01 }
 					}
 					set_leader = last_created_leader
 				}
@@ -386,7 +390,10 @@ country_event = {
 							sub_type = survey
 							name = random
 							species = owner_main_species
+							gender = female
+							portrait = cp26_founder_female_01
 						}
+						last_created_leader = { change_leader_portrait = cp26_founder_female_01 }
 					}
 					set_leader = last_created_leader
 				}

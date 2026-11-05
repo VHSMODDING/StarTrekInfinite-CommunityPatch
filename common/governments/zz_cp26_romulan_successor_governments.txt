@@ -1,0 +1,23 @@
+# Dynamic successor states do not match vanilla's country_id-restricted
+# government definitions, so provide explicit names instead of allowing the
+# generic military dictatorship fallback.
+
+gov_cp26_romulan_republic = {
+	ruler_title = RT_FIRST_MINISTER
+	ruler_title_female = RT_FIRST_MINISTER_FEMALE
+	election_candidates = {
+		modifier = { add = 100 leader_class = ruler }
+	}
+	possible = { has_authority = auth_cp26_romulan_republic }
+	weight = { base = 1000 }
+}
+
+gov_cp26_romulan_star_empire = {
+	ruler_title = RT_PRAETOR
+	ruler_title_female = RT_PRAETOR_FEMALE
+	election_candidates = {
+		modifier = { add = 100 leader_class = ruler }
+	}
+	possible = { has_authority = auth_cp26_romulan_star_empire }
+	weight = { base = 1000 }
+}

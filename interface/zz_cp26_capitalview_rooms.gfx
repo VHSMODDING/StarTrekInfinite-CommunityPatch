@@ -1,6 +1,13 @@
 spriteTypes = {
 
 	# -------------------------------------------------------
+	# ROMULAN REPUBLIC — reuse the native Romulan government-room artwork.
+	spriteType = {
+		name = "GFX_ST_capital_empty_room_cp26_romulan_republic"
+		texturefile = "gfx/interface/diplomacy/empty_rooms/smaller/capitalview_romulan.dds"
+		masking_texture = "gfx/interface/diplomacy/empty_rooms/smaller/capitalview_mask.dds"
+	}
+
 	# CP26 - Capital view backgrounds (diplomacy screen)
 	# Large format  : GFX_ST_empty_room_<Faction>
 	# Smaller format: GFX_ST_capital_empty_room_<faction>

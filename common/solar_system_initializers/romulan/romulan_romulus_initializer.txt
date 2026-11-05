@@ -115,32 +115,6 @@ romulan_romulus_initializer = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			# Remans are a distinct, fully rendered species living alongside the
-			# Romulans.  Their population is deliberately created here rather than
-			# borrowed from the Stellaris source mod's event scripts.
-			if = {
-				limit = { NOT = { exists = event_target:cp26_reman_species } }
-				create_species = {
-					class = "HRB"
-					portrait = "reman"
-					name = "NAME_CP26_Reman"
-					plural = "NAME_CP26_Remans"
-					adjective = "ADJ_CP26_Reman"
-					name_list = "RML1"
-					traits = {
-						trait = "trait_strong"
-						trait = "trait_resilient"
-					}
-				}
-				last_created_species = { save_global_event_target_as = cp26_reman_species }
-			}
-		}
-
-		late_init_effect = {
-			while = {
-				count = 12
-				create_pop = { species = event_target:cp26_reman_species }
-			}
 		}
 	}
 	

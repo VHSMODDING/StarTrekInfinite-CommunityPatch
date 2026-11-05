@@ -39,16 +39,39 @@ country_event = {
 		has_country_flag = romulan
 		has_country_flag = romulan_homeworld_rip
 		NOT = { has_country_flag = cp26_romulan_successors_created }
-		exists = event_target:cp26_reman_species
+		exists = event_target:reman_species
 	}
 
 	immediate = {
 		set_country_flag = cp26_romulan_successors_created
+		# Infinite's vanilla Romulan supernova leaves an F-class placeholder.
+		# CP26 changes only the destroyed Romulus system into a black-hole remnant;
+		# it deliberately does not override the global vanilla supernova effect.
+		random_galaxy_planet = {
+			limit = { has_planet_flag = planet_romulus }
+			solar_system = {
+				set_star_class = sc_black_hole
+				every_system_planet = {
+					limit = { is_star = yes }
+					change_pc = pc_black_hole
+				}
+			}
+		}
+		# Keep an explicit handle to the pre-schism major country.  The choice
+		# event later changes scopes several times; using this target prevents
+		# Mol'Rihan from remaining with the temporary successor country.
+		save_global_event_target_as = cp26_original_romulan_country
 		owner_main_species = { save_event_target_as = cp26_romulan_species }
 
 		random_galaxy_planet = {
 			limit = { has_planet_flag = cp26_rator_iii }
 			save_global_event_target_as = cp26_rator_iii
+		}
+		if = {
+			limit = { exists = event_target:cp26_rator_iii }
+			event_target:cp26_rator_iii.solar_system = {
+				save_global_event_target_as = cp26_rator_system
+			}
 		}
 		random_galaxy_planet = {
 			limit = { has_planet_flag = cp26_mol_rihan }
@@ -64,13 +87,14 @@ country_event = {
 				set_capital = yes
 				while = {
 					count = 4
-					create_pop = { species = event_target:cp26_reman_species }
+					create_pop = { species = event_target:reman_species }
 				}
 			}
 		}
 		# Re-establish the Star Empire's operational core at Rator III.  This
 		# uses Infinite's own safe starter-fleet initializer: science ship with
 		# scientist, constructor, and a two-corvette military patrol.
+		give_technology = { tech = tech_corvette_unlock message = no }
 		country_event = { id = game_start.9 }
 
 		# The Republic is deliberately a native Infinite default country.  It does
@@ -94,7 +118,9 @@ country_event = {
 				flag = {
 					icon = { category = emblem file = "flag_Romulan_12.dds" }
 					background = { category = backgrounds file = "00_solid.dds" }
-					colors = { "Romulan" "black" "null" "null" }
+					# A brighter post-imperial turquoise, distinct from the Star Empire's
+					# muted native Romulan green in the galaxy map.
+			colors = { "Romulan" "black" "null" "null" }
 				}
 				ethos = {
 					ethic = ethic_militarist
@@ -110,13 +136,14 @@ country_event = {
 				set_country_flag = cp26_romulan_republic
 				save_global_event_target_as = cp26_romulan_republic
 
-				# create_country otherwise leaves its default ruler to a generic
-				# selection.  Make the Republic's first ruler from the exact vanilla
-				# Romulan portrait pool, so clothes and hair resolve through the
-				# standard Romulan asset selectors.
+				# The dynamic generic Romulan portrait loses its clothing layer in
+				# Infinite.  unique_04 is the native, fully-rigged Romulan uniformed
+				# portrait used by the vanilla Romulan leader events.
 				create_leader = {
 					class = ruler
 					species = owner_main_species
+					gender = male
+					portrait = unique_04
 					name = random
 				}
 				set_leader = last_created_leader
@@ -131,7 +158,7 @@ country_event = {
 				set_capital = yes
 				while = {
 					count = 4
-					create_pop = { species = event_target:cp26_reman_species }
+					create_pop = { species = event_target:reman_species }
 				}
 				solar_system = {
 					if = {
@@ -140,15 +167,47 @@ country_event = {
 							set_owner = event_target:cp26_romulan_republic
 						}
 					}
+					else = {
+						create_starbase = {
+							size = starbase_outpost
+							owner = event_target:cp26_romulan_republic
+						}
+					}
 				}
 			}
 
 			event_target:cp26_romulan_republic = {
 				add_resource = { energy = 500 minerals = 300 food = 300 alloys = 200 }
+				# It inherits the complete pre-schism research record, rather than a
+				# starter package, so both successor states remain era-appropriate.
+				copy_techs_from = { target = root }
 				establish_communications_no_message = root
+					# A country created mid-campaign does not inherit a corvette design.
+				# Register Infinite's proven generic corvette design before the
+				# standard starter-fleet event runs; otherwise game_start.9 logs
+				# "invalid design" and omits the military escort.
+					give_technology = { tech = tech_corvette_unlock message = no }
+				create_ship_design = { design = "NAME_Dagger" }
 				country_event = { id = game_start.9 }
 			}
 			establish_communications_no_message = event_target:cp26_romulan_republic
+
+			# The Republic inherits the diplomatic intelligence network of the
+			# pre-schism Empire: every state already known to the Star Empire is
+			# contacted in both directions, without discovery notifications.
+			every_country = {
+				limit = {
+					NOT = { is_same_value = root }
+					has_communications = root
+				}
+				save_event_target_as = cp26_republic_contact
+				establish_contact = { who = event_target:cp26_romulan_republic hidden = yes }
+				establish_communications_no_message = event_target:cp26_romulan_republic
+				event_target:cp26_romulan_republic = {
+					establish_contact = { who = event_target:cp26_republic_contact hidden = yes }
+					establish_communications_no_message = event_target:cp26_republic_contact
+				}
+			}
 
 		# The Republic is the Federation-facing successor.  Both countries get
 		# lasting initial trust and open borders, while the Star Empire remains
@@ -197,14 +256,141 @@ country_event = {
 
 	option = {
 		name = cp26_romulan_split.2.a
+		hidden_effect = {
+			country_event = { id = cp26_romulan_split.3 days = 1 }
+		}
 	}
 	option = {
 		name = cp26_romulan_split.2.b
 		trigger = { exists = event_target:cp26_romulan_republic }
 		hidden_effect = {
+			# The major-country flag is fixed while generating the galaxy.  The
+			# existing major country therefore becomes the selected Republic: it
+			# keeps the major-map rendering, researched technology and vanilla
+			# Romulan quest tree/progress.
+			set_name = "NAME_CP26_Romulan_Republic"
+			set_adjective = "ADJ_CP26_Romulan_Republic"
+			set_country_flag = cp26_romulan_republic_major
+			# The Republic keeps the major country's research, tree and visual
+			# identity, but not its State Senate / Tal Shiar civic package.
+			if = { limit = { has_civic = civic_closet_politics } force_remove_civic = civic_closet_politics }
+			if = { limit = { has_civic = civic_state_vigilance } force_remove_civic = civic_state_vigilance }
+			force_add_civic = civic_higher_education
+			force_add_civic = civic_diplomatic_expertise
+			# The original Empire begins authoritarian.  The elected Republic needs
+			# a genuine post-imperial political basis before changing authority.
+			if = { limit = { has_ethic = ethic_authoritarian } country_remove_ethic = ethic_authoritarian }
+			country_add_ethic = ethic_egalitarian
+			change_government = { authority = auth_cp26_romulan_republic }
+
 			event_target:cp26_romulan_republic = {
-				set_player = root
+				# The runtime-created state becomes the AI Star Empire at Rator III.
+				set_name = "NAME_CP26_Romulan_Star_Empire"
+				set_adjective = "ADJ_CP26_Romulan_Star_Empire"
+				set_country_flag = cp26_romulan_star_empire_successor
+				if = { limit = { has_civic = civic_higher_education } force_remove_civic = civic_higher_education }
+				if = { limit = { has_civic = civic_diplomatic_expertise } force_remove_civic = civic_diplomatic_expertise }
+				force_add_civic = civic_closet_politics
+				force_add_civic = civic_state_vigilance
+				change_government = { authority = auth_cp26_romulan_star_empire }
+			}
+
+			if = {
+				limit = { exists = event_target:cp26_rator_iii }
+				event_target:cp26_rator_iii = {
+					set_owner = event_target:cp26_romulan_republic
+					set_controller = event_target:cp26_romulan_republic
+					solar_system = {
+						if = {
+							limit = { exists = starbase }
+							starbase = { set_owner = event_target:cp26_romulan_republic }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { exists = event_target:cp26_rator_system }
+				event_target:cp26_romulan_republic = {
+					every_owned_fleet = {
+						set_location = event_target:cp26_rator_system
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = event_target:cp26_mol_rihan
+					exists = event_target:cp26_original_romulan_country
+				}
+				event_target:cp26_mol_rihan = {
+					set_owner = event_target:cp26_original_romulan_country
+					set_controller = event_target:cp26_original_romulan_country
+					set_capital = yes
+					solar_system = {
+						if = {
+							limit = { exists = starbase }
+							starbase = { set_owner = event_target:cp26_original_romulan_country }
+						}
+					}
+				}
+			}
+			# Ownership and capitals are recalculated asynchronously by Infinite.
+			# Finalise the transfer on the selected major country itself one day
+			# later, so the former Rator capital cannot be retained.
+			event_target:cp26_original_romulan_country = {
+				country_event = { id = cp26_romulan_split.4 days = 1 }
+			}
+			country_event = { id = cp26_romulan_split.3 days = 1 }
+		}
+	}
+}
+
+# Final capital hand-off for a player who selected the Republic.
+country_event = {
+	id = cp26_romulan_split.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = cp26_romulan_republic_major
+		exists = event_target:cp26_mol_rihan
+	}
+
+	immediate = {
+		event_target:cp26_mol_rihan = {
+			set_owner = root
+			set_controller = root
+			set_capital = yes
+			solar_system = {
+				if = {
+					limit = { exists = starbase }
+					starbase = { set_owner = root }
+				}
 			}
 		}
+	}
+}
+
+# This replaces the vanilla recovery prompt which otherwise fires before the
+# schism when a repair routine briefly retakes destroyed Romulus.  It is sent
+# only after the player has selected their successor state.
+country_event = {
+	id = cp26_romulan_split.3
+	title = cp26_romulan_split.3.name
+	desc = cp26_romulan_split.3.desc
+	picture = GFX_evt_shattered_planet_space_valdore_romulan
+	show_sound = event_shattered_planet_space_02
+	is_triggered_only = yes
+
+	option = {
+		name = cp26_romulan_split.3.a
+		custom_tooltip = cp26_romulan_split.3.a.tt
+		event_target:romulan_homeworld = {
+			add_deposit = d_minerals_15
+		}
+	}
+	option = {
+		name = cp26_romulan_split.3.b
+		custom_tooltip = cp26_romulan_split.3.b.tt
+		set_country_flag = memories_from_the_past_2
 	}
 }

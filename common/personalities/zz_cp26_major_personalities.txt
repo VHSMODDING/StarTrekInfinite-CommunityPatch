@@ -203,7 +203,13 @@ cp26_tal_shiar_doctrine = {
 
 	allow = {
 		is_country_type = default
-		has_country_id = "romulan"
+		OR = {
+			has_country_id = "romulan"
+			AND = {
+				has_country_id = "cp26_romulan_republic"
+				has_country_flag = cp26_romulan_star_empire_successor
+			}
+		}
 	}
 
 	weight_modifier = {
@@ -267,6 +273,7 @@ cp26_romulan_republic_reformers = {
 	allow = {
 		is_country_type = default
 		has_country_id = "cp26_romulan_republic"
+		NOT = { has_country_flag = cp26_romulan_star_empire_successor }
 	}
 
 	weight_modifier = {

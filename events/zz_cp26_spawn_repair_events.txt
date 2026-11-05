@@ -84,7 +84,10 @@ country_event = {
 		}
 
 		if = {
-			limit = { is_romulan = yes }
+			limit = {
+				is_romulan = yes
+				NOT = { has_country_flag = romulan_homeworld_rip }
+			}
 			every_system = {
 				limit = {
 					has_star_flag = romulan_system
@@ -515,7 +518,10 @@ country_event = {
 		}
 
 		if = {
-			limit = { is_romulan = yes }
+			limit = {
+				is_romulan = yes
+				NOT = { has_country_flag = romulan_homeworld_rip }
+			}
 			random_galaxy_planet = {
 				limit = { has_planet_flag = planet_romulus }
 				if = {

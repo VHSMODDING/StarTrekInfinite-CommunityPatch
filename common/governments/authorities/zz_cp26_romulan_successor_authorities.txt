@@ -1,0 +1,55 @@
+# These authorities are needed only when the original major Romulan country
+# becomes the Republic after the supernova. Vanilla auth_democratic excludes
+# country_id = romulan, while the successor must retain that ID to preserve
+# the major-country renderer and the native Romulan quest tree.
+
+auth_cp26_romulan_republic = {
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	uses_mandates = yes
+
+	potential = {
+		country_id = { value = "romulan" }
+	}
+
+	possible = {
+		ethics = {
+			NOR = {
+				value = ethic_authoritarian
+				value = ethic_fanatic_authoritarian
+			}
+		}
+	}
+
+	country_modifier = {
+		planet_resettlement_unemployed_mult = 0.50
+	}
+
+	tags = { AUTHORITY_ELECTION_DEMOCRATIC }
+}
+
+auth_cp26_romulan_star_empire = {
+	election_term_years = 20
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 250
+	max_election_candidates = 4
+	has_agendas = no
+
+	potential = {
+		country_id = { value = "cp26_romulan_republic" }
+	}
+
+	possible = {
+		ethics = {
+			NOT = { value = ethic_fanatic_egalitarian }
+		}
+	}
+
+	country_modifier = {
+		planet_colony_development_speed_mult = 0.25
+	}
+
+	tags = { AUTHORITY_ELECTION_OLIGARCHIC }
+}
