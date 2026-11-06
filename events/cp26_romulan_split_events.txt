@@ -475,6 +475,18 @@ country_event = {
 					}
 				}
 			}
+			# The original major country is now the player Republic.  Its existing
+			# fleets may have been created at Rator during the emergency setup, so
+			# relocate the whole player package to its new Dewa capital before the
+			# provisional country becomes the AI Star Empire.
+			if = {
+				limit = { exists = event_target:cp26_dewa_system }
+				event_target:cp26_selected_republic_country = {
+					every_owned_fleet = {
+						set_location = event_target:cp26_dewa_system
+					}
+				}
+			}
 
 			# Only after Dewa is fully owned by the selected Republic do we create
 			# a distinct semantic handle for the future Star Empire.
@@ -590,6 +602,14 @@ country_event = {
 						owner = event_target:cp26_selected_republic_country
 					}
 					starbase = { set_starbase_module = { slot = 1 module = shipyard } }
+				}
+			}
+		}
+		if = {
+			limit = { exists = event_target:cp26_dewa_system }
+			event_target:cp26_selected_republic_country = {
+				every_owned_fleet = {
+					set_location = event_target:cp26_dewa_system
 				}
 			}
 		}
